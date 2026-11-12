@@ -80,3 +80,9 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
     X-Robots-Tag = "noindex"
+
+[[redirects]]
+  from = "/documents/*"
+  to = "/about/"
+  status = 301
+  force = true

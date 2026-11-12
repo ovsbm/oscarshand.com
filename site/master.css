@@ -1,23 +1,394 @@
-/* Oscar Shand · master design language (v4, 12 Nov 2026). Load last: this file is the single
-   source for the rules below, and wins over the older token and glass files.
+/* Oscar Shand · master tokens and rules (v4, 13 Nov 2026).
+   This is the one token file. It replaces the earlier tokens/*.css, v3.css and the override
+   layer, so every value below is the value in use; nothing later in the cascade changes it.
 
    Two layers.
    1. Content is flat, square and typographic (after Polestar): no radius, no shadow, sentence case.
    2. Controls that float above content are Liquid Glass capsules (after Apple): the nav island,
       the menu sheet and the floating action. Nothing else is glass.
-   Palette: gold #C7A365, black #141416, cream #F1EDE4. A project colour appears only on client
-   work and studio work from before 2025. */
+   Palette: gold #C7A365, black #141416, cream #F1EDE4. */
+
+/* Webfonts. Neue Haas Grotesk sets display; Inter sets body and UI.
+   NHG ships here in two weights only: 65 Medium and 75 Bold. Do not ask
+   the display family for a weight it does not have; it will synthesise
+   and the headline will look wrong. */
+@font-face{font-family:"Neue Haas Grotesk";src:url("ds/oscar-shand-design-system-798a1a33-dca9-45e2-a70d-2f7e37f36a1f/assets/fonts/NHaasGroteskTXPro-65Md.woff2") format("woff2"),url("ds/oscar-shand-design-system-798a1a33-dca9-45e2-a70d-2f7e37f36a1f/assets/fonts/NHaasGroteskTXPro-65Md.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk";src:url("ds/oscar-shand-design-system-798a1a33-dca9-45e2-a70d-2f7e37f36a1f/assets/fonts/NHaasGroteskTXPro-75Bd.woff2") format("woff2"),url("ds/oscar-shand-design-system-798a1a33-dca9-45e2-a70d-2f7e37f36a1f/assets/fonts/NHaasGroteskTXPro-75Bd.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+
+@font-face{font-family:"Inter";src:url("ds/oscar-shand-design-system-798a1a33-dca9-45e2-a70d-2f7e37f36a1f/assets/fonts/Inter-Variable.woff2") format("woff2"),url("ds/oscar-shand-design-system-798a1a33-dca9-45e2-a70d-2f7e37f36a1f/assets/fonts/Inter-Variable.ttf") format("truetype-variations"),url("ds/oscar-shand-design-system-798a1a33-dca9-45e2-a70d-2f7e37f36a1f/assets/fonts/Inter-Variable.ttf") format("truetype");font-weight:100 900;font-stretch:100%;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter";src:url("ds/oscar-shand-design-system-798a1a33-dca9-45e2-a70d-2f7e37f36a1f/assets/fonts/Inter-Variable-Italic.woff2") format("woff2"),url("ds/oscar-shand-design-system-798a1a33-dca9-45e2-a70d-2f7e37f36a1f/assets/fonts/Inter-Variable-Italic.ttf") format("truetype-variations"),url("ds/oscar-shand-design-system-798a1a33-dca9-45e2-a70d-2f7e37f36a1f/assets/fonts/Inter-Variable-Italic.ttf") format("truetype");font-weight:100 900;font-stretch:100%;font-style:italic;font-display:swap}
+
+/* Colour. Three values, four legal pairings, one swap point.
+
+   Gold belongs to Oscar Shand. Black and cream never change. A project's
+   colour is an accent: type and pills on black or cream, never a ground.
+
+   Gold only ever meets black or cream. The legal ink/ground pairings are:
+     cream on black · black on gold · black on cream · gold on black
+   Gold may set type, but only on black (8.0:1). Cream never sits on gold,
+   gold never sits on cream, and a project colour never touches gold -
+   it appears only as type or a pill fill on a black or cream surface. */
+:root{
+  /* ── the three fixed values ─────────────────────────────────── */
+  --gold:#C7A365;   /* Oscar Shand. Ground for black type; type on black only. */
+  --black:#141416;  /* the only dark. Type on gold and cream, ground for cream and gold type. */
+  --cream:#F1EDE4;  /* type on black, and the quiet ground. */
+
+  /* ── the three legal pairings, named ────────────────────────── */
+  --surface-brand:var(--gold);--on-brand:var(--black);   /* 8.0:1  */
+  --surface-dark:var(--black);--on-dark:var(--cream);     /* 16.1:1 */
+  --surface-light:var(--cream);--on-light:var(--black);   /* 16.1:1 */
+  --on-dark-accent:var(--gold);                           /* 8.0:1: gold type, black ground only */
+
+  /* ── the swap point ─────────────────────────────────────────────
+     --ground is gold by default because the default context is Oscar
+     Shand. A project page or a dark band overrides --ground and
+     --on-ground together; nothing else in the system needs to know. */
+  --ground:var(--gold);
+  --on-ground:var(--black);
+
+  /* hairlines, scrims and secondary ink are DERIVED from the current ground -
+     see the derived block below. A custom property substitutes its var()s on
+     the element that declares it, so anything referencing --ground or
+     --on-ground has to be re-declared in every ground scope or it freezes at
+     the root's gold values and inherits that way into black and cream bands. */
+  --scrim:color-mix(in srgb,var(--black) 62%,transparent);
+
+  /* ── project colours ────────────────────────────────────────────
+     Rule: a project has its own colour only if it is client work, or Oscar Shand /
+     OVSBM Design work dated before 2025. Everything else uses gold, black and cream.
+     The build enforces this from each item's date and client flag. */
+  --project-bf-property:oklch(.58 .22 28);
+  --project-pronto:oklch(.72 .18 55);
+  --project-m4:oklch(.80 .10 230);
+  --project-nichols:oklch(.38 .14 262);
+  --project-bared:oklch(.42 .10 155);
+  --project-aubrica:oklch(.64 .15 160);
+  --project-shop:oklch(.88 .17 95);
+  --project-shoecare:oklch(.44 .10 20);
+
+  /* ── gold's own states ──────────────────────────────────────────
+     Hover and press deepen the ground rather than tinting the ink. */
+  --gold-deep:#B18E52;
+  --gold-deeper:#9C7B43;
+}
+
+/* ── derived ──────────────────────────────────────────────────────
+   Everything that reads --ground or --on-ground must be re-declared in each
+   ground scope. Declaring these only in :root freezes them to gold and the
+   frozen value inherits into every band, which is how secondary ink ends up
+   at 1.14:1 on black. Add any new ground scope to this selector list.
+   data-project is NOT a ground scope: it only sets --project (base.css). */
+:root,.ground-gold,.ground-cream,.ground-dark{
+  /* secondary copy: the ink pulled toward its own ground, never a grey.
+     Holds 5.0:1 on gold, 7.6:1 on cream, 9.6:1 on black. */
+  --on-ground-soft:color-mix(in srgb,var(--on-ground) 76%,var(--ground));
+  --on-ground-faint:color-mix(in srgb,var(--on-ground) 52%,var(--ground)); /* structure only, never type */
+
+  --hairline:color-mix(in srgb,var(--on-ground) 16%,transparent);
+  --hairline-strong:color-mix(in srgb,var(--on-ground) 30%,transparent);
+  /* --rule is solid ink, not an alpha hairline. The layout's structural
+     divisions are drawn in it: a brutalist grid shows its own construction,
+     so a section rule is a real line rather than a suggestion of one.
+     --hairline stays for minor divisions inside a block. */
+  --rule:var(--on-ground);
+
+  --ground-hover:color-mix(in srgb,var(--ground) 88%,var(--black));
+  --ground-press:color-mix(in srgb,var(--ground) 79%,var(--black));
+
+  /* semantic text roles */
+  --text-primary:var(--on-ground);
+  --text-secondary:var(--on-ground-soft);
+  --text-muted:var(--on-ground-faint);
+  --text-inverse:var(--cream);
+
+  --surface-page:var(--ground);
+  --surface-card:var(--ground);
+}
+
+/* Type. Two families with a hard division of labour.
+   Neue Haas Grotesk: display only. Medium 500 is the default (names, titles, section heads,
+   the wordmark). Bold 700 is for statements only.
+   Inter: body, UI, labels, numerals. Labels are sentence case and not tracked. */
+:root{
+  --font-display:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-body:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+  /* display weights: the only two that exist */
+  --fw-display-medium:500; /* @kind font */
+  --fw-display-bold:700; /* @kind font */
+
+  /* body weights */
+  --fw-light:300; /* @kind font */
+  --fw-regular:400; /* @kind font */
+  --fw-medium:500; /* @kind font */
+  --fw-semibold:600; /* @kind font */
+  --fw-bold:700; /* @kind font */
+
+  /* static ramp */
+  --fs-3xs:11px; /* @kind font */
+  --fs-2xs:12px; /* @kind font */
+  --fs-xs:13px; /* @kind font */
+  --fs-sm:15px; /* @kind font */
+  --fs-md:17px; /* @kind font */
+  --fs-lg:20px; /* @kind font */
+  --fs-xl:24px; /* @kind font */
+  --fs-2xl:32px; /* @kind font */
+  --fs-3xl:44px; /* @kind font */
+  --fs-4xl:60px; /* @kind font */
+  --fs-5xl:84px; /* @kind font */
+  --fs-6xl:120px; /* @kind font */
+
+  /* fluid display ramp */
+  --fs-hero:clamp(46px,7.8vw,132px); /* @kind font */
+  --fs-case:clamp(40px,6.2vw,104px); /* @kind font */
+  --fs-section:clamp(30px,4.2vw,68px); /* @kind font */
+  --fs-statement:clamp(28px,3.8vw,60px); /* @kind font */
+  --fs-marquee:clamp(64px,11vw,190px); /* @kind font */
+
+  --lh-tight:0.90; /* @kind font */
+  --lh-snug:1.02; /* @kind font */
+  --lh-heading:1.12; /* @kind font */
+  --lh-body:1.52; /* @kind font */
+  --lh-loose:1.64; /* @kind font */
+
+  --ls-mega:-0.038em; /* @kind font */
+  --ls-display:-0.026em; /* @kind font */
+  --ls-heading:-0.016em; /* @kind font */
+  --ls-body:-0.006em; /* @kind font */
+  --ls-label:0; /* @kind font */
+  --ls-caps:0; /* @kind font */
+
+  /* semantic roles */
+  --type-hero:var(--fw-display-medium) var(--fs-hero)/var(--lh-tight) var(--font-display); /* @kind font */
+  --type-case:var(--fw-display-medium) var(--fs-case)/var(--lh-tight) var(--font-display); /* @kind font */
+  --type-statement:var(--fw-display-bold) var(--fs-statement)/var(--lh-snug) var(--font-display); /* @kind font */
+  --type-section:var(--fw-display-medium) var(--fs-section)/var(--lh-snug) var(--font-display); /* @kind font */
+  --type-marquee:var(--fw-display-bold) var(--fs-marquee)/0.86 var(--font-display); /* @kind font */
+  --type-subhead:var(--fw-display-medium) var(--fs-xl)/var(--lh-heading) var(--font-display); /* @kind font */
+
+  --type-title:var(--fw-semibold) var(--fs-lg)/var(--lh-heading) var(--font-body); /* @kind font */
+  --type-body:var(--fw-regular) var(--fs-md)/var(--lh-body) var(--font-body); /* @kind font */
+  --type-body-sm:var(--fw-regular) var(--fs-sm)/var(--lh-body) var(--font-body); /* @kind font */
+  --type-label:var(--fw-medium) var(--fs-xs)/1.3 var(--font-body); /* @kind font */
+  --type-pill:var(--fw-medium) var(--fs-xs)/1 var(--font-body); /* @kind font */
+}
+
+/* Spacing, radii, layout. 4px base. Twelve columns, wide gutters,
+   contained max-width. Project cards span 4, so three sit across. */
+:root{
+  --sp-0:0; /* @kind spacing */
+  --sp-1:2px;--sp-2:4px;--sp-3:8px;--sp-4:12px;--sp-5:16px;--sp-6:24px;
+  --sp-7:32px;--sp-8:48px;--sp-9:64px;--sp-10:96px;--sp-11:128px;--sp-12:192px;
+
+  /* shape: content is square. Only controls are capsules, and only floating glass sheets are soft. */
+  --r-xs:0;--r-sm:0;--r-md:0;--r-lg:0;--r-xl:0;--r-pill:999px;--r-glass:28px;
+
+  /* the master grid */
+  --page-max:1440px; /* @kind spacing */
+  --page-gutter:clamp(24px,5vw,96px); /* @kind spacing */
+  --grid-cols:12; /* @kind other */
+  --grid-gap:clamp(24px,2.6vw,48px); /* @kind spacing */
+  --card-span:4; /* @kind spacing */
+
+  --section-gap:clamp(80px,9vw,168px); /* @kind spacing */
+  --band-gap:clamp(48px,6vw,104px); /* @kind spacing */
+  --hit-min:44px; /* @kind spacing */
+}
+
+/* Depth. The branding is flat and matte: ink on a coloured ground, edges
+   cut by full-bleed bands rather than shadow. Two exceptions: glass, on a
+   short fixed list of floating UI (below), and a short list of shadows for
+   things that genuinely float above the page. */
+
+/* ── glass ────────────────────────────────────────────────────────
+   Dark smoked glass on light grounds (gold, cream); light glass on black.
+   Cream ink on both, so one ink rule covers every ground. A soft top sheen
+   and a thin cream edge give it body; nothing iridescent, no refraction.
+   Legal on exactly three things: the nav island, the menu sheet and the
+   floating action. Forms are content and are never glass. Never a card, never a section, never
+   decoration: everywhere else edges come from full-bleed colour bands.
+   Only fixed values are referenced, so the light/dark split is the only
+   per-ground declaration needed. */
+:root,.ground-gold,.ground-cream{
+  --glass-fill-thin:color-mix(in srgb,var(--black) 48%,transparent); /* @kind other */
+  --glass-fill:color-mix(in srgb,var(--black) 66%,transparent); /* @kind other */
+  --glass-fill-strong:color-mix(in srgb,var(--black) 90%,transparent); /* @kind other */
+  --glass-ink:var(--cream); /* @kind color */
+  --glass-ink-soft:color-mix(in srgb,var(--cream) 72%,transparent); /* @kind color */
+  --glass-edge:color-mix(in srgb,var(--cream) 22%,transparent); /* @kind color */
+  --glass-sheen:linear-gradient(180deg,color-mix(in srgb,var(--cream) 14%,transparent),transparent 48%); /* @kind other */
+}
+.ground-dark{
+  --glass-fill-thin:color-mix(in srgb,var(--cream) 9%,transparent); /* @kind other */
+  --glass-fill:color-mix(in srgb,var(--cream) 14%,transparent); /* @kind other */
+  --glass-fill-strong:color-mix(in srgb,var(--black) 92%,transparent); /* @kind other */
+  --glass-ink:var(--cream); /* @kind color */
+  --glass-ink-soft:color-mix(in srgb,var(--cream) 72%,transparent); /* @kind color */
+  --glass-edge:color-mix(in srgb,var(--cream) 28%,transparent); /* @kind color */
+  --glass-sheen:linear-gradient(180deg,color-mix(in srgb,var(--cream) 18%,transparent),transparent 48%); /* @kind other */
+}
+
+/* ── frost (legacy) ───────────────────────────────────────────────
+   The earlier ground-tint frost. Kept so older consumers keep rendering;
+   new work uses the --glass-* tokens above. Ground-derived, so it carries
+   the same scope list as colours.css. */
+:root,.ground-gold,.ground-cream,.ground-dark{
+  --frost-tint:color-mix(in srgb,var(--ground) 76%,transparent); /* @kind other */
+  --frost-tint-strong:color-mix(in srgb,var(--ground) 92%,transparent); /* @kind other */
+  --frost-hairline:inset 0 0 0 1px color-mix(in srgb,var(--on-ground) 12%,transparent); /* @kind other */
+}
 
 :root{
-  /* shape: content is square; only controls are capsules; glass sheets keep one soft radius */
-  --r-xs:0px;--r-sm:0px;--r-md:0px;--r-lg:0px;--r-xl:0px;
-  --r-pill:999px;--r-glass:28px;
-  /* type: Medium for names and titles, Bold only for statements; labels in sentence case, no tracking */
-  --ls-label:0em;--ls-caps:0em;
-  --type-section:var(--fw-display-medium) var(--fs-section)/var(--lh-snug) var(--font-display);
-  --type-subhead:var(--fw-display-medium) var(--fs-xl)/var(--lh-heading) var(--font-display);
-  --type-statement:var(--fw-display-bold) var(--fs-statement)/var(--lh-snug) var(--font-display);
-  --type-label:var(--fw-medium) var(--fs-xs)/1.3 var(--font-body);
+  --glass-blur:blur(24px) saturate(150%); /* @kind other */
+  --glass-cast:0 12px 32px -16px color-mix(in srgb,var(--black) 45%,transparent); /* @kind other */
+  --frost-blur:var(--glass-blur); /* @kind other */
+  --frost-cast:0 6px 24px -10px color-mix(in srgb,var(--black) 26%,transparent); /* @kind other */
+
+  /* ── elevation ──────────────────────────────────────────────────
+     Warm-black, tight, and rare. Cast from the ink, not from grey. */
+  --shadow-1:0 1px 2px color-mix(in srgb,var(--black) 8%,transparent); /* @kind other */
+  --shadow-2:0 2px 8px color-mix(in srgb,var(--black) 12%,transparent); /* @kind other */
+  --shadow-3:0 10px 32px -12px color-mix(in srgb,var(--black) 22%,transparent); /* @kind other */
+
+  /* ── motion ─────────────────────────────────────────────────────
+     Flat design, so hover moves things rather than lighting them.
+     No scale, no glow, no lift on a page that has no depth.
+     Scroll is the other motion channel, and it is bold: media drifts and
+     zooms as it passes (Parallax), case titles pin while the page slides
+     over them, figures count up when they arrive (StatBlock), and the
+     Work marquee is driven by scroll. All of it stops under
+     prefers-reduced-motion. */
+  --dur-1:120ms; /* @kind other */
+  --dur-2:220ms; /* @kind other */
+  --dur-3:420ms; /* @kind other */
+  --dur-4:720ms; /* @kind other */
+  --dur-count:1100ms; /* @kind other */
+  --parallax-speed:0.12; /* @kind other */
+  --parallax-zoom:0.08; /* @kind other */
+  --ease-out:cubic-bezier(.22,.61,.36,1); /* @kind other */
+  --ease-in-out:cubic-bezier(.65,.05,.36,1); /* @kind other */
+  --hover-shift:translate3d(0,-2px,0); /* @kind other */
+  --press-shift:translate3d(0,0,0); /* @kind other */
+  --marquee-dur:38s; /* @kind other */
+}
+
+/* Reset, brand defaults, the ground classes, the 12-column grid,
+   and the one frost utility. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--ground);color:var(--on-ground);font:var(--type-body);letter-spacing:var(--ls-body);text-wrap:pretty}
+h1,h2,h3,h4,h5,h6,p,figure,blockquote{margin:0}
+img,svg,video{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--on-ground);text-decoration:none;transition:opacity var(--dur-2) var(--ease-out)}
+a:hover{color:var(--on-ground);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
+::selection{background:var(--on-ground);color:var(--ground)}
+:focus-visible{outline:2px solid var(--on-ground);outline-offset:3px;border-radius:var(--r-sm)}
+.tabular,[data-num]{font-variant-numeric:tabular-nums lining-nums;font-family:var(--font-body)}
+
+/* ── grounds ──────────────────────────────────────────────────────
+   Set one of these on any element to re-theme its whole subtree. Each
+   carries its own legal ink, so nothing inside needs to be told. */
+.ground-gold{--ground:var(--gold);--on-ground:var(--black)}
+.ground-cream{--ground:var(--cream);--on-ground:var(--black)}
+.ground-dark{--ground:var(--black);--on-ground:var(--cream);--on-ground-accent:var(--gold)}
+/* gold type is legal on black only. .ink-gold on any other ground falls back to the ground's ink. */
+.ink-gold{color:var(--on-ground-accent,var(--on-ground))}
+.ground-gold,.ground-cream,.ground-dark,[data-project]{background:var(--ground);color:var(--on-ground)}
+/* project colour is an ACCENT, never a ground. data-project sets --project;
+   the ground beneath stays black or cream. --project-ink is the colour as
+   type: the bright value on black, a deepened cut of the same hue on cream
+   so it still clears 4.5:1. Pills may fill with the bright value on either. */
+[data-project]{--project:var(--gold)}
+[data-project="pronto"]{--project:var(--project-pronto)}
+[data-project="bared"]{--project:var(--project-bared)}
+[data-project="m4"]{--project:var(--project-m4)}
+[data-project="nichols"]{--project:var(--project-nichols)}
+[data-project="bf-property"]{--project:var(--project-bf-property)}
+[data-project="shop"]{--project:var(--project-shop)}
+.ground-dark{--project-ink:var(--project);--project-on-ink:var(--black)}
+.ground-cream,.ground-gold{--project-ink:oklch(from var(--project) .46 c h);--project-on-ink:var(--black)}
+.ink-project{color:var(--project-ink)}
+
+/* ── layout ───────────────────────────────────────────────────────
+   .shell contains and gutters; .grid is the 12-column master. */
+.shell{width:100%;max-width:var(--page-max);margin-inline:auto;padding-inline:var(--page-gutter)}
+.bleed{width:100%;margin-inline:0;padding-inline:0}
+.grid{display:grid;grid-template-columns:repeat(var(--grid-cols),minmax(0,1fr));gap:var(--grid-gap)}
+/* Spans are declared with the grid-column-END longhand, never the
+   grid-column shorthand. The shorthand writes grid-column-start too, so a
+   .start-* rule and a .span-* rule would fight over the same property and one
+   would wipe the other. As longhands they are orthogonal and compose at every
+   breakpoint. */
+.span-1{grid-column-end:span 1}.span-2{grid-column-end:span 2}.span-3{grid-column-end:span 3}
+.span-4{grid-column-end:span 4}.span-5{grid-column-end:span 5}.span-6{grid-column-end:span 6}
+.span-7{grid-column-end:span 7}.span-8{grid-column-end:span 8}.span-9{grid-column-end:span 9}
+.span-10{grid-column-end:span 10}.span-11{grid-column-end:span 11}.span-12{grid-column-end:span 12}
+.start-5{grid-column-start:5}.start-6{grid-column-start:6}.start-7{grid-column-start:7}
+.start-8{grid-column-start:8}.start-9{grid-column-start:9}.start-10{grid-column-start:10}
+@media (max-width:1024px){
+  .grid{--grid-cols:6; /* @kind other */}
+  /* Offsets are dropped below the full grid; spans narrow. Because both are
+     longhands now, neither rule can destroy the other. */
+  [class*="start-"]{grid-column-start:auto}
+  .span-4,.span-5,.span-6,.span-7,.span-8{grid-column-end:span 3}
+  .span-9,.span-10,.span-11,.span-12{grid-column-end:span 6}
+}
+@media (max-width:680px){
+  .grid{--grid-cols:1; /* @kind other */}
+  [class*="span-"]{grid-column-end:span 1}
+}
+
+/* ── frost ────────────────────────────────────────────────────────
+   Legacy frost, kept for older consumers; new work uses .glass. */
+/* glass utilities: nav, menu / overlay, form fields, floating CTA. Nothing else. */
+.glass{background-color:var(--glass-fill);background-image:var(--glass-sheen);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);color:var(--glass-ink);box-shadow:inset 0 0 0 1px var(--glass-edge),var(--glass-cast)}
+.glass-strong{background-color:var(--glass-fill-strong);background-image:var(--glass-sheen);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);color:var(--glass-ink);box-shadow:inset 0 0 0 1px var(--glass-edge),var(--glass-cast)}
+.glass a,.glass-strong a{color:var(--glass-ink)}
+.glass-field::placeholder{color:var(--glass-ink-soft)}
+.glass-field option{color:var(--black);background:var(--cream)}
+/* legacy frost utilities */
+.frost{background:var(--frost-tint);backdrop-filter:var(--frost-blur);-webkit-backdrop-filter:var(--frost-blur);box-shadow:var(--frost-hairline),var(--frost-cast)}
+.frost-strong{background:var(--frost-tint-strong);backdrop-filter:var(--frost-blur);-webkit-backdrop-filter:var(--frost-blur);box-shadow:var(--frost-hairline),var(--frost-cast)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Type roles, layout sizes and the values the Liquid Glass engine reads. */
+:root{
+  --lg-look:0.35;
+  --lg-regular-blur:7;
+  --lg-regular-refraction:44;
+  --lg-regular-chroma:0.1;
+  --lg-clear-blur:1.2;
+  --lg-clear-refraction:52;
+  --lg-clear-chroma:0.13;
+  --lg-bezel:0.44;
+  --fs-headline:clamp(40px, 5.2vw, 72px);
+  --fs-tile:clamp(30px, 3.4vw, 48px);
+  --fs-intro:clamp(19px, 1.8vw, 26px);
+  --fs-kicker:21px;
+  --lh-headline:1.05;
+  --lh-intro:1.3;
+  --lh-caption:1.33;
+  --ls-headline:-0.022em;
+  --ls-intro:-0.01em;
+  --content-narrow:980px;
+  --tile-gap:12px;
+  --nav-h:44px;
+  --subnav-h:52px;
+  --nav-island-top:12px;
+  --dur-reveal:1000ms;
+  --ease-spring:cubic-bezier(0.34, 1.56, 0.64, 1);
+  --type-headline:var(--fw-display-medium) var(--fs-headline)/var(--lh-headline) var(--font-display);
+  --type-tile:var(--fw-display-medium) var(--fs-tile)/var(--lh-headline) var(--font-display);
+  --type-intro:var(--fw-regular) var(--fs-intro)/var(--lh-intro) var(--font-body);
+  --type-kicker:var(--fw-semibold) var(--fs-kicker)/1.19 var(--font-body);
+  --type-caption:var(--fw-regular) var(--fs-2xs)/var(--lh-caption) var(--font-body);
+  --type-link:var(--fw-medium) var(--fs-md)/1.47 var(--font-body);
+}
+
+/* ── v4 rules ───────────────────────────────────────────────────── */
+:root{
   /* six roles every page draws from */
   --role-display:var(--type-hero);
   --role-title:var(--type-headline);
@@ -26,28 +397,12 @@
   --role-small:var(--type-body-sm);
   --role-label:var(--type-label);
 }
-
-/* ── labels: sentence case everywhere ── */
-.gallery-kicker,.article-kicker,.archive-meta{text-transform:none!important;letter-spacing:0!important;font-weight:var(--fw-medium)}
-
-/* ── content: flat and square ── */
-img,video,figure,.gallery-tile,.gallery-media,.article-hero,.archive-media{border-radius:0!important}
-.gallery-tile{box-shadow:none!important}
-.gallery-tile:hover{box-shadow:none!important;transform:none}
-.gallery-tile:hover .gallery-title{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
-
-/* ── actions: one solid capsule per view; everything else is a text link ── */
-[data-glass="btn"]{border-radius:var(--r-pill)!important}
-
-/* ── forms: flat fields on a single line (never glass, never a pill) ── */
-[data-glass="field"]{background-color:transparent!important;color:var(--on-ground)!important;border-radius:0!important;border:0!important;border-bottom:1px solid var(--on-ground)!important;padding-left:0!important;box-shadow:none!important}
-textarea[data-glass="field"]{padding-top:12px!important}
-[data-glass="field"]:focus{box-shadow:0 2px 0 0 var(--on-ground)!important}
-[data-glass="field"]::placeholder{color:color-mix(in srgb,var(--on-ground) 58%,transparent)!important}
-[data-glass="field"] + svg{fill:var(--on-ground)!important}
-
-/* ── filter: text tabs with an ink underline, not a segmented pill ── */
-.gallery-filter{box-shadow:none!important;padding:0!important;gap:var(--sp-6)!important;border-radius:0!important}
-.gallery-filter [data-glass="chip"]{height:44px!important;padding:0!important;border-radius:0!important;background:transparent!important;color:var(--on-ground-soft)!important;box-shadow:none!important}
-.gallery-filter [data-glass="chip"]:hover{color:var(--on-ground)!important;background:transparent!important}
-.gallery-filter [data-glass="chip"][aria-pressed="true"]{background:transparent!important;color:var(--on-ground)!important;box-shadow:inset 0 -2px 0 0 var(--on-ground)!important}
+/* content is square */
+img,video,figure{border-radius:0}
+/* forms: flat fields on one ink line. A form is content: never a pill, never glass. */
+[data-field]{display:block;width:100%;min-height:52px;padding:0;border:0;border-bottom:1px solid var(--on-ground);border-radius:0;background:transparent;color:var(--on-ground);font:var(--type-body);outline:none;box-shadow:none;transition:box-shadow var(--dur-2) var(--ease-out)}
+textarea[data-field]{padding-top:12px;min-height:160px;resize:vertical}
+select[data-field]{appearance:none;-webkit-appearance:none;padding-right:40px;cursor:pointer}
+[data-field]:focus{box-shadow:0 2px 0 0 var(--on-ground)}
+[data-field]::placeholder{color:color-mix(in srgb,var(--on-ground) 58%,transparent)}
+[data-field] option{color:var(--black);background:var(--cream)}

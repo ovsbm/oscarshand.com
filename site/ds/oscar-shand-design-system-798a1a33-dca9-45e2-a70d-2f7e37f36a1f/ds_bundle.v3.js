@@ -11,7 +11,7 @@ const __ds_scope = {};
 // components/core/ArrowMarker.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-/* The ↘ that opens a section — the real Remix Icon arrow-right-down-line
+/* The ↘ that opens a section: the real Remix Icon arrow-right-down-line
    glyph, the same path shipped in assets/icons/arrow-right-down-line.svg.
    The rotation map below assumes ↘ as the 0deg base.
    Decorative: always aria-hidden, never the only cue. */
@@ -76,10 +76,10 @@ const SIZES = {
 
 /* Pills, always. Every skin is a legal pairing, so pick the skin by the
    ground you are standing on:
-     painted — the ground's ink as the pill, the ground as the text (oscarshand.com).
-     solid  — black pill, cream ink.  On gold and cream.
-     invert — cream pill, black ink.  On black.
-     outline / link — the current ground's ink, no fill. Anywhere.
+     painted: the ground's ink as the pill, the ground as the text (oscarshand.com).
+     solid : black pill, cream ink.  On gold and cream.
+     invert: cream pill, black ink.  On black.
+     outline / link: the current ground's ink, no fill. Anywhere.
    There is no gold skin: gold is a ground colour and is never a fill. On black
    the primary CTA is `invert`, which is what the old site used. */
 function Button({
@@ -186,12 +186,12 @@ const SR = {
 };
 
 /* Two jobs, one mark.
-   inline (default) — the vertical ink rule used inside a title, as in
+   inline (default): the vertical ink rule used inside a title, as in
    "Nichols | Polson & Co". Sized in em so it tracks the type it sits in.
    The drawn bar is aria-hidden, so the component also emits a screen-reader
    separator: without it the two halves of a name run together into one word
    in the accessible name ("NicholsPolson & Co").
-   rule — a horizontal structural division in solid ink, not a faint
+   rule: a horizontal structural division in solid ink, not a faint
    hairline: the brutalist rule the layout is actually built on. */
 function Divider({
   orientation = "inline",
@@ -233,7 +233,7 @@ Object.assign(__ds_scope, { Divider });
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /* Glass. Dark smoked on light grounds, light on black, cream ink on both.
-   A soft top sheen and a thin cream edge — no refraction, no iridescence.
+   A soft top sheen and a thin cream edge: no refraction, no iridescence.
    Legal on the sticky nav, the menu / overlay, form fields and the floating
    CTA only. Not cards, not sections, not decoration. */
 const STRENGTH = {
@@ -243,7 +243,7 @@ const STRENGTH = {
 };
 function GlassPanel({
   children,
-  radius = "var(--r-md)",
+  radius = "var(--r-glass)",
   strength = "regular",
   padding = "var(--sp-6)",
   cast = true,
@@ -272,8 +272,8 @@ Object.assign(__ds_scope, { GlassPanel });
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /* Emphasis inside a run of body copy. Colour is not an emphasis channel
-   in body copy — gold sets type on black only, and project colours are
-   titles and pills — so emphasis is weight, underline or a solid chip. */
+   in body copy: gold sets type on black only, and project colours are
+   titles and pills: so emphasis is weight, underline or a solid chip. */
 function Highlight({
   children,
   tone = "weight",
@@ -481,7 +481,7 @@ try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /* The ↘ that opens the page under the hero, with its label. On the old site
    the label reads "Scroll down". Keep the text available to screen readers
-   even when it is visually hidden — the arrow alone says nothing. */
+   even when it is visually hidden: the arrow alone says nothing. */
 function ScrollCue({
   label = "Scroll down",
   showLabel = false,
@@ -502,7 +502,7 @@ function ScrollCue({
     style: showLabel ? {
       font: "var(--type-label)",
       letterSpacing: "var(--ls-label)",
-      textTransform: "uppercase",
+      textTransform: "none",
       color: "var(--on-ground-soft)"
     } : {
       position: "absolute",
@@ -521,7 +521,7 @@ Object.assign(__ds_scope, { ScrollCue });
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /* Small Inter label above a section, parenthesised. The brackets and the text
-   sit in one inline child so they wrap as a single run — as three flex items
+   sit in one inline child so they wrap as a single run: as three flex items
    they detach and the closing bracket strands on its own line. */
 function SectionLabel({
   children,
@@ -616,7 +616,7 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
 /* The pill that carries discipline and year. `solid` is the ground's own ink
    with the ground as text, so it survives every band (black on gold and
    cream, cream on black). `project` fills with the current project colour
-   and black text — the one place a project colour is a fill. `outline` is a
+   and black text: the one place a project colour is a fill. `outline` is a
    hairline. Legacy: `ground` = the ground colour with black ink. */
 function Tag({
   children,
@@ -739,27 +739,28 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
 const {
   useState
 } = React;
-/* Fields are painted (v3): the ground's ink as the surface, the ground as the text,
-   a pill, as on oscarshand.com. Glass belongs to the controls layer, not to forms.
-   There is no red in this palette, so an error is carried by a thicker doubled ink
-   ring and a bold message rather than by colour. */
+/* Fields are flat (v4): no fill, no radius, the ground's ink as text, on one ink line
+   that thickens on focus. A form is content, so it is never a pill and never glass.
+   There is no red in this palette, so an error is carried by a 3px line and a bold
+   message rather than by colour. */
 const fieldStyle = (focus, error) => ({
   width: "100%",
   minHeight: 52,
-  padding: "0 20px",
-  borderRadius: "var(--r-pill)",
+  padding: 0,
+  borderRadius: 0,
   border: "none",
-  backgroundColor: "var(--on-ground)",
-  color: "var(--ground)",
+  borderBottom: "1px solid var(--on-ground)",
+  backgroundColor: "transparent",
+  color: "var(--on-ground)",
   font: "var(--type-body)",
   outline: "none",
   transition: "box-shadow var(--dur-2) var(--ease-out)",
-  boxShadow: error ? "0 0 0 2px var(--ground),0 0 0 5px var(--on-ground)" : focus ? "0 0 0 2px var(--ground),0 0 0 4px var(--on-ground)" : "none"
+  boxShadow: error ? "0 3px 0 0 var(--on-ground)" : focus ? "0 2px 0 0 var(--on-ground)" : "none"
 });
 const fieldLabel = {
   font: "var(--type-label)",
   letterSpacing: "var(--ls-label)",
-  textTransform: "uppercase",
+  textTransform: "none",
   color: "var(--on-ground-soft)"
 };
 function Input({
@@ -882,8 +883,7 @@ function Textarea({
     style: {
       ...__ds_scope.fieldStyle(focus, error),
       minHeight: 128,
-      padding: "14px 20px",
-      borderRadius: "var(--r-md)",
+      padding: "12px 0 0",
       resize: "vertical",
       ...style
     }
@@ -1093,7 +1093,7 @@ const {
   useState,
   useEffect
 } = React;
-/* Wordmark left, navigation right — the old site's whole navigation. Pass
+/* Wordmark left, navigation right: the old site's whole navigation. Pass
    items to render inline links; below `collapseAt` they fold into a Menu
    pill that opens a full-screen glass overlay. The bar itself is glass when
    floating: dark smoked on gold and cream, light on black, cream ink on both.
@@ -1161,7 +1161,7 @@ function NavBar({
   const brandStyle = {
     font: "var(--type-title)",
     fontFamily: "var(--font-display)",
-    fontWeight: "var(--fw-display-bold)",
+    fontWeight: "var(--fw-display-medium)",
     letterSpacing: "var(--ls-heading)",
     textDecoration: "none"
   };
@@ -1393,7 +1393,7 @@ function CVEntry({
     style: {
       font: "var(--type-label)",
       letterSpacing: "var(--ls-label)",
-      textTransform: "uppercase",
+      textTransform: "none",
       color: "var(--on-ground-soft)"
     }
   }, location) : null), /*#__PURE__*/React.createElement("div", {
@@ -1550,10 +1550,10 @@ function MetaRow({
     style: {
       font: "var(--type-label)",
       letterSpacing: "var(--ls-label)",
-      textTransform: "uppercase",
+      textTransform: "none",
       color: "var(--on-ground-soft)"
     }
-  }, "(", it.label, ")"), /*#__PURE__*/React.createElement("dd", {
+  }, it.label), /*#__PURE__*/React.createElement("dd", {
     style: {
       margin: 0,
       font: "var(--type-body)",
@@ -1813,7 +1813,7 @@ function StatBlock({
     style: {
       font: "var(--type-label)",
       letterSpacing: "var(--ls-label)",
-      textTransform: "uppercase",
+      textTransform: "none",
       color: "var(--on-ground-soft)"
     }
   }, label));
@@ -1827,9 +1827,9 @@ try { (() => {
 // Copied omelette starter. Re-running copy_starter_component with this kind overwrites this file with the latest version (page content is unaffected).
 /* BEGIN USAGE */
 /**
- * <doc-page> — paged-document shell for printable HTML.
+ * <doc-page>: paged-document shell for printable HTML.
  *
- * FIRST, decide how the document paginates — up front, before building:
+ * FIRST, decide how the document paginates: up front, before building:
  *
  * - FLOWING document (the default): write the whole document as one
  *   normal HTML flow inside <doc-page>; the browser's print engine
@@ -1838,16 +1838,16 @@ try { (() => {
  * - EXPLICIT pagination: a fixed set of pre-paginated pages, one
  *   <section class="page"> child per page. Use when the user asks for a
  *   specific page count, or the design implies one: a one-page resume, a
- *   two-sided flier, a poster, a certificate, a brochure — any richly
+ *   two-sided flier, a poster, a certificate, a brochure: any richly
  *   laid-out document without a single text flow.
  * - If in doubt, ask the user as part of the build.
  *
- * PAGE SIZING — paper differs by country (letter vs A4), so the printed
+ * PAGE SIZING: paper differs by country (letter vs A4), so the printed
  * sheet is not one fixed truth:
  * - FLOWING documents pin NO paper size: the print engine paginates
  *   onto the user's real paper, and the content reflows to it.
  * - EXPLICITLY PAGINATED documents print each page at a FIXED page box
- *   with overflow hidden — letter by default, size="a4" for a clearly
+ *   with overflow hidden: letter by default, size="a4" for a clearly
  *   metric user, the user's chosen paper when they export. Design each
  *   page to FILL that box, fitting letter and A4 alike without overlap.
  * - width/height pin an explicit fixed size, ONLY when the user gives
@@ -1856,11 +1856,11 @@ try { (() => {
  * content.
  *
  * Sizing modes (attributes):
- *   (none)                      — portrait: flowing docs use the user's
+ *   (none)                     : portrait: flowing docs use the user's
  *           paper; explicitly paginated pages use the named size box
  *           (letter unless size="a4")
- *   orientation="landscape"     — the same, landscape
- *   width / height              — explicit fixed size, ONLY when the user
+ *   orientation="landscape"    : the same, landscape
+ *   width / height             : explicit fixed size, ONLY when the user
  *           gives one (e.g. width="22in" height="30in" for a 22×30
  *           poster): the page IS the design's size, printed at true
  *           dimensions (or scaled onto the user's paper at print time).
@@ -1881,11 +1881,11 @@ try { (() => {
  *   </doc-page>
  *   <script src="doc-page.js"><\/script>
  * How the page box works, concretely: each .page prints as ONE full-bleed
- * sheet at a FIXED physical size — letter by default (set size="a4" for
- * a clearly metric user), the user's chosen paper when they export —
+ * sheet at a FIXED physical size: letter by default (set size="a4" for
+ * a clearly metric user), the user's chosen paper when they export -
  * with overflow hidden. Nothing scrolls and nothing reflows onto a next
  * sheet: content that misses the box is CLIPPED. Design each page to
- * FILL that page box, and to fit it — letter and A4 alike — without
+ * FILL that page box, and to fit it: letter and A4 alike: without
  * overlap. Each page is a size container; don't size anything in
  * viewport units (they track the window, not the page), and never set
  * width or height on the .page section itself (the component sizes the
@@ -1902,7 +1902,7 @@ try { (() => {
  *     <p>…body…</p>
  *   </doc-page>
  *   <script src="doc-page.js"><\/script>
- * There is no manual page-splitting — the browser's print engine
+ * There is no manual page-splitting: the browser's print engine
  * paginates at export. Standard break-hygiene rules (`break-inside:
  * avoid` on figures, code blocks, images and table rows; `orphans/
  * widows: 3`) are applied so paragraphs and groups split cleanly. On
@@ -1911,15 +1911,15 @@ try { (() => {
  * so any text-wrap you declare wins.
  *
  * Other attributes:
- *   size    — letter | a4 | legal (default letter). Flowing documents:
- *           preview proportion only — it does NOT pin their printed
+ *   size   : letter | a4 | legal (default letter). Flowing documents:
+ *           preview proportion only: it does NOT pin their printed
  *           paper (the print dialog's paper governs); leave it alone
  *           there. Explicitly paginated documents: it sets the page box
  *           the cards and the pinned @page share (the export dialog's
- *           choice overrides both at print) — set size="a4" for a
+ *           choice overrides both at print): set size="a4" for a
  *           clearly metric user. Scaled-fit: names the sheet the fit is
  *           computed against, same a4-for-metric-users advice.
- *   content-width / content-height — the design's own fixed dimensions
+ *   content-width / content-height: the design's own fixed dimensions
  *           (CSS lengths), for scaling a fixed-size design ONTO the
  *           named sheet: content lays out at exactly this size, and the
  *           component scales it to fit that sheet's printable area
@@ -1927,7 +1927,7 @@ try { (() => {
  *           re-fits to the user's actual paper choice where available).
  *           Both must be set; they do not change the page box. For pages
  *           WITHOUT running header/footer slots.
- *   margin  — printable inset on every page of a FLOWING document
+ *   margin : printable inset on every page of a FLOWING document
  *           (default 0.75in); margin="0" makes pages full-bleed.
  *           Explicitly paginated pages are always full-bleed.
  *
@@ -1935,7 +1935,7 @@ try { (() => {
  * `slot="header"` or `slot="footer"` and it repeats on every printed
  * page via `position: fixed`. To keep body text from sliding under it,
  * the component prints inside a single-cell table whose <thead>/<tfoot>
- * are spacers sized to the header/footer height — browsers repeat
+ * are spacers sized to the header/footer height: browsers repeat
  * thead/tfoot on every page, so each sheet's content starts below the
  * header and ends above the footer. On screen the header/footer render
  * once at the top/bottom of the sheet.
@@ -1949,7 +1949,7 @@ try { (() => {
  *
  * Print best practices for the content you author:
  * - Multi-column text: use CSS columns (`column-count` +
- *   `column-gap`), never side-by-side flex/grid columns — only real
+ *   `column-gap`), never side-by-side flex/grid columns: only real
  *   CSS columns flow and break across pages. `column-span: all` lets
  *   a heading span the columns; `hyphens: auto` (needs `lang` on
  *   the html element) keeps narrow columns readable.
@@ -1959,14 +1959,14 @@ try { (() => {
  *   `break-inside: avoid` rule, and keep each one shorter than a page.
  * - Extend `orphans: 3; widows: 3` to any custom text blocks you add
  *   (p and li are covered by default).
- * - Give long tables a <thead> — browsers repeat it on every printed
+ * - Give long tables a <thead>: browsers repeat it on every printed
  *   page.
  * - No `position: fixed`/`sticky` and no viewport units in content:
  *   fixed elements stamp every printed page (running headers/footers go
  *   in the component's slots) and `100vh` mis-sizes at print.
  *
  * Author content as static HTML so the user can click-to-edit any text
- * directly. Do not set width/padding/background on the document body —
+ * directly. Do not set width/padding/background on the document body -
  * the component owns the sheet box.
  */
 /* END USAGE */
@@ -1992,7 +1992,7 @@ try { (() => {
   // Inc.' exactly for WebKit and 'Google Inc.' for Blink.
   const WK_PRINT = /apple/i.test(navigator.vendor || '');
   // CSS length → px number (CSS absolute units are exact: 1in = 96px).
-  // Returns NaN for anything safeLen would reject — callers gate on it.
+  // Returns NaN for anything safeLen would reject: callers gate on it.
   const PX_PER = {
     px: 1,
     in: 96,
@@ -2072,7 +2072,7 @@ try { (() => {
     @media print {
       .sheet.paginated { padding: 0; }
       /* The flowing-document vertical inset lives on the repeating
-       * thead/tfoot spacers, not the sheet padding — they must go too,
+       * thead/tfoot spacers, not the sheet padding: they must go too,
        * or each full-sheet .page is pushed ~margin down and spills onto
        * a second sheet. Paginated pages are full-bleed by definition
        * (content owns its insets). */
@@ -2097,7 +2097,7 @@ try { (() => {
          * Every declaration is !important: per CSS Scoping, unimportant
          * shadow ::slotted rules LOSE to the document context, so a page
          * section's authored inline style would silently beat this print
-         * geometry. A model-authored height:100% did exactly that — the
+         * geometry. A model-authored height:100% did exactly that: the
          * percentage resolves as auto in the all-auto print ancestry, the
          * base rule's size containment turns auto into ZERO, and
          * overflow:hidden then paints nothing: a blank PDF with perfect
@@ -2124,19 +2124,19 @@ try { (() => {
      * (transforms are paint-time), so the .fit box (authored size, e.g.
      * 1400x990) gets cut at the page's free block space and spills onto
      * a second sheet even though its SCALED footprint fits the page by
-     * construction. overflow:hidden makes .fit-box a scroll container —
-     * monolithic under fragmentation (css-break-3) — so the scaled
+     * construction. overflow:hidden makes .fit-box a scroll container -
+     * monolithic under fragmentation (css-break-3): so the scaled
      * content prints atomically on one sheet. No clipping for content
      * within the authored box: .fit-box is calc-sized to exactly the
      * scaled footprint. (Content that bleeds past content-width/height
-     * is clipped at the footprint — fit mode's contract; it previously
+     * is clipped at the footprint: fit mode's contract; it previously
      * painted beyond it at print.) Print-only, so the screen rendering
      * keeps visible overflow for editor affordances.
      * The export path injects the same rule into frozen copies
      * (print-eval.ts om-print-fit-contain). The .fit-mode scope is
      * load-bearing: .fit-box wraps slotted content in EVERY mode, and an
      * unscoped overflow:hidden would make whole flowing documents
-     * monolithic (one truncated sheet). overflow:hidden, never clip —
+     * monolithic (one truncated sheet). overflow:hidden, never clip -
      * clip is not a scroll container, so not monolithic. */
     @media print {
       .fit-mode .fit-box { overflow: hidden; }
@@ -2169,7 +2169,7 @@ try { (() => {
       .ftr-space { height: max(var(--doc-page-margin), calc(var(--doc-ftr-h) + var(--doc-ftr-pad))); }
       /* WebKit flowing documents: @page carries the vertical margin (see
        * _syncPrintPageRule), so the spacers keep only whatever a running
-       * header/footer needs BEYOND it — page 1 would otherwise double its
+       * header/footer needs BEYOND it: page 1 would otherwise double its
        * top inset. Paginated sheets already zero their spacers above. */
       .sheet.wk-print:not(.paginated) .hdr-space { height: max(0px, calc(max(var(--doc-page-margin), calc(var(--doc-hdr-h) + var(--doc-hdr-pad))) - var(--doc-page-margin))); }
       .sheet.wk-print:not(.paginated) .ftr-space { height: max(0px, calc(max(var(--doc-page-margin), calc(var(--doc-ftr-h) + var(--doc-ftr-pad))) - var(--doc-page-margin))); }
@@ -2196,7 +2196,7 @@ try { (() => {
     }
 
     /** The named paper's [w, h], swapped when orientation="landscape".
-     *  Only the named size swaps — explicit width/height are exact values
+     *  Only the named size swaps: explicit width/height are exact values
      *  the author already oriented. */
     _paperSize() {
       const named = PAPER[(this.getAttribute('size') || '').toLowerCase()] || PAPER.letter;
@@ -2214,7 +2214,7 @@ try { (() => {
     }
 
     /** Scaled-fit mode's content box [w, h] as CSS lengths, or null when
-     *  the mode is off (either attribute missing/invalid/zero — a partial
+     *  the mode is off (either attribute missing/invalid/zero: a partial
      *  declaration falls back to normal flow rather than guessing). */
     _contentFit() {
       const w = safeLen(this.getAttribute('content-width'), null);
@@ -2261,7 +2261,7 @@ try { (() => {
           const tag = document.getElementById(id);
           if (tag) tag.remove();
         });
-        // A live deck-stage deferred its own print-sizing meta to ours —
+        // A live deck-stage deferred its own print-sizing meta to ours -
         // hand the page-global meta over so the deck isn't left unmarked.
         const deck = document.querySelector('deck-stage');
         if (deck && typeof deck._ensurePrintSizingMeta === 'function') {
@@ -2308,7 +2308,7 @@ try { (() => {
       // printable area (page minus margins on both axes). The factor is a
       // plain number var so calc(length * number) stays valid; 4 decimals
       // keeps the shadow style stable across re-measures. Upscaling is
-      // allowed — print transforms are vector, so text and CSS stay crisp
+      // allowed: print transforms are vector, so text and CSS stay crisp
       // (raster images soften, which the catalog bullet warns about).
       const fit = this._contentFit();
       let fitVars = '';
@@ -2322,7 +2322,7 @@ try { (() => {
         }
       }
       this._sheet.classList.toggle('fit-mode', !!fitVars);
-      // Numeric w/h ratio for the paginated page cards' aspect-ratio —
+      // Numeric w/h ratio for the paginated page cards' aspect-ratio -
       // aspect-ratio takes a number, not a length ratio, so compute it
       // here (CSS length division isn't portable). 6 decimals keeps the
       // shadow style stable across re-syncs.
@@ -2333,18 +2333,18 @@ try { (() => {
     }
 
     /** @page is a no-op inside shadow DOM, so the rule lives in <head>.
-     *  Re-appended on every sync so it stays last in source order — the
+     *  Re-appended on every sync so it stays last in source order: the
      *  @page cascade is source-order per descriptor, so this rule wins
      *  over any other @page rule in the document.
      *
      *  The @page SIZE is pinned where the page box IS part of the design:
      *  explicit-fixed-size mode (width + height authored), scaled-fit
      *  mode (the named sheet the fit targets), and explicit pagination
-     *  (the named size the cards share — so card and sheet agree on
+     *  (the named size the cards share: so card and sheet agree on
      *  every print path, and the export path's chosen paper overrides
      *  BOTH with one later rule). For FLOWING documents no paper size is
-     *  emitted at all — the true size comes from the user's preference,
-     *  injected by the export path or chosen in the print dialog — so a
+     *  emitted at all: the true size comes from the user's preference,
+     *  injected by the export path or chosen in the print dialog: so a
      *  flowing document never fights the paper it lands on.
      *  margin: 0 is emitted in every mode: it leaves Chrome no margin box
      *  to draw its date/URL/page-count header in, and the visual margin
@@ -2358,19 +2358,19 @@ try { (() => {
       }
       document.head.appendChild(tag);
       // Three print-geometry regimes:
-      // - true-size: the page IS the design — pin its exact size.
+      // - true-size: the page IS the design: pin its exact size.
       // - scaled-fit (content-width/height): the fit factor is computed
       //   against the NAMED paper's printable area, so that paper must
       //   stay pinned or the scaled content overflows a smaller sheet
       //   (the export path re-fits and re-pins at print time on top).
-      // - default modes: no paper size — but landscape still needs the
+      // - default modes: no paper size: but landscape still needs the
       //   paper-agnostic 'size: landscape' keyword, because the size
       //   descriptor is what carries orientation; without it a landscape
       //   document prints portrait whenever nothing injects a size.
       const landscape = (this.getAttribute('orientation') || '').trim().toLowerCase() === 'landscape';
       // Explicit pagination pins the page box to the SAME values that
       // size the cards (the named size by default, the export path's
-      // chosen paper when its later rule overrides both) — card and
+      // chosen paper when its later rule overrides both): card and
       // sheet agree on every print path, and a mismatched real paper
       // shrinks-to-fit in the dialog instead of clipping a Letter card
       // on A4. Declared before the paginated read below so both derive
@@ -2387,7 +2387,7 @@ try { (() => {
       // re-opens the box Chrome draws its header furniture in). One cost,
       // learned in testing: Safari's own date/URL headers are a USER
       // dialog setting ("Print headers and footers") that renders in the
-      // margin area when room exists — margin: 0 only suppressed it by
+      // margin area when room exists: margin: 0 only suppressed it by
       // leaving no room, and no CSS controls it. The export dialog's
       // Safari guide teaches turning the setting off for flowing
       // documents. Explicitly paginated and fixed-size documents keep
@@ -2396,7 +2396,7 @@ try { (() => {
       const marginDescriptor = wkFlowing ? 'margin: ' + this.pageMargin + ' 0; ' : 'margin: 0; ';
       // Shadow-internal marker (never serialized), kept in lockstep with
       // the @page decision above: the print CSS trims the first-page
-      // spacers ONLY while @page actually carries the margins — a
+      // spacers ONLY while @page actually carries the margins: a
       // true-size or scaled-fit sheet keeps margin: 0 and must keep its
       // spacers too. Re-synced here so attribute changes and pagination
       // flips move both together.
@@ -2408,7 +2408,7 @@ try { (() => {
      *  widowed/orphaned words in body copy (browsers without text-wrap
      *  support drop the declarations). Zero-specificity via :where() so
      *  any text-wrap authored on those elements wins; document-level so the
-     *  rules reach the slotted (light DOM) content — shadow styles can't.
+     *  rules reach the slotted (light DOM) content: shadow styles can't.
      *  data-omelette-injected marks the tag for the host editor to strip
      *  at serialize, so it is never written back as authored source. */
     _ensureTextWrapDefaults() {
@@ -2447,11 +2447,11 @@ try { (() => {
     /** True-size pages (explicit width AND height) also declare the page
      *  box as the preview size: the in-app preview reads
      *  meta[name="omelette-fixed-size"] (content "W,H" in px ints) and
-     *  scales the sheet into view — without it an 18in poster previews at
+     *  scales the sheet into view: without it an 18in poster previews at
      *  true size with scrollbars. Never overrides an author-set meta
      *  (only the component's own id is managed). The meta is page-global
      *  while doc-page instances are not, so every sync recomputes the
-     *  page-wide owner — the first connected true-size doc-page — and a
+     *  page-wide owner: the first connected true-size doc-page: and a
      *  non-true-size sibling's sync can never delete the owner's meta.
      *  Removed when no true-size page remains (the owner's disconnect
      *  re-syncs via any survivor) or when an author-set meta exists. */
@@ -2491,7 +2491,7 @@ try { (() => {
      *  meta[name="omelette-print-sizing"] with content 'default-portrait',
      *  'default-landscape', or 'fixed' (fixed pages also carry the
      *  omelette-fixed-size meta with the page box in px). The export path
-     *  probes it to decide what true paper size to inject at print time —
+     *  probes it to decide what true paper size to inject at print time -
      *  in the default modes the component emits no paper size of its own.
      *  Same page-global ownership rules as the fixed-size meta above:
      *  first connected doc-page owns it, an authored meta is never
@@ -2518,7 +2518,7 @@ try { (() => {
         return;
       }
       // A deck-stage that connected first injected its own meta and
-      // defers to any existing one — take it over, or the document ends
+      // defers to any existing one: take it over, or the document ends
       // up with two conflicting injected metas (a doc-page page is the
       // document; the deck re-ensures its meta if every doc-page leaves).
       const deckMeta = document.getElementById('deck-stage-print-sizing');
@@ -2542,7 +2542,7 @@ try { (() => {
      *  they re-measure on content mutation, resize, and font load. The
      *  same pass detects explicit pagination (direct .page children) and
      *  toggles the sheet between the flowing-document card and the
-     *  page-per-card stack — content edits can add or remove pages at any
+     *  page-per-card stack: content edits can add or remove pages at any
      *  time, so this tracks the same mutations the measurement does. */
     _measure() {
       const hdr = this.querySelector(':scope > [slot="header"]');
@@ -2714,7 +2714,7 @@ function AboutPage({
     style: {
       font: "var(--type-label)",
       letterSpacing: "var(--ls-label)",
-      textTransform: "uppercase",
+      textTransform: "none",
       color: "var(--on-ground-soft)"
     }
   }, "Certifications"), c.certifications.map((x, i) => /*#__PURE__*/React.createElement("span", {
@@ -2822,7 +2822,7 @@ function App() {
     about: "About",
     contact: "Contact"
   };
-  /* On a case study the whole app, nav included, sits on black — gold never
+  /* On a case study the whole app, nav included, sits on black: gold never
      shares a screen with a project colour. Everywhere else the ground is gold. */
   return /*#__PURE__*/React.createElement("div", {
     className: route.name === "project" ? "ground-dark" : undefined,
@@ -3010,10 +3010,10 @@ function ContactPage() {
     style: {
       font: "var(--type-label)",
       letterSpacing: "var(--ls-label)",
-      textTransform: "uppercase",
+      textTransform: "none",
       color: "var(--on-ground-soft)"
     }
-  }, "(", k, ")"), /*#__PURE__*/React.createElement("span", {
+  }, k), /*#__PURE__*/React.createElement("span", {
     style: {
       font: "var(--type-body)",
       fontWeight: "var(--fw-medium)",
@@ -3751,7 +3751,7 @@ window.OS_DATA = {
     lead: "Christchurch based independent expertise across brand, content, digital design, and systems that help businesses look better and work better.",
     paragraphs: ["I work across branding, content, websites, and workflow optimisation, helping businesses present themselves more clearly and operate more effectively.", "My background sits between creative execution and practical problem-solving. That means I'm not only interested in how something looks, but also how it functions, how it communicates, and how it fits into the wider flow of a business. Whether I'm developing brand assets, designing digital touchpoints, creating marketing content, or improving internal systems, my focus is always on building work that feels considered, useful, and well executed.", "I'm drawn to projects where design and structure need to work together - where stronger visuals, clearer communication, and better workflows can create a more cohesive and effective business presence."],
     /* Real clients and employers, taken from the CV. The old site's References
-       block was unreplaced Webflow filler (Amazon, Apple, Nike) — these are the
+       block was unreplaced Webflow filler (Amazon, Apple, Nike): these are the
        actual ones. Set as type: there are no logo files for them. */
     references: ["Bared Footwear", "Harcourts Holmwood", "Ashurst", "New Zealand Film Commission", "Pronto Coffee", "BF Property", "M4 Photography", "Nichols | Polson & Co", "Stats NZ"],
     /* Empty on purpose. The old site's Awards block was template filler
@@ -3762,7 +3762,7 @@ window.OS_DATA = {
   /* Per project: thumb = a 4:3 detail for the card (the site hero, a bottle);
      image = the full screenshot for the case study; outcome = the one-line
      result that leads the card; stats = real numbers only; quote = one line
-     of client voice as {text,name,role} — null until a client has said it. */
+     of client voice as {text,name,role}: null until a client has said it. */
   projects: [{
     id: "bf-property",
     project: "bf-property",
@@ -3930,7 +3930,7 @@ window.OS_DATA = {
     sections: [{
       kind: "Challenge",
       head: "Keeping the brand sharp while scaling fast",
-      body: "Bared was growing quickly — new stores, new product lines, a lot happening at once. Alongside that, they were migrating their eCommerce platform from Lightspeed to Shopify, which touched everything from inventory to reporting."
+      body: "Bared was growing quickly, new stores, new product lines, a lot happening at once. Alongside that, they were migrating their eCommerce platform from Lightspeed to Shopify, which touched everything from inventory to reporting."
     }, {
       kind: "Goal",
       head: "Consistent content and a cleaner digital foundation",
@@ -3967,7 +3967,7 @@ window.OS_DATA = {
       alt: "The full M4 Photography home page: hero, services, about, gallery, order call-to-action and contact",
       span: 12
     }],
-    summary: "A full rebrand and website build for a three-photographer school and sports studio — giving a busy, boots-on-the-ground operation a brand that finally matches the quality of their work.",
+    summary: "A full rebrand and website build for a three-photographer school and sports studio, giving a busy, boots-on-the-ground operation a brand that finally matches the quality of their work.",
     meta: [{
       label: "Client",
       value: "M4 Photography"
@@ -3985,7 +3985,7 @@ window.OS_DATA = {
     sections: [{
       kind: "Challenge",
       head: "A studio without a brand",
-      body: "Three photographers shooting schools and sports — high volume, tight turnarounds, lots of moving parts. No consistent visual identity, nothing tying the three of them together, and no website that could represent what they offer or make it easy to get in touch."
+      body: "Three photographers shooting schools and sports, high volume, tight turnarounds, lots of moving parts. No consistent visual identity, nothing tying the three of them together, and no website that could represent what they offer or make it easy to get in touch."
     }, {
       kind: "Goal",
       head: "Build something that does the selling for them",
@@ -4035,7 +4035,7 @@ window.OS_DATA = {
       alt: "Instagram profiles for Paul and Deb Nichols and Zani Polson, with the Same, same but different announcement",
       span: 6
     }],
-    summary: "A brand refresh and ongoing digital marketing retainer built around a leadership transition — helping Zani step out from the broader Holmwood structure and build something that's properly hers.",
+    summary: "A brand refresh and ongoing digital marketing retainer built around a leadership transition, helping Zani step out from the broader Holmwood structure and build something that's properly hers.",
     meta: [{
       label: "Client",
       value: "Nichols | Polson & Co"
@@ -4057,7 +4057,7 @@ window.OS_DATA = {
     }, {
       kind: "Goal",
       head: "An independent, cohesive presence",
-      body: "Establish the team as a self-sufficient brand that could stand confidently outside the Holmwood umbrella while remaining part of the network — redesigned collateral, a consistent Instagram presence, and internal tools to support day-to-day operations."
+      body: "Establish the team as a self-sufficient brand that could stand confidently outside the Holmwood umbrella while remaining part of the network, redesigned collateral, a consistent Instagram presence, and internal tools to support day-to-day operations."
     }, {
       kind: "Result",
       head: "A thriving brand with sustained momentum",
@@ -4091,7 +4091,7 @@ window.OS_DATA = {
       alt: "The 2022 OVSBM design portfolio site: numbered index of graphic and UX/UI projects, then each case study in sequence",
       span: 12
     }],
-    summary: "Rebuilding my own brand from the ground up — moving from a student portfolio into something that actually reflects how I work and what I offer.",
+    summary: "Rebuilding my own brand from the ground up, moving from a student portfolio into something that actually reflects how I work and what I offer.",
     meta: [{
       label: "Client",
       value: "OVSBM Design"
@@ -4113,11 +4113,11 @@ window.OS_DATA = {
     }, {
       kind: "Goal",
       head: "A brand that works as hard as the work itself",
-      body: "Something considered and minimal — credible enough to send to a client with no explanation needed. Strip the portfolio back to only what matters, be more intentional with the copy, and give the identity a clear point of view without overdoing it."
+      body: "Something considered and minimal, credible enough to send to a client with no explanation needed. Strip the portfolio back to only what matters, be more intentional with the copy, and give the identity a clear point of view without overdoing it."
     }, {
       kind: "Result",
       head: "A cleaner, more confident presence",
-      body: "The site is quieter, more focused, and a better reflection of how I approach the work. It's an ongoing project — the brand evolves as the business does — and it's now being rebuilt again as oscarshand.com."
+      body: "The site is quieter, more focused, and a better reflection of how I approach the work. It's an ongoing project, the brand evolves as the business does, and it's now being rebuilt again as oscarshand.com."
     }],
     points: ["Full brand identity refresh", "Portfolio site built in Webflow", "Copywriting across every page", "Case study framework and project page layout", "Visual system and asset library"]
   }, {
@@ -4140,7 +4140,7 @@ window.OS_DATA = {
       alt: "Tartan portrait from the A/W 2023 collection",
       span: 6
     }],
-    summary: "An experimental online store built around an A/W 2023 collection of custom AI-designed clothing and prints — conceived, launched, and sold out in three months.",
+    summary: "An experimental online store built around an A/W 2023 collection of custom AI-designed clothing and prints, conceived, launched, and sold out in three months.",
     meta: [{
       label: "Client",
       value: "OVSBM Design"
@@ -4170,7 +4170,7 @@ window.OS_DATA = {
     sections: [{
       kind: "Challenge",
       head: "Turning art into a product",
-      body: "The AI-generated work had been building for a while — surrealist architecture, editorial fashion, metallic figure studies — but it was all sitting in folders. The question was whether there was an audience, and how to get to market without a production team or a warehouse."
+      body: "The AI-generated work had been building for a while, surrealist architecture, editorial fashion, metallic figure studies, but it was all sitting in folders. The question was whether there was an audience, and how to get to market without a production team or a warehouse."
     }, {
       kind: "Goal",
       head: "Test the concept, move the stock",
@@ -4183,7 +4183,7 @@ window.OS_DATA = {
     points: ["AI artwork direction across three series", "Custom clothing and print design", "Shopify store setup, product management and fulfilment", "Campaign site design and build", "Social campaign management and content"]
   }],
   cv: {
-    summary: "Designer and digital marketing specialist running my own studio, with a corporate background in legal operations and IT support. I move between creative execution and the practical side of a business — billing, systems, reporting, process — which is a combination I'm comfortable being hired for either way.",
+    summary: "Designer and digital marketing specialist running my own studio, with a corporate background in legal operations and IT support. I move between creative execution and the practical side of a business, billing, systems, reporting, process, which is a combination I'm comfortable being hired for either way.",
     stats: [{
       value: "3",
       unit: "yr",
@@ -4199,56 +4199,56 @@ window.OS_DATA = {
       role: "Freelance Graphic & Web Designer",
       org: "OVSBM Design",
       type: "Freelance",
-      dates: "Apr 2023 — Present",
+      dates: "Apr 2023, Present",
       location: "Christchurch, NZ · Hybrid",
       points: ["Run my own creative studio: web design, social media management, photography, videography and marketing materials.", "Design and build websites, portfolios and Shopify stores for small businesses, creatives and real estate teams.", "Build content systems, templates and workflows so client output stays consistent.", "Scope, deliver and refine projects directly with clients."]
     }, {
       role: "Business Development",
       org: "BF Property",
       type: "Contract",
-      dates: "May 2026 — Jul 2026",
+      dates: "May 2026, Jul 2026",
       location: "Christchurch, NZ",
       points: ["Rebrand across print, digital and signage.", "Webflow site build with CMS-managed listings.", "Marketing infrastructure: enquiry capture, templates and reporting."]
     }, {
       role: "Business Development",
       org: "Pronto Coffee",
       type: "Contract",
-      dates: "Feb 2026 — Jul 2026",
+      dates: "Feb 2026, Jul 2026",
       location: "Christchurch, NZ · On-site",
       points: ["Hand-coded website with custom JavaScript interactions for a nationwide self-serve coffee rollout.", "Dual-path structure serving B2B venues and retail customers from one page.", "Proposal flow built to qualify venue enquiries."]
     }, {
       role: "Social Media Manager",
-      org: "Nichols | Polson & Co — Harcourts Holmwood",
+      org: "Nichols | Polson & Co, Harcourts Holmwood",
       type: "Contract",
-      dates: "Mar 2025 — Jul 2026",
+      dates: "Mar 2025, Jul 2026",
       location: "Christchurch, NZ · Hybrid",
       points: ["Content strategy, graphic design and social media for a leading Christchurch real estate agency.", "Weekly posting aligned to campaign activity, caption writing and content planning.", "Property video filming, listing photo editing, and a custom internal listings database."]
     }, {
       role: "Team Assistant",
       org: "Ashurst",
       type: "Full-time",
-      dates: "Feb 2024 — Feb 2025",
+      dates: "Feb 2024, Feb 2025",
       location: "Melbourne, VIC · On-site",
       points: ["Supported partners and legal teams across expenses, billing, document production, legal searches, reporting, event logistics and onboarding.", "Managed billing for high-profile clients including major banks, government departments and global companies.", "Coordinated lawyer time entries, disbursements and client-specific billing requirements.", "Maintained accuracy and compliance across financial documentation."]
     }, {
       role: "Sales Assistant",
       org: "Bared Footwear",
       type: "Part-time",
-      dates: "Apr 2023 — Feb 2024",
+      dates: "Apr 2023, Feb 2024",
       location: "Melbourne, VIC · On-site",
       points: ["Tailored fitting and style guidance with a focus on podiatry needs: orthotics, gait and injury support.", "Social content and product photography across Instagram, Facebook and TikTok.", "Contributed to the Lightspeed → Shopify migration, improving inventory and reporting.", "Handled returns, stock queries and customer concerns."]
     }, {
       role: "Census Collector",
       org: "Stats NZ",
       type: "Contract",
-      dates: "Feb 2023 — Apr 2023",
+      dates: "Feb 2023, Apr 2023",
       location: "Christchurch, NZ",
       points: ["Field-based data collection across diverse communities, managing my own caseload.", "Supported teammates with systems and troubleshooting.", "Tracked non-response patterns to improve follow-up."]
     }, {
       role: "Helpdesk Support Analyst",
       org: "New Zealand Film Commission",
       type: "Contract",
-      dates: "May 2022 — Dec 2022",
+      dates: "May 2022, Dec 2022",
       location: "Wellington, NZ · On-site",
       points: ["IT support for staff and external applicants; managed support inboxes and resolved technical issues.", "Product Owner for the legacy application portal.", "Contributed UX insights and stakeholder mapping to the build of the new portal.", "Produced written and video training material and wireframes."]
     }],
@@ -4273,7 +4273,7 @@ window.OS_DATA = {
       title: "NCEA Level 1 with Merit",
       org: "St Andrew's College, Christchurch"
     }],
-    certifications: ["Business Analysis Foundations — LinkedIn, 2024", "Generative AI Productivity Skills — Microsoft & LinkedIn, 2024"],
+    certifications: ["Business Analysis Foundations, LinkedIn, 2024", "Generative AI Productivity Skills, Microsoft & LinkedIn, 2024"],
     skills: [{
       group: "Design & content",
       items: ["Graphic design", "UX/UI", "Branding", "Photography", "Videography", "Content production"]
@@ -4348,7 +4348,7 @@ __ds_ns.StatBlock = __ds_scope.StatBlock;
 })();
 
 // components/v3/liquid-glass-engine.js
-/* Oscar Shand — Liquid Glass engine (v3).
+/* Oscar Shand: Liquid Glass engine (v3).
    A lens for each glass element, built to its exact size and corner radius:
    - refraction: a displacement map from the shape's signed distance field. The rim is a
      convex bezel (squircle profile); light bends inward there, so what's beneath the rim
@@ -4856,7 +4856,7 @@ __ds_ns.StatBlock = __ds_scope.StatBlock;
     var pct = (val - min) / (max - min) * 100;
     var set = function (e) { var v = parseFloat(e.target.value); if (p.value == null) own[1](v); if (p.onChange) p.onChange(v); };
     return h("label", { style: assign({ display: "flex", flexDirection: "column", gap: "var(--sp-3)", color: "var(--on-ground)", width: p.width || 280 }, p.style) },
-      p.label ? h("span", { style: { display: "flex", justifyContent: "space-between", font: "var(--type-label)", letterSpacing: "var(--ls-label)", textTransform: "uppercase", color: "var(--on-ground-soft)" } }, h("span", null, p.label), p.format ? h("span", { className: "tabular" }, p.format(val)) : null) : null,
+      p.label ? h("span", { style: { display: "flex", justifyContent: "space-between", font: "var(--type-label)", letterSpacing: "var(--ls-label)", textTransform: "none", color: "var(--on-ground-soft)" } }, h("span", null, p.label), p.format ? h("span", { className: "tabular" }, p.format(val)) : null) : null,
       h("span", { style: { position: "relative", display: "block", height: 30 } },
         h("span", { "aria-hidden": "true", style: { position: "absolute", left: 0, right: 0, top: 13, height: 4, borderRadius: "var(--r-pill)", background: "var(--hairline-strong)" } }),
         h("span", { "aria-hidden": "true", style: { position: "absolute", left: 0, width: pct + "%", top: 13, height: 4, borderRadius: "var(--r-pill)", background: "var(--on-ground)" } }),
@@ -4876,7 +4876,7 @@ __ds_ns.StatBlock = __ds_scope.StatBlock;
     }, [p.open, p.inline]);
     if (!p.open) return null;
     var pop = p.mode === "popover";
-    var panel = h(LiquidGlass, { variant: "regular", radius: pop ? "var(--r-lg)" : "var(--r-xl)", media: p.media, role: "dialog", "aria-modal": p.inline ? undefined : "true", "aria-label": p.title,
+    var panel = h(LiquidGlass, { variant: "regular", radius: "var(--r-glass)", media: p.media, role: "dialog", "aria-modal": p.inline ? undefined : "true", "aria-label": p.title,
       style: assign(pop ? { width: p.width || 320, padding: "var(--sp-5)" } : { width: "min(" + (p.width || 560) + "px, calc(100% - 16px))", padding: "10px var(--sp-6) var(--sp-7)" },
         p.inline ? { position: "relative" } : pop ? { position: "fixed", zIndex: 70 } : { position: "fixed", zIndex: 70, left: "50%", bottom: 8, transform: "translateX(-50%)" }, p.style) },
       pop ? null : h("span", { "aria-hidden": "true", style: { display: "block", width: 36, height: 5, margin: "0 auto var(--sp-4)", borderRadius: "var(--r-pill)", background: "currentColor", opacity: 0.3 } }),
@@ -4894,7 +4894,7 @@ __ds_ns.StatBlock = __ds_scope.StatBlock;
     var linkStyle = function (on) { return { display: "inline-flex", alignItems: "center", height: 36, padding: "0 14px", borderRadius: "var(--r-pill)", font: "var(--type-body-sm)", fontWeight: "var(--fw-medium)", color: "inherit", textDecoration: "none", background: on ? "color-mix(in srgb,currentColor 15%,transparent)" : "transparent" }; };
     return h(LiquidGlass, { as: "nav", variant: p.variant || "clear", shape: "capsule", media: p.media, "aria-label": p.label || "Primary",
       style: assign({ position: p.sticky === false ? "relative" : "sticky", top: "var(--nav-island-top)", zIndex: 40, display: "flex", alignItems: "center", gap: "var(--sp-5)", width: "fit-content", maxWidth: "calc(100% - 2 * var(--page-gutter))", margin: "var(--nav-island-top) auto 0", padding: "4px 4px 4px 20px", minHeight: "var(--nav-h)" }, p.style) },
-      h("a", { href: p.href || "/", style: { font: "var(--fw-display-bold) 17px/1 var(--font-display)", letterSpacing: "var(--ls-heading)", color: "inherit", textDecoration: "none", whiteSpace: "nowrap" } }, p.brand || "Oscar Shand"),
+      h("a", { href: p.href || "/", style: { font: "var(--fw-display-medium) 17px/1 var(--font-display)", letterSpacing: "var(--ls-heading)", color: "inherit", textDecoration: "none", whiteSpace: "nowrap" } }, p.brand || "Oscar Shand"),
       p.compact || !items.length
         ? h(GlassButton, { label: p.menuLabel || "Menu", showLabel: true, size: 36, onClick: p.onMenu, style: { background: "color-mix(in srgb,currentColor 15%,transparent)" } })
         : h("div", { style: { display: "flex", gap: 2 } }, items.map(function (it) { var on = it.label === p.active; return h("a", { key: it.label, href: it.href, "aria-current": on ? "page" : undefined, style: linkStyle(on) }, it.label); })));
@@ -5041,7 +5041,7 @@ __ds_ns.StatBlock = __ds_scope.StatBlock;
   function ImageCompare(p) {
     var st = useState(p.value != null ? p.value : 50), val = st[0], setVal = st[1], after = useRef(null);
     var b = p.before || {}, a = p.after || {};
-    var tag = function (t, side) { return t ? h(LiquidGlass, { variant: "clear", shape: "capsule", media: after, style: { position: "absolute", top: "var(--sp-5)", left: side === "l" ? "var(--sp-5)" : "auto", right: side === "r" ? "var(--sp-5)" : "auto", padding: "6px 12px", font: "var(--type-label)", letterSpacing: "var(--ls-label)", textTransform: "uppercase", pointerEvents: "none" } }, t) : null; };
+    var tag = function (t, side) { return t ? h(LiquidGlass, { variant: "clear", shape: "capsule", media: after, style: { position: "absolute", top: "var(--sp-5)", left: side === "l" ? "var(--sp-5)" : "auto", right: side === "r" ? "var(--sp-5)" : "auto", padding: "6px 12px", font: "var(--type-label)", letterSpacing: "var(--ls-label)", textTransform: "none", pointerEvents: "none" } }, t) : null; };
     return h("div", { style: assign({ position: "relative", overflow: "hidden", aspectRatio: p.aspect || "16 / 9", borderRadius: p.radius != null ? p.radius : "var(--r-lg)", userSelect: "none", touchAction: "pan-y" }, p.style) },
       h("img", { ref: after, src: a.src, alt: a.alt || "", style: { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" } }),
       h("img", { src: b.src, alt: b.alt || "", style: { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", clipPath: "inset(0 " + (100 - val) + "% 0 0)" } }),

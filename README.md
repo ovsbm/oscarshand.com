@@ -29,4 +29,4 @@ cd site && python3 -m http.server 8000
 
 ## Design language
 
-`site/master.css` loads last and holds the v4 rules: square content, sentence-case labels, Medium display weight, flat fields, glass only on the nav, menu sheet and floating action. The home gallery is the only index; `/work/`, `/ideas/` and `/articles/` are the same gallery, filtered.
+`site/master.css` is the one token file. It holds every colour, type, spacing and shape value plus the v4 rules (square content, sentence-case labels, Medium display weight, flat fields, glass only on the nav, menu sheet and floating action). Nothing later in the cascade overrides it. The home gallery is the only index; `/work/`, `/ideas/` and `/articles/` are the same gallery, filtered.

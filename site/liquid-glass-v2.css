@@ -1,4 +1,4 @@
-/* Oscar Shand — Liquid Glass layer. Glass is confined to the sticky nav island, the menu sheet and
+/* Oscar Shand: Liquid Glass layer. Glass is confined to the sticky nav island, the menu sheet and
    the floating pill; everything else is painted. Palette stays gold / black / cream. */
 :root{
   --ease-fluid:cubic-bezier(.22,1,.36,1);
@@ -24,17 +24,6 @@
   --lg-vibrancy:0 1px 2px color-mix(in srgb,var(--black) 28%,transparent);
   --lg-knob-cast:none;
   /* project colours */
-  --project-bf-property:oklch(.58 .22 28);
-  --project-pronto:oklch(.72 .18 55);
-  --project-m4:oklch(.80 .10 230);
-  --project-nichols:oklch(.38 .14 262);
-  --project-bared:oklch(.42 .10 155);
-  --project-aubrica:oklch(.64 .15 160);
-  --project-gurner:oklch(.74 .11 195);
-  --project-volvo:oklch(.42 .12 320);
-  --project-akaroa:oklch(.72 .09 300);
-  --project-shop:oklch(.88 .17 95);
-  --project-ovsbm:oklch(.72 .18 350);--project-shoecare:oklch(.44 .10 20);--project-spacelens:oklch(.80 .15 70);--project-rail:oklch(.46 .11 245);--project-chancechat:oklch(.56 .2 264);
 }
 @supports (backdrop-filter:url(#lg-refract)){:root{--lg-lens:url(#lg-refract-strong)}}
 
@@ -81,11 +70,6 @@ body[data-lg-motion="1"] [data-reveal][data-in="1"]{opacity:1;transform:none}
 [data-glass="btn"]{background-color:var(--on-ground)!important;background-image:none!important;color:var(--ground)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;text-shadow:none!important;transition:transform var(--dur-2) var(--ease-fluid),filter var(--dur-2) var(--ease-fluid)!important}
 [data-glass="btn"]:hover{transform:translate3d(0,-2px,0)!important;filter:none!important}
 [data-glass="btn"]:active{transform:none!important;filter:brightness(.92)!important}
-[data-glass="field"]{background-color:var(--on-ground)!important;background-image:none!important;color:var(--ground)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;text-shadow:none!important;transition:box-shadow var(--dur-2) var(--ease-fluid)!important}
-[data-glass="field"]:focus{box-shadow:0 0 0 2px var(--ground),0 0 0 4px var(--on-ground)!important}
-[data-glass="field"]::placeholder{color:color-mix(in srgb,var(--ground) 62%,transparent)}
-[data-glass="field"] option{color:var(--black);background:var(--cream)}
-[data-glass="field"] + svg{fill:var(--ground)!important}
 [data-glass="chip"],[data-glass="switch"]{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background-image:none!important;box-shadow:inset 0 0 0 1.5px var(--on-ground)!important;text-shadow:none!important;--glass-fill:transparent;--glass-ink:var(--on-ground)}
 [data-glass="chip"][aria-pressed="true"]{background-color:var(--on-ground)!important;color:var(--ground)!important}
 [data-glass="switch"] span{background:var(--on-ground);box-shadow:none!important}
@@ -96,7 +80,7 @@ body[data-lg-motion="1"] [data-reveal][data-in="1"]{opacity:1;transform:none}
 [data-card]{--card-bg:var(--cream);--card-ink:var(--project-ink);--card-line:color-mix(in srgb,var(--black) 14%,transparent)}
 [data-card][data-inverted="1"]{--card-bg:var(--project);--card-ink:var(--project-on,var(--black));--card-line:color-mix(in srgb,var(--black) 22%,transparent)}
 [data-card]:hover span[aria-hidden]{transform:translate3d(4px,4px,0)}
-[data-project="nichols"],[data-project="bared"],[data-project="bf-property"],[data-project="volvo"],[data-project="rail"],[data-project="chancechat"]{--project-on:var(--cream)}
+[data-project="nichols"],[data-project="bared"],[data-project="bf-property"]{--project-on:var(--cream)}
 .ground-dark:not(.ground-project) [data-project]{--project-ink:oklch(from var(--project) clamp(.74,l,.95) c h)}
 
 /* ── Case-study pages sit on the project colour ── */
@@ -107,20 +91,7 @@ body[data-lg-motion="1"] [data-reveal][data-in="1"]{opacity:1;transform:none}
 .ground-project[data-project="bared"]{--ground:var(--project-bared);--on-ground:var(--cream)}
 .ground-project[data-project="aubrica"]{--ground:var(--project-aubrica);--on-ground:var(--black)}
 [data-project="aubrica"]{--project:var(--project-aubrica)}
-.ground-project[data-project="gurner"]{--ground:var(--project-gurner);--on-ground:var(--black)}
-[data-project="gurner"]{--project:var(--project-gurner)}
-.ground-project[data-project="volvo"]{--ground:var(--project-volvo);--on-ground:var(--cream)}
-[data-project="volvo"]{--project:var(--project-volvo)}
-.ground-project[data-project="akaroa"]{--ground:var(--project-akaroa);--on-ground:var(--black)}
-[data-project="akaroa"]{--project:var(--project-akaroa)}
 .ground-project[data-project="shop"]{--ground:var(--project-shop);--on-ground:var(--black)}
-.ground-project[data-project="ovsbm"]{--ground:var(--project-ovsbm);--on-ground:var(--black)}
-.ground-project[data-project="spacelens"]{--ground:var(--project-spacelens);--on-ground:var(--black)}
-[data-project="spacelens"]{--project:var(--project-spacelens)}
-.ground-project[data-project="rail"]{--ground:var(--project-rail);--on-ground:var(--cream)}
-[data-project="rail"]{--project:var(--project-rail)}
-.ground-project[data-project="chancechat"]{--ground:var(--project-chancechat);--on-ground:var(--cream)}
-[data-project="chancechat"]{--project:var(--project-chancechat)}
 /* Colour rule (12 Nov 2026): only client projects and Oscar Shand / OVSBM work from before 2025 have their own colour.
    Everything else, including Ideas from 2025 on and every article, uses the house palette: gold, black, cream. */
 .ground-project[data-project="house"]{--ground:var(--gold);--on-ground:var(--black)}

@@ -9,7 +9,7 @@ const tmp = path.join(root, "social", ".site-data.mjs");
 fs.mkdirSync(path.dirname(tmp), { recursive: true }); fs.copyFileSync(path.join(root, "site/site-data.js"), tmp);
 const D = await import(pathToFileURL(tmp).href + "?" + Date.now());
 const cssDir = fs.readdirSync(path.join(root, "site/ds"))[0];
-const tokenCss = fs.readdirSync(path.join(root, "site/ds", cssDir, "tokens")).map((f) => fs.readFileSync(path.join(root, "site/ds", cssDir, "tokens", f), "utf8")).join("\n") + ["liquid-glass-v2.css", "v3.css", "project-colours.css"].map((f) => { try { return fs.readFileSync(path.join(root, "site", f), "utf8"); } catch { return ""; } }).join("\n");
+const tokenCss = ["master.css", "project-colours.css"].map((f) => fs.readFileSync(path.join(root, "site", f), "utf8")).join("\n");
 const colourOf = (key) => { if (!key || key === "house") return null; const m = new RegExp(`--project-${key}:\\s*([^;}]+)`).exec(tokenCss); return m ? m[1] : null; };
 const mon = (d) => { const [y, m] = String(d).split("-"); return m ? ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+m - 1] + " " + y : y; };
 const items = [

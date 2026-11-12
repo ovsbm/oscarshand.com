@@ -1,19 +1,18 @@
-/* Oscar Shand — home gallery and article pages (v3). Load after liquid-glass-v3.css.
-   Tiles are painted content (cream on the gold ground), never glass. Radii are concentric:
-   tile 28 (--r-lg), media inset 12 with radius 18 (--r-md). Palette stays gold / black / cream;
-   a project colour appears only as the kicker ink. */
+/* Oscar Shand · home gallery, article and archive pages. Load after the glass layer.
+   Tiles are painted content (cream on the gold ground), square, never glass. A project colour
+   appears only as the kicker ink, and only where the colour rule allows one. */
 
-/* ── filter: a painted segmented control ─────────────────────────────── */
-.gallery-filter{display:flex;flex-wrap:wrap;gap:6px;padding:4px;border-radius:var(--r-pill);box-shadow:inset 0 0 0 1.5px var(--hairline-strong)}
-.gallery-filter [data-glass="chip"]{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border:none;border-radius:var(--r-pill);background:transparent;color:var(--on-ground);font:var(--fw-medium) var(--fs-sm)/1 var(--font-body);cursor:pointer;box-shadow:none!important;transition:background-color var(--dur-2) var(--ease-out),color var(--dur-2) var(--ease-out)}
-.gallery-filter [data-glass="chip"]:hover{background:var(--hairline)}
-.gallery-filter [data-glass="chip"][aria-pressed="true"]{background:var(--on-ground)!important;color:var(--ground)!important}
+/* ── filter: text tabs with an ink underline ─────────────────────────── */
+.gallery-filter{display:flex;flex-wrap:wrap;gap:var(--sp-6)}
+.gallery-filter [data-glass="chip"]{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0;border:none;border-radius:0;background:transparent!important;color:var(--on-ground-soft)!important;font:var(--fw-medium) var(--fs-sm)/1 var(--font-body);cursor:pointer;box-shadow:none!important;transition:color var(--dur-2) var(--ease-out)}
+.gallery-filter [data-glass="chip"]:hover{color:var(--on-ground)!important}
+.gallery-filter [data-glass="chip"][aria-pressed="true"]{color:var(--on-ground)!important;box-shadow:inset 0 -2px 0 0 var(--on-ground)!important}
 .gallery-count{font:var(--fw-medium) var(--fs-3xs)/1 var(--font-body);font-variant-numeric:tabular-nums;opacity:.6}
 
 /* ── the grid: 12 columns; large tiles span all, medium half, small a quarter ── */
 .gallery{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--tile-gap,12px);grid-auto-flow:row dense}
-.gallery-tile{grid-column:span 6;position:relative;display:flex;flex-direction:column;gap:0;padding:12px;border-radius:var(--r-lg);background:var(--ground);color:var(--on-ground);text-decoration:none!important;overflow:hidden;isolation:isolate;transition:transform 520ms var(--ease-fluid),box-shadow 520ms var(--ease-fluid)}
-.gallery-tile:hover{transform:translate3d(0,-3px,0);box-shadow:0 18px 40px -24px color-mix(in srgb,var(--black) 45%,transparent)}
+.gallery-tile{grid-column:span 6;position:relative;display:flex;flex-direction:column;gap:0;padding:12px;background:var(--ground);color:var(--on-ground);text-decoration:none!important;overflow:hidden;isolation:isolate;}
+.gallery-tile:hover .gallery-title{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
 .gallery-tile:focus-visible{outline:2px solid var(--black);outline-offset:3px}
 .gallery-tile[data-tile="lg"]{grid-column:span 12;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:stretch}
 .gallery-tile[data-tile="lg"] .gallery-media{order:2;aspect-ratio:auto;min-height:clamp(320px,34vw,520px)}
@@ -22,13 +21,13 @@
 .gallery-tile[data-tile="lg"] .gallery-line{font:var(--type-intro);max-width:28ch}
 .gallery-tile[data-tile="sm"]{grid-column:span 3}
 
-.gallery-media{display:block;overflow:hidden;border-radius:var(--r-md);aspect-ratio:16/10;background:color-mix(in srgb,var(--black) 8%,transparent)}
+.gallery-media{display:block;overflow:hidden;aspect-ratio:16/10;background:color-mix(in srgb,var(--black) 8%,transparent)}
 .gallery-tile[data-tile="sm"] .gallery-media{aspect-ratio:4/3}
 .gallery-media img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform 900ms var(--ease-fluid)}
 .gallery-tile:hover .gallery-media img{transform:scale(1.03)}
 
 .gallery-text{display:flex;flex-direction:column;gap:8px;padding:18px 12px 8px}
-.gallery-kicker{font:var(--fw-semibold) var(--fs-2xs)/1.2 var(--font-body);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--project-ink,var(--on-ground-soft))}
+.gallery-kicker{font:var(--type-label);color:var(--project-ink,var(--on-ground-soft))}
 .gallery-title{font:var(--fw-display-medium) clamp(24px,2.2vw,34px)/1.06 var(--font-display);letter-spacing:var(--ls-heading);color:var(--on-ground);text-wrap:balance}
 .gallery-line{font:var(--type-body);color:var(--on-ground-soft);max-width:44ch;text-wrap:pretty}
 .gallery-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:10px;font:var(--type-body-sm);color:var(--on-ground-soft)}
@@ -48,16 +47,16 @@
   .gallery-tile,.gallery-tile[data-tile="lg"]{grid-column:span 12}
   .gallery-tile[data-tile="sm"]{grid-column:span 6}
   .gallery-filter{width:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}
-  .gallery-filter [data-glass="chip"]{flex:0 0 auto;height:36px;padding:0 13px}
+  .gallery-filter [data-glass="chip"]{flex:0 0 auto}
 }
 @media (prefers-reduced-motion:reduce){.gallery-tile,.gallery-media img,.gallery-arrow{transition:none!important}.gallery-tile:hover{transform:none}}
 
 /* ── article pages: one readable column on cream ─────────────────────── */
 .article-head{display:flex;flex-direction:column;gap:var(--sp-5);max-width:calc(var(--content-narrow,980px) + 2 * var(--page-gutter));padding-top:clamp(40px,6vw,96px);padding-bottom:clamp(32px,4vw,56px)}
-.article-kicker{font:var(--fw-semibold) var(--fs-2xs)/1.2 var(--font-body);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--project-ink,var(--on-ground-soft))}
+.article-kicker{font:var(--type-label);color:var(--project-ink,var(--on-ground-soft))}
 .article-kicker a{color:inherit}
 .article-byline{font:var(--type-body-sm);color:var(--on-ground-soft)}
-.article-hero{margin:0 auto;max-width:1200px;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:16/9;background:color-mix(in srgb,var(--black) 8%,transparent)}
+.article-hero{margin:0 auto;max-width:1200px;overflow:hidden;aspect-ratio:16/9;background:color-mix(in srgb,var(--black) 8%,transparent)}
 .article-hero img{width:100%;height:100%;object-fit:cover;object-position:top}
 .article-body{max-width:680px;margin:0 auto;padding-top:clamp(40px,5vw,72px);display:flex;flex-direction:column;gap:var(--sp-6)}
 .article-body p{font:var(--fw-regular) clamp(18px,1.3vw,20px)/1.6 var(--font-body);letter-spacing:var(--ls-body);color:var(--on-ground)}
@@ -65,7 +64,7 @@
 .article-body blockquote{margin:var(--sp-5) 0;padding:0 0 0 var(--sp-6);border-left:3px solid var(--project-ink,var(--on-ground));font:var(--fw-display-medium) clamp(24px,2.4vw,34px)/1.18 var(--font-display);letter-spacing:var(--ls-heading);color:var(--on-ground);text-wrap:balance}
 .article-after{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--tile-gap,12px);max-width:calc(1200px + 2 * var(--page-gutter));padding-top:var(--section-gap)}
 .article-after .article-rel{grid-column:span 7}
-.article-next{grid-column:span 5;display:flex;flex-direction:column;justify-content:flex-end;gap:var(--sp-4);padding:clamp(20px,2.6vw,40px);border-radius:var(--r-lg);background:var(--black);color:var(--cream);text-decoration:none!important;transition:transform 520ms var(--ease-fluid)}
+.article-next{grid-column:span 5;display:flex;flex-direction:column;justify-content:flex-end;gap:var(--sp-4);padding:clamp(20px,2.6vw,40px);background:var(--black);color:var(--cream);text-decoration:none!important;transition:transform 520ms var(--ease-fluid)}
 .article-next:hover{transform:translate3d(0,-3px,0)}
 .article-next .article-kicker{color:color-mix(in srgb,var(--cream) 72%,transparent)}
 .article-next-title{font:var(--fw-display-medium) clamp(26px,2.6vw,40px)/1.08 var(--font-display);letter-spacing:var(--ls-heading);text-wrap:balance}

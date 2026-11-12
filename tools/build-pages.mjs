@@ -20,7 +20,7 @@ const clip = (s, n = 158) => { s = String(s || "").replace(/\s+/g, " ").trim(); 
 const projects = D.PROJECTS || [], ideas = D.PERSONAL || [], articles = D.ARTICLES || [], archive = D.ARCHIVE || [];
 const urlFor = (p) => (ideas.includes(p) ? "/ideas/" : "/work/") + p.id;
 
-const nav = `<nav><a href="/">Home</a> · <a href="/work">Work</a> · <a href="/ideas">Ideas</a> · <a href="/articles">Articles</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/archive">Archive</a> · <a href="/documents/CV.html">CV</a></nav>`;
+const nav = `<nav><a href="/">Home</a> · <a href="/work">Work</a> · <a href="/ideas">Ideas</a> · <a href="/articles">Articles</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/archive">Archive</a></nav>`;
 const list = (items) => `<ul>${items.map((p) => `<li><a href="${urlFor(p)}">${esc(p.number)} ${esc(p.title)}</a>: ${esc(p.outcome)} (${esc(p.service)}, ${esc(p.year)})</li>`).join("")}</ul>`;
 const contact = `<p>Email: oscar.shand@gmail.com · <a href="${esc(D.CONTACT.linkedinUrl)}">LinkedIn</a> · ${esc(D.CONTACT.location)}</p>`;
 
@@ -87,5 +87,5 @@ for (const r of routes) {
 }
 const today = new Date().toISOString().slice(0, 10);
 fs.writeFileSync(path.join(root, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
-  + [...pages.map((p) => p === "/" ? p : p + "/"), "/documents/cv"].map((p) => `  <url><loc>${SITE}${p}</loc><lastmod>${today}</lastmod></url>`).join("\n") + `\n</urlset>\n`);
+  + [...pages.map((p) => p === "/" ? p : p + "/")].map((p) => `  <url><loc>${SITE}${p}</loc><lastmod>${today}</lastmod></url>`).join("\n") + `\n</urlset>\n`);
 console.log(`Wrote ${pages.length} pages and sitemap.xml`);
