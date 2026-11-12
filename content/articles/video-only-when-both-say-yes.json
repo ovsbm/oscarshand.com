@@ -1,0 +1,13 @@
+{
+  "number": "",
+  "title": "Video only starts when both people say yes",
+  "slug": "video-only-when-both-say-yes",
+  "date": "2026-11",
+  "published": false,
+  "pinned": 0,
+  "dek": "Designing a random video chat app around consent, and why the server has to enforce it.",
+  "tag": "Product Design & Safety",
+  "image": "assets/chancechat-consent.webp",
+  "related": "chancechat",
+  "body": "Random video chat apps usually switch the camera on the moment two strangers are matched. Moderation catches up afterwards, if it catches up at all. That first second is where things go wrong, and it isn't an accident. It's a product decision someone made because it keeps people swiping.\n\nChanceChat started with a simple question: what if the camera came last? You're matched one to one, you talk in text, and either of you can ask to switch to video. Nothing happens until both of you have said yes.\n\n## An interface isn't a promise\n\nThe part I'm proudest of is the part nobody sees. It's easy to hide a video button until both people agree. It's just as easy for a modified app to ignore that button. So the consent lives on the server: it drops every video signal until both people have accepted, and the browser only asks for the camera after that. Skipping the step isn't possible, because the step isn't in the app.\n\n> Skipping the step isn't possible, because the step isn't in the app.\n\n## Safety that works when nobody is watching\n\nMost of the other safety features came from the same thinking. There's an age check before anyone is matched. While video is on, each browser sends a still frame to a moderation hook every five seconds, and a flag ends the call. Reports keep the last 30 lines of the chat, so there's context. Three reports from different devices within a day trigger a 24-hour ban, without waiting for a person to review it.\n\nAnd the server refuses to start in production until a real age check and a real moderator are connected. I wrote that rule for myself as much as anyone. When you're excited about something you've built, it's tempting to launch with placeholders and promise to fix them later. This way that option doesn't exist.\n\n## Where it stands\n\nChanceChat is a working prototype, not a public service. It has 21 automated tests and a two-browser video test, and it does what I set out to prove: you can build this kind of app with safety in the protocol rather than bolted on afterwards.\n\nI think that lesson goes well beyond video chat. Whenever a product puts people in front of strangers, the safest defaults have to be the ones the product can't skip. If you're working on something like this and want to compare notes, I'd be glad to talk."
+}

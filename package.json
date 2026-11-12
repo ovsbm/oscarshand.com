@@ -1,0 +1,6 @@
+{
+  "name": "oscarshand-site",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node tools/build.mjs" }
+}

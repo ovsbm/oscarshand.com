@@ -1,0 +1,103 @@
+{
+  "number": "0.13",
+  "title": "Pronto Coffee",
+  "slug": "pronto-coffee",
+  "date": "2026-02",
+  "end": "2026-07",
+  "client": true,
+  "colour": "pronto",
+  "pinned": 0,
+  "large": false,
+  "published": true,
+  "service": "Web & Digital",
+  "outcome": "Venue enquiries arrive ready to quote",
+  "summary": "A Webflow website with hand-coded interactions, packaging and marketing materials for a self-serve coffee business rolling out nationwide. The logo was already designed; everything around it is mine: the site that sells machines to venues and sends customers to their nearest cup, the cup and bag packaging, the unit wraps and the posters. Pronto shares a director with BF Property.",
+  "image": "assets/pronto-site-hero.webp",
+  "thumb": "assets/pronto-site-laptop.webp",
+  "meta": [
+    {
+      "label": "Client",
+      "value": "Pronto Coffee NZ"
+    },
+    {
+      "label": "Website",
+      "value": "prontocoffee.co.nz"
+    },
+    {
+      "label": "Service",
+      "value": "Web & Digital"
+    }
+  ],
+  "stats": [
+    {
+      "value": "2",
+      "unit": "",
+      "label": "Audiences, one page"
+    },
+    {
+      "value": "4",
+      "unit": "",
+      "label": "Venue types, each with its own pitch"
+    },
+    {
+      "value": "24",
+      "unit": "hr",
+      "label": "Proposal turnaround promised to venues"
+    }
+  ],
+  "sections": [
+    {
+      "kind": "Challenge",
+      "head": "Two audiences, one page",
+      "body": "Pronto puts self-serve bean-to-cup coffee units into petrol stations, offices, universities and retail across New Zealand. It was a new business with a logo and nothing else: no website, no packaging, nothing for the side of a unit or the counter beside it. Venues host a unit at no upfront cost and earn a share of every cup; customers just want a coffee in under 60 seconds. Those are different conversations with different proof points, and both had to live on the same site without either getting buried."
+    },
+    {
+      "kind": "Goal",
+      "head": "Make the split obvious and the enquiry easy",
+      "body": "Carry the supplied logo onto the cup, the bags and the units so the product looks like one thing wherever it turns up, then give each audience a clear path from the first screen, Find a Pronto for customers and Put Pronto in your space for venues. Keep the machine specs and the NZ-roasted, fair trade coffee story available without slowing anyone down, and build the interactions by hand so the site behaves exactly the way it should rather than the way a template allows."
+    },
+    {
+      "kind": "Result",
+      "head": "A site that does the qualifying",
+      "body": "The logo now sits on the cup, the unit wraps, three bag designs and the posters, with the campaign line Sip. Smile. Repeat. running across all of it. Custom JavaScript drives the location finder, the spec switcher, the scrolling marquees and the proposal form. Venue enquiries arrive with enough detail to quote from, with a reply promised within 24 hours. Customers find their nearest cup by suburb or postcode, and anyone outside the current rollout can leave their details to hear when Pronto arrives."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/pronto-poster.webp",
+      "alt": "Sip. Smile. Repeat. campaign poster set against a Christchurch skyline at dusk",
+      "span": 12
+    },
+    {
+      "src": "assets/pronto-machine-detail.webp",
+      "alt": "A Pronto unit against the brand orange, with a cup and beans",
+      "span": 6
+    },
+    {
+      "src": "assets/pronto-webposter.webp",
+      "alt": "Web banner: the Pronto logo, a unit and a cup against the Christchurch estuary at sunset",
+      "span": 6
+    },
+    {
+      "src": "assets/pronto-bags.webp",
+      "alt": "Pronto coffee bag packaging in three roasts",
+      "span": 12
+    },
+    {
+      "src": "assets/pronto-coffee-site-full.webp",
+      "alt": "The full Pronto Coffee home page: Sip. Smile. Repeat. hero, nearest-Pronto map, venue proposal form, machine specs, FAQ and footer",
+      "span": 12
+    }
+  ],
+  "points": [
+    "Cup and bag packaging built around the supplied logo",
+    "Vending unit wraps and campaign posters",
+    "Website designed and built in Webflow",
+    "Hand-coded interactions: location finder, spec switcher, marquee bands, FAQ",
+    "Dual-path structure for B2B venues and retail customers",
+    "Venue pitches for petrol stations, offices, universities and retail",
+    "Proposal form built for qualified venue enquiries",
+    "Notify-me capture for areas not yet covered",
+    "Product photography direction and page composition"
+  ]
+}

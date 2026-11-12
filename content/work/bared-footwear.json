@@ -1,0 +1,94 @@
+{
+  "number": "0.08",
+  "title": "Bared Footwear",
+  "slug": "bared-footwear",
+  "date": "2023-04",
+  "end": "2024-02",
+  "client": true,
+  "colour": "bared",
+  "pinned": 0,
+  "large": false,
+  "published": true,
+  "service": "Social Media & Content",
+  "outcome": "Content on three platforms through a growth phase",
+  "summary": "Social media and marketing content for a Melbourne footwear brand during a busy growth phase. I was on the retail team at the same time, which is where I contributed to the Lightspeed to Shopify Plus migration.",
+  "image": "assets/bared-content-hero.webp",
+  "thumb": "assets/bared-content-tile.webp",
+  "meta": [
+    {
+      "label": "Client",
+      "value": "Bared Footwear"
+    },
+    {
+      "label": "Website",
+      "value": "baredfootwear.com"
+    },
+    {
+      "label": "Service",
+      "value": "Social Media & Content"
+    }
+  ],
+  "stats": [
+    {
+      "value": "3",
+      "unit": "",
+      "label": "Platforms managed"
+    },
+    {
+      "value": "11",
+      "unit": "mo",
+      "label": "Through a growth phase"
+    },
+    {
+      "value": "1",
+      "unit": "",
+      "label": "Shopify Plus migration, from the retail side"
+    }
+  ],
+  "sections": [
+    {
+      "kind": "Challenge",
+      "head": "Keeping the brand sharp while scaling fast",
+      "body": "Bared was growing quickly — new stores, new product lines, a lot happening at once. Alongside that, they were migrating their eCommerce platform from Lightspeed to Shopify Plus, which touched everything from inventory to reporting."
+    },
+    {
+      "kind": "Goal",
+      "head": "Consistent content and a cleaner digital foundation",
+      "body": "Keep the social presence running consistently across Instagram, Facebook and TikTok, with content that feels intentional rather than churned out to fill a grid, and help the retail team through the platform change."
+    },
+    {
+      "kind": "Result",
+      "head": "Stronger content, better systems",
+      "body": "I produced and managed content across all three platforms, including product photography and video. As part of the retail role I contributed to the Lightspeed to Shopify Plus migration, improving how the store handled inventory, reporting and overall functionality. Being on the shop floor meant the content was more genuine and the marketing better informed."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/lite/bared-instagram-posts.webp",
+      "alt": "Bared Footwear Instagram posts: B Corp month, long weekend trading hours and a vote-to-win sale carousel",
+      "span": 12
+    },
+    {
+      "src": "assets/bared-phone-story.webp",
+      "alt": "A Bared Instagram story on a phone",
+      "span": 6
+    },
+    {
+      "src": "assets/bared-phone-grid.webp",
+      "alt": "The Bared Instagram grid on a phone",
+      "span": 6
+    },
+    {
+      "src": "assets/lite/bared-instagram-grids.webp",
+      "alt": "Three baredfootwear Instagram grids across a season of content",
+      "span": 12
+    }
+  ],
+  "points": [
+    "Social media management across Instagram, Facebook and TikTok",
+    "Product photography and video content production",
+    "Campaign content aligned to brand direction",
+    "Lightspeed → Shopify Plus migration, as part of the retail role",
+    "In-store fitting, customer service and product knowledge"
+  ]
+}

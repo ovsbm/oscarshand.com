@@ -1,0 +1,469 @@
+# Studio CMS for oscarshand.com (Sveltia CMS). Content is saved as JSON in /content.
+# Sign-in: GitHub, through Netlify's OAuth provider (Netlify › Site configuration › Access & security › OAuth).
+backend:
+  name: github
+  repo: ovsbm/oscarshand.com
+  branch: main
+  commit_messages:
+    create: Add {{collection}} “{{slug}}”
+    update: Update {{collection}} “{{slug}}”
+    delete: Remove {{collection}} “{{slug}}”
+    uploadMedia: Upload “{{path}}”
+    deleteMedia: Delete “{{path}}”
+site_url: https://oscarshand.com
+display_url: https://oscarshand.com
+media_folder: site/assets/uploads
+public_folder: assets/uploads
+media_libraries:
+  default:
+    config:
+      max_file_size: 8000000
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 2400
+          height: 2400
+collections:
+- name: articles
+  label: Articles
+  label_singular: Article
+  description: Writing. Published articles get the next catalogue number and appear on the home page.
+  folder: content/articles
+  format: json
+  extension: json
+  create: true
+  delete: true
+  slug: '{{fields.slug}}'
+  identifier_field: title
+  summary: '{{number}} · {{title}}'
+  sortable_fields:
+    fields:
+    - date
+    - number
+    - title
+    default:
+      field: date
+      direction: descending
+  fields:
+  - &id001
+    name: title
+    label: Title
+    widget: string
+  - &id002
+    name: slug
+    label: Web address
+    widget: string
+    hint: Lowercase words joined by hyphens. Becomes part of the page address; don't change it once published.
+    pattern:
+    - ^[a-z0-9-]+$
+    - Lowercase letters, numbers and hyphens only
+  - &id003
+    name: number
+    label: Catalogue number
+    widget: string
+    required: false
+    pattern:
+    - ^(0\.\d{2,3})?$
+    - Use 0.23 style numbers
+    hint: Leave blank and the site gives it the next free number when you publish (oscarshand.com/next-number.txt shows it). Never reuse or change a published number.
+  - &id004
+    name: date
+    label: Date
+    widget: string
+    pattern:
+    - ^\d{4}(-(0[1-9]|1[0-2]))?$
+    - Use YYYY-MM, for example 2026-11 (or just the year if you don't know the month)
+    hint: Month it started, as YYYY-MM
+  - &id005
+    name: published
+    label: Published
+    widget: boolean
+    default: true
+    hint: 'Off keeps it as a draft: saved here, not on the site'
+  - name: pinned
+    label: Home page position
+    widget: number
+    required: false
+    value_type: int
+    default: 0
+    min: 0
+    hint: 1 puts it first on the home page. 0 = sorted by date
+  - name: dek
+    label: Standfirst
+    widget: text
+    hint: One or two sentences under the title
+  - name: tag
+    label: Topic
+    widget: string
+    required: false
+    default: Essay
+  - name: image
+    label: Image
+    widget: image
+    required: false
+    media_folder: /site/assets/uploads
+    public_folder: assets/uploads
+  - name: related
+    label: Related project
+    widget: string
+    required: false
+    hint: The web address of a Work or Ideas page, for example south-island-atlas
+  - name: body
+    label: Article
+    widget: text
+    hint: 'Plain paragraphs with a blank line between them. Start a line with ## for a heading, or > for the pull quote.'
+- name: work
+  label: Work
+  label_singular: Project
+  description: Client and studio projects.
+  folder: content/work
+  format: json
+  extension: json
+  create: true
+  delete: true
+  slug: '{{fields.slug}}'
+  identifier_field: title
+  summary: '{{number}} · {{title}}'
+  sortable_fields:
+    fields:
+    - date
+    - number
+    - title
+    default:
+      field: date
+      direction: descending
+  fields: &id006
+  - *id001
+  - *id002
+  - *id003
+  - *id004
+  - *id005
+  - name: end
+    label: End date
+    widget: string
+    required: false
+    pattern:
+    - ^(now|\d{4}(-(0[1-9]|1[0-2]))?)$
+    - YYYY-MM, or now
+    hint: Leave blank for a one-off; YYYY-MM when it finished; now if it's ongoing
+  - &id007
+    name: client
+    label: Client project
+    widget: boolean
+    default: false
+    hint: Client work keeps its own colour. Your own work from 2025 on always uses gold, black and cream.
+  - &id008
+    name: colour
+    label: Colour
+    widget: select
+    options:
+    - label: 'House: gold, black, cream'
+      value: house
+    - label: Aubrica (green)
+      value: aubrica
+    - label: BF Property
+      value: bf-property
+    - label: Pronto Coffee (orange)
+      value: pronto
+    - label: M4 Photography (sky blue)
+      value: m4
+    - label: Nichols | Polson
+      value: nichols
+    - label: Bared Footwear
+      value: bared
+    - label: Shop OVSBM (lemon)
+      value: shop
+    - label: Shoe care study (burgundy)
+      value: shoecare
+    - label: Own colour (pick below)
+      value: own
+    default: house
+  - &id009
+    name: colour_hex
+    label: Own colour
+    widget: color
+    required: false
+    hint: Only used when Colour is set to Own colour
+  - name: pinned
+    label: Home page position
+    widget: number
+    required: false
+    value_type: int
+    default: 0
+    min: 0
+    hint: 1 puts it first on the home page, 2 second, and so on. 0 = sorted by date
+  - name: large
+    label: Large tile on the home page
+    widget: boolean
+    default: false
+  - name: service
+    label: Service
+    widget: string
+    hint: For example Brand & Web
+  - name: outcome
+    label: One-line outcome
+    widget: string
+    hint: What changed, in a sentence. Shows on cards
+  - name: summary
+    label: Summary
+    widget: text
+  - name: image
+    label: Hero image
+    widget: image
+    media_folder: /site/assets/uploads
+    public_folder: assets/uploads
+    choose_url: false
+  - name: thumb
+    label: Card image
+    widget: image
+    required: false
+    hint: Defaults to the hero image
+    media_folder: /site/assets/uploads
+    public_folder: assets/uploads
+  - name: live
+    label: Live link
+    widget: object
+    required: false
+    collapsed: true
+    fields:
+    - name: href
+      label: Address
+      widget: string
+      required: false
+    - name: label
+      label: Button label
+      widget: string
+      required: false
+      default: Open it
+  - name: meta
+    label: Details row
+    widget: list
+    required: false
+    hint: Client, Website, Location… The date and catalogue number are added for you
+    fields:
+    - name: label
+      label: Label
+      widget: string
+    - name: value
+      label: Value
+      widget: string
+  - name: stats
+    label: Numbers
+    widget: list
+    required: false
+    max: 4
+    fields:
+    - name: value
+      label: Number
+      widget: string
+    - name: unit
+      label: Unit
+      widget: string
+      required: false
+    - name: label
+      label: What it counts
+      widget: string
+  - name: sections
+    label: Story
+    widget: list
+    required: false
+    fields:
+    - name: kind
+      label: Kind
+      widget: select
+      options:
+      - Challenge
+      - Goal
+      - Approach
+      - Result
+      - Concept
+    - name: head
+      label: Heading
+      widget: string
+    - name: body
+      label: Text
+      widget: text
+  - name: gallery
+    label: Gallery
+    widget: list
+    required: false
+    fields:
+    - name: src
+      label: Image
+      widget: image
+      media_folder: /site/assets/uploads
+      public_folder: assets/uploads
+    - name: alt
+      label: Describe the image
+      widget: string
+    - name: span
+      label: Width
+      widget: select
+      options:
+      - label: Full width
+        value: 12
+      - label: Half width
+        value: 6
+      default: 12
+  - name: points
+    label: What I did
+    widget: list
+    required: false
+    field:
+      name: point
+      label: Point
+      widget: string
+- name: ideas
+  label: Ideas
+  label_singular: Idea
+  description: Your own tools, maps and concepts.
+  folder: content/ideas
+  format: json
+  extension: json
+  create: true
+  delete: true
+  slug: '{{fields.slug}}'
+  identifier_field: title
+  summary: '{{number}} · {{title}}'
+  sortable_fields:
+    fields:
+    - date
+    - number
+    - title
+    default:
+      field: date
+      direction: descending
+  fields: *id006
+- name: archive
+  label: Archive
+  label_singular: Archive piece
+  description: Diploma work from 2021 to 2022.
+  folder: content/archive
+  format: json
+  extension: json
+  create: true
+  delete: true
+  slug: '{{fields.slug}}'
+  identifier_field: title
+  summary: '{{number}} · {{title}}'
+  sortable_fields:
+    fields:
+    - date
+    - number
+    - title
+    default:
+      field: date
+      direction: descending
+  fields:
+  - *id001
+  - *id002
+  - *id003
+  - *id004
+  - *id005
+  - *id007
+  - *id008
+  - *id009
+  - name: caption
+    label: Caption
+    widget: text
+    hint: One sentence about the piece
+  - name: image
+    label: Image
+    widget: image
+    media_folder: /site/assets/uploads
+    public_folder: assets/uploads
+  - name: alt
+    label: Describe the image
+    widget: string
+    required: false
+- name: settings
+  label: Site text
+  files:
+  - name: site
+    label: Site text
+    file: content/site.json
+    fields:
+    - name: HOME
+      label: Home page
+      widget: object
+      fields:
+      - name: intro
+        label: Intro line
+        widget: text
+      - name: archiveNote
+        label: Archive note
+        widget: text
+    - name: HERO
+      label: Name and availability
+      widget: object
+      fields:
+      - name: lead
+        label: Name
+        widget: string
+      - name: location
+        label: Location
+        widget: string
+      - name: statement
+        label: Statement
+        widget: text
+      - name: availability
+        label: Availability
+        widget: string
+      - name: video
+        label: Home video
+        widget: file
+        required: false
+    - name: ABOUT
+      label: About page
+      widget: object
+      fields:
+      - name: lead
+        label: Lead
+        widget: text
+      - name: paragraphs
+        label: Paragraphs
+        widget: list
+        field:
+          name: p
+          label: Paragraph
+          widget: text
+      - name: references
+        label: Worked with
+        widget: list
+        field:
+          name: name
+          label: Name
+          widget: string
+    - name: DISCIPLINES
+      label: What I do
+      widget: list
+      fields:
+      - name: title
+        label: Title
+        widget: string
+      - name: body
+        label: Text
+        widget: text
+    - name: CONTACT
+      label: Contact details
+      widget: object
+      hint: Keep this to what you're happy for anyone to see
+      fields:
+      - name: email
+        label: Email
+        widget: string
+      - name: phone
+        label: Phone
+        widget: string
+        required: false
+        hint: Leave blank to keep it off the site
+      - name: location
+        label: Location
+        widget: string
+      - name: linkedin
+        label: LinkedIn (shown)
+        widget: string
+      - name: linkedinUrl
+        label: LinkedIn address
+        widget: string

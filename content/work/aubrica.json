@@ -1,0 +1,120 @@
+{
+  "number": "0.16",
+  "title": "Aubrica",
+  "slug": "aubrica",
+  "date": "2026-05",
+  "end": "2026-11",
+  "client": true,
+  "colour": "aubrica",
+  "pinned": 4,
+  "large": false,
+  "published": true,
+  "service": "Operations, Web App & App Design",
+  "outcome": "An order tracker that says what to do next",
+  "summary": "An online store shipping posture and wellness products to 61 countries. Until November 2026 I ran its operations and customer service, and built the Order Tracker: a web app linked to Shopify and carrier tracking that puts every order in one queue and says what it needs next. AI drafted the routine replies and summarised the notes, so the time went on the orders that needed a decision. Alongside it, I designed the store as a native iPhone app.",
+  "image": "assets/aubrica-dashboard-hero.webp",
+  "thumb": "assets/aubrica-dashboard-laptop.webp",
+  "meta": [
+    {
+      "label": "Client",
+      "value": "Aubrica"
+    },
+    {
+      "label": "Website",
+      "value": "aubrica.com"
+    },
+    {
+      "label": "Role",
+      "value": "Operations & Customer Service, to Nov 2026"
+    },
+    {
+      "label": "Service",
+      "value": "Operations, Web App & App Design"
+    }
+  ],
+  "stats": [
+    {
+      "value": "3",
+      "unit": "",
+      "label": "Views: Map, Shipping and Finance"
+    },
+    {
+      "value": "1550",
+      "unit": "",
+      "label": "Orders in the first import"
+    },
+    {
+      "value": "61",
+      "unit": "",
+      "label": "Countries shipped to"
+    }
+  ],
+  "sections": [
+    {
+      "kind": "Challenge",
+      "head": "Four systems, no single view",
+      "body": "Aubrica sells through Shopify and fulfilled through CJ Dropshipping until October 2026, when it moved to a new partner, with customers across the US, Canada, Europe, the Middle East and Australasia. Every order passes through Shopify for the order and its tags, CJ for the pick and the cost, a carrier for the parcel and a support inbox for what the customer has said. Knowing what to do next meant opening all four. Replies depended on who was answering, and nothing showed how the business was running as a whole."
+    },
+    {
+      "kind": "Goal",
+      "head": "One screen that says what to do next",
+      "body": "Write the support process down so every reply is consistent, then build a tool around it: one view of every active order with its stage and its next action, the shipping and finance picture alongside, running on live data rather than exports."
+    },
+    {
+      "kind": "Result",
+      "head": "The Order Tracker",
+      "body": "The Order Tracker is a web app on Netlify. A serverless function syncs Shopify orders and 17TRACK carrier tracking and keeps its state between runs, so nothing is fetched twice. The Map view plots every customer and sorts the queue by what needs action: escalate to owner, needs phone, needs customs ID, fix in CJ, ready for CJ pick, tracking stalled. Each order opens to a pick-readiness checklist taken from the SOP, its tags, its contact timeline and a deep link into Shopify. Shipping lists every parcel not yet delivered, exceptions first. Finance shows net revenue, refunds, cost of goods and margin by week, country and product. Behind it, support runs to the written process: replies within 1 business day, the same day for cancellations, refunds and urgent shipping, a template for every common case, and country-by-country rules for holding orders with missing details. AI drafts the routine replies from those templates and turns long support notes into a one-line next action; a person reads every reply before it goes."
+    },
+    {
+      "kind": "Concept",
+      "head": "The store as an iPhone app",
+      "body": "Most customers shop on their phones, and a returning customer has to find their way back through the browser every time. I designed the store as a native iOS app on Aubrica's own design system: a clickable prototype from home through shop, product and bag to account, in light and dark mode, with glass navigation and the 60-day money-back guarantee kept in view."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/aubrica-tracker-map.webp",
+      "alt": "The Order Tracker map view: active orders counted by stage, the queue, and every customer plotted worldwide",
+      "span": 12
+    },
+    {
+      "src": "assets/aubrica-tracker-order.webp",
+      "alt": "An order opened: escalation flag, tags, the pick-readiness checklist and links into Shopify and CJ",
+      "span": 6
+    },
+    {
+      "src": "assets/aubrica-tracker-shipping.webp",
+      "alt": "Shipping view: every parcel not yet delivered, exceptions first, with the latest carrier update",
+      "span": 6
+    },
+    {
+      "src": "assets/aubrica-tracker-finance.webp",
+      "alt": "Finance view: net revenue, refunds, orders and the weekly revenue chart",
+      "span": 6
+    },
+    {
+      "src": "assets/aubrica-tracker-dark.webp",
+      "alt": "The map view in dark mode",
+      "span": 6
+    },
+    {
+      "src": "assets/aubrica-app.webp",
+      "alt": "The app concept: the Aubrica store as a native iPhone app, with the PostureCue hero, the money-back guarantee, reviews and a glass tab bar",
+      "span": 12
+    }
+  ],
+  "points": [
+    "Operations and customer service, day to day, until November 2026",
+    "Order Tracker web app: Map, Shipping and Finance views",
+    "Serverless sync of Shopify and 17TRACK, with state kept between runs",
+    "Queue stages built from the team's own order tags",
+    "Pick-readiness checklist for every order, taken from the SOP",
+    "Finance: net revenue, refunds, cost of goods and margin by week, country and product",
+    "Support process: reply times, templates, hold rules by country and a new-cases log",
+    "AI-drafted replies and note summaries, reviewed before sending",
+    "Password-protected, with customer addresses kept out of the browser",
+    "PostureCue product landing page",
+    "Fulfilment moved from CJ Dropshipping to a new partner in October 2026",
+    "iOS app concept: clickable prototype from home to account, light and dark mode"
+  ]
+}

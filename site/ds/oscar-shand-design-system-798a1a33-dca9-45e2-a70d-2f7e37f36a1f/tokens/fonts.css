@@ -1,0 +1,9 @@
+/* Webfonts. Neue Haas Grotesk sets display; Inter sets body and UI.
+   NHG ships here in two weights only — 65 Medium and 75 Bold. Do not ask
+   the display family for a weight it does not have; it will synthesise
+   and the headline will look wrong. */
+@font-face{font-family:"Neue Haas Grotesk";src:url("../assets/fonts/NHaasGroteskTXPro-65Md.woff2") format("woff2"),url("../assets/fonts/NHaasGroteskTXPro-65Md.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Haas Grotesk";src:url("../assets/fonts/NHaasGroteskTXPro-75Bd.woff2") format("woff2"),url("../assets/fonts/NHaasGroteskTXPro-75Bd.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+
+@font-face{font-family:"Inter";src:url("../assets/fonts/Inter-Variable.woff2") format("woff2"),url("../assets/fonts/Inter-Variable.ttf") format("truetype-variations"),url("../assets/fonts/Inter-Variable.ttf") format("truetype");font-weight:100 900;font-stretch:100%;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter";src:url("../assets/fonts/Inter-Variable-Italic.woff2") format("woff2"),url("../assets/fonts/Inter-Variable-Italic.ttf") format("truetype-variations"),url("../assets/fonts/Inter-Variable-Italic.ttf") format("truetype");font-weight:100 900;font-stretch:100%;font-style:italic;font-display:swap}

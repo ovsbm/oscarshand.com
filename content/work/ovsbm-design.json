@@ -1,0 +1,90 @@
+{
+  "number": "0.09",
+  "title": "OVSBM Design",
+  "slug": "ovsbm-design",
+  "date": "2023-04",
+  "end": "now",
+  "client": false,
+  "colour": "house",
+  "pinned": 0,
+  "large": false,
+  "published": true,
+  "service": "Digital Design",
+  "outcome": "A studio brand credible enough to send without explanation",
+  "summary": "My own studio brand, rebuilt as I moved from a student portfolio to running a business with real clients.",
+  "image": "assets/ovsbm-mark-hero.webp",
+  "thumb": "assets/ovsbm-mark.webp",
+  "meta": [
+    {
+      "label": "Client",
+      "value": "OVSBM Design"
+    },
+    {
+      "label": "Website",
+      "value": "ovsbm.design"
+    },
+    {
+      "label": "Service",
+      "value": "Digital Design"
+    }
+  ],
+  "stats": [
+    {
+      "value": "3",
+      "unit": "yr",
+      "label": "Running the studio"
+    },
+    {
+      "value": "6",
+      "unit": "",
+      "label": "Client projects"
+    },
+    {
+      "value": "2",
+      "unit": "",
+      "label": "Rebuilds, and counting"
+    }
+  ],
+  "sections": [
+    {
+      "kind": "Challenge",
+      "head": "Outgrowing your own brand",
+      "body": "My original portfolio was built when I was finishing my diploma. It did its job at the time, but once I was running OVSBM Design as a proper business with real clients and retainers, it had stopped representing what I actually do."
+    },
+    {
+      "kind": "Goal",
+      "head": "A brand that works as hard as the work itself",
+      "body": "Something minimal and credible enough to send a client without any explanation. Strip the portfolio back to what matters, be more intentional with the copy, and give the identity a clear point of view without overdoing it."
+    },
+    {
+      "kind": "Result",
+      "head": "A cleaner, more confident presence",
+      "body": "The site is quieter, more focused, and a better reflection of how I approach the work. It keeps evolving as the business does, and this site, oscarshand.com, is the latest rebuild."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/ovsbm-guidelines-1.webp",
+      "alt": "The 2026 OVSBM Design visual identity guidelines, opening pages",
+      "span": 6
+    },
+    {
+      "src": "assets/ovsbm-guidelines-3.webp",
+      "alt": "The 2026 visual identity guidelines: colour and custom applications",
+      "span": 6
+    },
+    {
+      "src": "assets/ovsbm-studios-building.webp",
+      "alt": "ovsbm studios signage on a glass office building",
+      "span": 12
+    }
+  ],
+  "points": [
+    "Full brand identity refresh",
+    "Visual identity guidelines, 2026 edition",
+    "Earlier portfolio built in Webflow; this site hand-built on its own design system",
+    "Copywriting across every page",
+    "Case study framework and project page layout",
+    "Visual system and asset library"
+  ]
+}

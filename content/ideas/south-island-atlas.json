@@ -1,0 +1,100 @@
+{
+  "number": "0.20",
+  "title": "South Island Atlas",
+  "slug": "south-island-atlas",
+  "date": "2026-10",
+  "end": "",
+  "client": false,
+  "colour": "house",
+  "pinned": 1,
+  "large": true,
+  "published": true,
+  "service": "Mapping & Planning",
+  "outcome": "Christchurch as the hub of a connected South Island, with a rail plan to start on",
+  "summary": "An interactive atlas that makes the case for connected transport in Greater Christchurch, with the city as the hub of the South Island. A ten-page story sets out what is already built and what is planned. The plan starts with commuter trains from Rolleston and Rangiora on the existing track, ending at Pilgrim Place for the 2027 trial, then growing into an all-day service. The history view traces the South Island's lines in use today and the branch lines and tramways that came before them. It began as the Canterbury Rail Atlas.",
+  "image": "assets/rail-atlas-overview.webp",
+  "thumb": "assets/rail-atlas-overview.webp",
+  "live": {
+    "href": "https://oscarshand-atlas.netlify.app/",
+    "label": "Open the atlas"
+  },
+  "meta": [
+    {
+      "label": "Client",
+      "value": "Personal"
+    },
+    {
+      "label": "Location",
+      "value": "Christchurch and the South Island"
+    },
+    {
+      "label": "Service",
+      "value": "Mapping & Planning"
+    }
+  ],
+  "stats": [
+    {
+      "value": "9",
+      "unit": "",
+      "label": "Stations in the first stage"
+    },
+    {
+      "value": "36,230",
+      "unit": "",
+      "label": "Residents within 800 m of a station, stages 1–2"
+    },
+    {
+      "value": "667",
+      "unit": "",
+      "label": "South Island stations and stopping places mapped"
+    }
+  ],
+  "sections": [
+    {
+      "kind": "Challenge",
+      "head": "A debate spread across a dozen reports",
+      "body": "Passenger rail in Christchurch has been studied, voted on and promised for years, from Aurecon's 2014 assessment to ECan's business case vote in 2025 and a commuter trial due in 2027. The evidence sits in separate reports and datasets, and none of them shows the track, the land, the people and the buses together."
+    },
+    {
+      "kind": "Goal",
+      "head": "Start on the track that exists",
+      "body": "Put the existing infrastructure on one map, then draw a plan that could start soon and grow: a peak-hour pilot on KiwiRail's track, stations where the bus and MRT networks meet the rail, and an honest look at what the first central stop can and can't do."
+    },
+    {
+      "kind": "Result",
+      "head": "An atlas with a plan in it",
+      "body": "The atlas has views for the region, history, public land, industry, track, buses and traffic, stations, Pilgrim Place, alternatives and infrastructure. The alternatives view sketches a trench under Manchester St to a station at Tuam St, a block from the Bus Interchange and the stadium. The infrastructure view, built on Christchurch City Council's open datasets, is moving to live council data, and the history view traces every South Island branch line with its stations and junctions. The existing infrastructure comes from council, ECan, KiwiRail and LINZ open data; the plan, the regional and historic layers and the writing are mine."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/south-island-atlas-story.webp",
+      "alt": "The story view: What Christchurch could be, the first of ten pages, with the case in four numbers",
+      "span": 12
+    },
+    {
+      "src": "assets/rail-atlas-overview.webp",
+      "alt": "The atlas overview: two lines from Rolleston and Rangiora meeting at Pilgrim Place, with the plan's key numbers alongside",
+      "span": 12
+    },
+    {
+      "src": "assets/rail-atlas-history.webp",
+      "alt": "The history view: the South Island's lines today and the branch lines that came before them",
+      "span": 6
+    },
+    {
+      "src": "assets/rail-atlas-stations.webp",
+      "alt": "The station plan: stations by stage from Rolleston and Rangiora to Pilgrim Place, with estimated running times",
+      "span": 6
+    }
+  ],
+  "points": [
+    "Two lines from Rolleston and Rangiora, staged from a peak-hour pilot to an all-day service",
+    "Station plan with catchments: residents, jobs and bus stops within walking distance",
+    "Pilgrim Place first stop, with the walking gap to the Bus Interchange measured",
+    "Manchester St trench and Tuam St station, sketched for the first time",
+    "Council infrastructure layers: pipes, flood and liquefaction (moving to live council data)",
+    "South Island lines today and the historic branch network",
+    "Built on open data from council, ECan, KiwiRail and LINZ"
+  ]
+}

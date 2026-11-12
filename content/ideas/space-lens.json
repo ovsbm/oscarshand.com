@@ -1,0 +1,86 @@
+{
+  "number": "0.17",
+  "title": "Space Lens",
+  "slug": "space-lens",
+  "date": "2026-10",
+  "end": "",
+  "client": false,
+  "colour": "house",
+  "pinned": 0,
+  "large": false,
+  "published": true,
+  "service": "Software Design",
+  "outcome": "See what fills a drive, and clean it without anything leaving the machine",
+  "summary": "A disk visualiser and cleaner for Mac, Windows and Linux, set in my own design system. It can review every device I own from one window, over my own network, and nothing leaves the machines. A native iPhone and iPad companion, written in SwiftUI, is in development.",
+  "image": "assets/space-lens-lens.webp",
+  "thumb": "assets/space-lens-dive.webp",
+  "meta": [
+    {
+      "label": "Client",
+      "value": "Personal"
+    },
+    {
+      "label": "Platform",
+      "value": "Mac, Windows, Linux and iOS"
+    },
+    {
+      "label": "Service",
+      "value": "Software Design"
+    }
+  ],
+  "stats": [
+    {
+      "value": "3",
+      "unit": "",
+      "label": "Desktop systems: Mac, Windows and Linux"
+    },
+    {
+      "value": "12",
+      "unit": "",
+      "label": "Tools around the lens, from junk to duplicates"
+    },
+    {
+      "value": "0",
+      "unit": "",
+      "label": "Files sent off your own devices"
+    }
+  ],
+  "sections": [
+    {
+      "kind": "Challenge",
+      "head": "Where did the space go?",
+      "body": "Most disk tools show a list that is hard to read, or send your file list to someone else's server to analyse it. I wanted to see at a glance what fills a drive, clean it safely, and do the same for every computer I use without any of it leaving them."
+    },
+    {
+      "kind": "Goal",
+      "head": "One lens, every device, nothing uploaded",
+      "body": "A sunburst you can dive into folder by folder, with the usual clean-up tools around it, served by a small helper on each computer. Devices talk to each other only on my own network, and only with the key each one prints."
+    },
+    {
+      "kind": "Result",
+      "head": "A cleaner that explains itself",
+      "body": "Click a wedge to dive in and the level you left slides back into the stack; press Esc to come back. Around the lens sit junk, large and old files, duplicates, photos, trash, privacy, startup items, processes, maintenance, an uninstaller and a shredder, each adapted to Mac, Windows and Linux. Removals go to the Trash unless you choose otherwise, and system folders are refused. Photo matching reads a private copy of the Photos library and never writes to it: anything you pick goes into an album for Photos to delete."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/space-lens-lens.webp",
+      "alt": "Space Lens scanning a home folder: a sunburst of folders sized by space used, with the contents listed beside it",
+      "span": 12
+    },
+    {
+      "src": "assets/space-lens-dive.webp",
+      "alt": "Diving into the Pictures folder: the level left behind slides back into the stack and the files are listed largest first",
+      "span": 12
+    }
+  ],
+  "points": [
+    "Sunburst lens with dive-in navigation",
+    "One codebase for Mac, Windows and Linux",
+    "Device hub over the local network, protected by a key",
+    "Duplicate, similar and burst photo matching without writing to the library",
+    "Safe by default: Trash first, system folders refused",
+    "SwiftUI companion for iPhone and iPad, in development",
+    "Set in the Oscar Shand design system"
+  ]
+}

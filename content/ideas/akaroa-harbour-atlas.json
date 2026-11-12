@@ -1,0 +1,95 @@
+{
+  "number": "0.21",
+  "title": "Akaroa Harbour Atlas",
+  "slug": "akaroa-harbour-atlas",
+  "date": "2026-11",
+  "end": "",
+  "client": false,
+  "colour": "house",
+  "pinned": 3,
+  "large": true,
+  "published": true,
+  "service": "Mapping & Research",
+  "outcome": "One harbour, five small systems: the water, wastewater, power and roads around Akaroa, on one map",
+  "summary": "An interactive atlas of Akaroa Harbour, the crater of an extinct volcano with Akaroa, Takamātua, Duvauchelle, Wainui, Tikao Bay and Ōnuku around it. Each settlement has its own pipes, pumps and plants, all run from Christchurch and all reached by one state highway. The atlas maps them from the council's open GIS and OpenStreetMap, with the projects and decisions that will shape the harbour for decades.",
+  "image": "assets/akaroa-atlas-aerial.webp",
+  "thumb": "assets/akaroa-atlas-story.webp",
+  "live": {
+    "href": "https://oscarshand-akaroa.netlify.app/",
+    "label": "Open the atlas"
+  },
+  "meta": [
+    {
+      "label": "Client",
+      "value": "Personal"
+    },
+    {
+      "label": "Location",
+      "value": "Akaroa Harbour, Banks Peninsula"
+    },
+    {
+      "label": "Service",
+      "value": "Mapping & Research"
+    }
+  ],
+  "stats": [
+    {
+      "value": "70",
+      "unit": "km",
+      "label": "Drinking-water pipes mapped"
+    },
+    {
+      "value": "299",
+      "unit": "km",
+      "label": "Orion 33 and 11 kV power lines"
+    },
+    {
+      "value": "26",
+      "unit": "",
+      "label": "Council projects in train around the harbour"
+    }
+  ],
+  "sections": [
+    {
+      "kind": "Challenge",
+      "head": "Small systems, big decisions",
+      "body": "Akaroa's water, wastewater, power and road each have their own story, spread across council reports, consent decisions and news coverage. The sewage plant sits on Takapūneke and discharges to the harbour under a consent that runs out in 2030, the 1887 Main Wharf is being rebuilt, and SH75 is the only sealed way in. It is hard to see how any of it fits together."
+    },
+    {
+      "kind": "Goal",
+      "head": "See the harbour as one place",
+      "body": "Put every network on the same 3D map of the harbour, explain each in plain language with its sources, and show what is being built and decided alongside what was proposed before and didn't go ahead."
+    },
+    {
+      "kind": "Result",
+      "head": "A story in eight pages, and a map for each system",
+      "body": "An eight-page story walks from the one road in to the water supply, the wastewater question, Orion's single line, Takapūneke, the wharf and the marine reserve. Tabs open each system with its own key: water, wastewater, power, roads, ports, landmarks, public land, the peninsula, history and the council's capital programme. Network data is the council's public GIS as published in November 2026, with OpenStreetMap for power and reserves and LINZ for terrain and aerials. It is a map for understanding, not for digging."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/akaroa-atlas-story.webp",
+      "alt": "The story view: Akaroa Harbour in 3D terrain, with the water, wastewater and power networks and the first page of the story beside it",
+      "span": 12
+    },
+    {
+      "src": "assets/akaroa-atlas-aerial.webp",
+      "alt": "Harbour today: the aerial view in 3D, with substations and treatment plants marked and the harbour's systems at a glance",
+      "span": 6
+    },
+    {
+      "src": "assets/akaroa-atlas-projects.webp",
+      "alt": "The projects view: council projects by type and the proposals around the harbour that were turned down",
+      "span": 6
+    }
+  ],
+  "points": [
+    "Eight-page story, every page sourced",
+    "Water, wastewater and power networks from the council's open GIS",
+    "3D terrain and aerial views of the whole harbour",
+    "The council's capital programme for the harbour, with budget bands and dates",
+    "Proposals that were declined, abandoned or overturned, from the 1970s on",
+    "Takapūneke, the Main Wharf rebuild and the marine reserve",
+    "Built on open data from the council, OpenStreetMap and LINZ"
+  ]
+}

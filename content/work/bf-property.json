@@ -1,0 +1,99 @@
+{
+  "number": "0.15",
+  "title": "BF Property",
+  "slug": "bf-property",
+  "date": "2026-05",
+  "end": "2026-07",
+  "client": true,
+  "colour": "bf-property",
+  "pinned": 5,
+  "large": false,
+  "published": true,
+  "service": "Brand & Web",
+  "outcome": "A new brand, a site the team runs, and a lead pipeline behind it",
+  "summary": "A master brand for a Canterbury contract developer, building in Canterbury since 2009 as buildFIRST: a Webflow site the team can run themselves, and the marketing and systems infrastructure behind it. The same director owns Pronto Coffee, and the work grew into brand architecture across the wider group.",
+  "image": "assets/bf-site-hero.webp",
+  "thumb": "assets/bf-site-laptop.webp",
+  "meta": [
+    {
+      "label": "Client",
+      "value": "BF Property"
+    },
+    {
+      "label": "Website",
+      "value": "bfproperty.co.nz"
+    },
+    {
+      "label": "Role",
+      "value": "Business Development"
+    },
+    {
+      "label": "Service",
+      "value": "Brand & Web"
+    }
+  ],
+  "stats": [
+    {
+      "value": "4",
+      "unit": "",
+      "label": "Steps: sourcing, consent, build, handover"
+    },
+    {
+      "value": "18",
+      "unit": "",
+      "label": "Projects in the CMS"
+    },
+    {
+      "value": "10",
+      "unit": "",
+      "label": "Services under one brand"
+    }
+  ],
+  "sections": [
+    {
+      "kind": "Challenge",
+      "head": "A developer outgrowing its own presentation",
+      "body": "BF Property is a direct-to-client contract developer in Canterbury, handling site sourcing, planning, development management, build and handover. Its clients are property holders aged 50 to 70 turning existing land into passive-income developments. The business had been building since 2009 as buildFIRST, but the brand, the website and the marketing still read as a builder. The site couldn't be updated without help, and enquiries arrived with no pipeline behind them."
+    },
+    {
+      "kind": "Goal",
+      "head": "One identity, one site, one pipeline",
+      "body": "Set the positioning down in a strategic foundation document, build a premium, architectural design system from it, with each service sitting under the BF Property master brand, and carry that into a CMS-driven Webflow site built around a 4-step model: site sourcing, planning and consent, build, and handover. Then connect everything behind the site so enquiries are captured, tracked and followed up."
+    },
+    {
+      "kind": "Result",
+      "head": "A business that presents and operates as one thing",
+      "body": "The rebrand runs from the website through to email signatures and social. The site has 7 pages written from scratch and a CMS holding 18 projects, the team and 10 services, with buildfirst.co.nz redirected to it. Enquiries flow through Power Automate into a HubSpot pipeline, GA4, Meta Pixel and Google Business Profile are live, and Google and Meta ad campaigns are built and ready to launch."
+    },
+    {
+      "kind": "Beyond the brand",
+      "head": "One director, several businesses",
+      "body": "BF Property is one of a group of businesses under the same director, alongside Pronto Coffee, a business park with co-working, storage and warehousing concepts, and other property holdings. Once the rebrand was moving, the engagement widened into a working brand architecture for the group, a map of the quote-to-cash process across WeWork, Xero and MYOB to cut out triple-handled data entry, and a social media workflow with training so the team could post for BF Property and Pronto themselves. I also produced logo concepts and a counter-proposal for Revo Homes, a proposed new-homes sub-brand, as a basis for the decision on how the residential work should sit under BF Property."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/bf-lockup.webp",
+      "alt": "The BF Property lockup: the BF mark with Property in script and the line Building. Knowledge.",
+      "span": 12
+    },
+    {
+      "src": "assets/bf-property-site.webp",
+      "alt": "The full BF Property home page: hero, four-step process, recent and current projects, contact form and footer",
+      "span": 12
+    }
+  ],
+  "points": [
+    "Rebrand from buildFIRST and BF Homes to BF Property",
+    "Strategic foundation document and brand design system",
+    "Webflow build: 7 pages, CMS for projects, team and 10 services",
+    "301 redirect, SEO cleanup, GA4, Meta Pixel and Google Business Profile",
+    "HubSpot pipeline with Power Automate lead capture",
+    "Email signatures, social rebrand pack and Google and Meta ad architecture",
+    "Invoice workflow and accounts process review across MYOB and NextMinute",
+    "Brand architecture for the director's wider group of businesses",
+    "Quote-to-cash process map across WeWork, Xero and MYOB",
+    "Social media workflow and team training for BF Property and Pronto",
+    "Revo Homes sub-brand logo concepts and counter-proposal"
+  ]
+}

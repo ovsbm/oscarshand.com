@@ -1,0 +1,94 @@
+{
+  "number": "0.14",
+  "title": "M4 Photography",
+  "slug": "m4-photography",
+  "date": "2026-03",
+  "end": "",
+  "client": true,
+  "colour": "m4",
+  "pinned": 0,
+  "large": false,
+  "published": true,
+  "service": "Graphic & Web Design",
+  "outcome": "A studio brand and a site that takes the orders",
+  "summary": "A rebrand and website for Glyn Davies' Christchurch studio, which photographs schools, sports clubs and businesses. The brand now matches the quality of the work, and the site sends parents and clubs straight to ordering.",
+  "image": "assets/m4-laptop-1.webp",
+  "thumb": "assets/m4-laptop-1.webp",
+  "meta": [
+    {
+      "label": "Client",
+      "value": "M4 Photography"
+    },
+    {
+      "label": "Website",
+      "value": "m4photography.co.nz"
+    },
+    {
+      "label": "Service",
+      "value": "Graphic & Web Design"
+    }
+  ],
+  "stats": [
+    {
+      "value": "3",
+      "unit": "",
+      "label": "Services: sport, school and business"
+    },
+    {
+      "value": "2",
+      "unit": "",
+      "label": "Online order paths, school and sport"
+    },
+    {
+      "value": "1",
+      "unit": "",
+      "label": "Site, designed, built and delivered"
+    }
+  ],
+  "sections": [
+    {
+      "kind": "Challenge",
+      "head": "A busy studio without a brand",
+      "body": "M4 shoots schools, sports clubs and businesses across Christchurch: high volume, tight turnarounds and a lot of people to organise on the day. There was no consistent visual identity and no website that explained the services or made it easy for parents and clubs to order photos."
+    },
+    {
+      "kind": "Goal",
+      "head": "Build something that does the selling",
+      "body": "A brand a school administrator or club coordinator lands on and immediately trusts, a site that sets out each service clearly, and ordering that takes parents from the page to their photos without a phone call."
+    },
+    {
+      "kind": "Result",
+      "head": "A proper studio presence",
+      "body": "The site leads with the promise the business is built on, on time every time, and gives sport, school and business photography a page section each, with what's included set out plainly: travel to the club, naming on the night, EFTPOS on the day, and an online ordering portal for schools. School and sport orders each have their own path, and the site has been delivered."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/m4-laptop-2.webp",
+      "alt": "The M4 Photography home page on a laptop",
+      "span": 12
+    },
+    {
+      "src": "assets/m4-laptop-3.webp",
+      "alt": "The services section on a laptop",
+      "span": 6
+    },
+    {
+      "src": "assets/m4-laptop-5.webp",
+      "alt": "The gallery section on a laptop",
+      "span": 6
+    },
+    {
+      "src": "assets/m4-photography-site.webp",
+      "alt": "The full M4 Photography home page: hero, services, about, gallery, order call-to-action and contact",
+      "span": 12
+    }
+  ],
+  "points": [
+    "Visual identity for the studio",
+    "Website design and build, delivered",
+    "Separate order paths for school and sport photos",
+    "Service sections for sport, school and business portraits",
+    "Enquiry flow for schools, clubs and businesses"
+  ]
+}

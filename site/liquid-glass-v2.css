@@ -1,0 +1,149 @@
+/* Oscar Shand — Liquid Glass layer. Glass is confined to the sticky nav island, the menu sheet and
+   the floating pill; everything else is painted. Palette stays gold / black / cream. */
+:root{
+  --ease-fluid:cubic-bezier(.22,1,.36,1);
+  --lg-material:blur(3px) saturate(170%) brightness(1.06);
+  --lg-blur:var(--lg-material);
+  --lg-blur-thick:blur(40px) saturate(170%);
+  --glass-fill:color-mix(in srgb,var(--cream) 9%,transparent);
+  --glass-fill-strong:color-mix(in srgb,var(--black) 30%,transparent);
+  --glass-edge:color-mix(in srgb,var(--cream) 42%,transparent);
+  --glass-ink:var(--cream);
+  --glass-ink-soft:color-mix(in srgb,var(--cream) 74%,transparent);
+  --glass-on-ink:var(--black);
+  --lg-lens:blur(8px) saturate(180%);
+  --lg-rim:inset 0 1px 0 color-mix(in srgb,var(--cream) 38%,transparent),
+           inset 0 -1px 0 color-mix(in srgb,var(--black) 8%,transparent),
+           inset 0 0 20px -12px color-mix(in srgb,var(--cream) 22%,transparent);
+  --lg-cast:0 1px 2px color-mix(in srgb,var(--black) 8%,transparent),0 10px 28px -8px color-mix(in srgb,var(--black) 22%,transparent);
+  --lg-cast-lift:0 2px 4px color-mix(in srgb,var(--black) 8%,transparent),0 18px 44px -10px color-mix(in srgb,var(--black) 28%,transparent);
+  --lg-cast-thick:0 30px 90px -20px color-mix(in srgb,var(--black) 45%,transparent);
+  --lg-sheen:radial-gradient(130% 90% at 14% 0%,color-mix(in srgb,var(--cream) 16%,transparent),transparent 56%),
+             linear-gradient(180deg,color-mix(in srgb,var(--cream) 6%,transparent),transparent 48%,color-mix(in srgb,var(--black) 3%,transparent));
+  --glass-sheen:var(--lg-sheen);
+  --lg-vibrancy:0 1px 2px color-mix(in srgb,var(--black) 28%,transparent);
+  --lg-knob-cast:none;
+  /* project colours */
+  --project-bf-property:oklch(.58 .22 28);
+  --project-pronto:oklch(.72 .18 55);
+  --project-m4:oklch(.80 .10 230);
+  --project-nichols:oklch(.38 .14 262);
+  --project-bared:oklch(.42 .10 155);
+  --project-aubrica:oklch(.64 .15 160);
+  --project-gurner:oklch(.74 .11 195);
+  --project-volvo:oklch(.42 .12 320);
+  --project-akaroa:oklch(.72 .09 300);
+  --project-shop:oklch(.88 .17 95);
+  --project-ovsbm:oklch(.72 .18 350);--project-shoecare:oklch(.44 .10 20);--project-spacelens:oklch(.80 .15 70);--project-rail:oklch(.46 .11 245);--project-chancechat:oklch(.56 .2 264);
+}
+@supports (backdrop-filter:url(#lg-refract)){:root{--lg-lens:url(#lg-refract-strong)}}
+
+/* ── The material, built the way Apple describes it: a near-clear body with light blur, lensing
+   concentrated at the rim (refraction masked to the edge), a specular highlight that follows a
+   top-left light source, and a soft cast. Small elements (nav island, floating pill) get the full
+   lens; the large sheet is the thick variant and only takes the specular ring. ── */
+[data-glass="nav"],[data-glass="float"],[data-glass="sheet"]{position:relative;isolation:isolate}
+[data-glass="nav"],[data-glass="float"]{--lg-blur:blur(2.5px) saturate(170%) brightness(1.04);overflow:hidden}
+[data-glass="nav"]::before,[data-glass="float"]::before{content:"";position:absolute;inset:-2px;border-radius:inherit;pointer-events:none;z-index:-1;backdrop-filter:var(--lg-lens);-webkit-backdrop-filter:var(--lg-lens);-webkit-mask-image:radial-gradient(120% 160% at 50% 50%,transparent 42%,#000 84%);mask-image:radial-gradient(120% 160% at 50% 50%,transparent 42%,#000 84%)}
+[data-glass="nav"]::after,[data-glass="float"]::after,[data-glass="sheet"]::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;padding:1px;background:linear-gradient(135deg,color-mix(in srgb,var(--cream) 78%,transparent) 0%,color-mix(in srgb,var(--cream) 30%,transparent) 28%,color-mix(in srgb,var(--cream) 8%,transparent) 52%,color-mix(in srgb,var(--cream) 22%,transparent) 80%,color-mix(in srgb,var(--black) 14%,transparent) 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+[data-glass="nav"] > *,[data-glass="float"] > *{position:relative;z-index:1}
+[data-glass="float"]:hover,[data-glass="nav"]:hover{--glass-fill:color-mix(in srgb,var(--cream) 16%,transparent)}
+
+/* ── Glass: nav island, floating pill, menu sheet. Ink follows what passes beneath. ── */
+[data-glass="nav"],[data-glass="float"],[data-glass="sheet"]{text-shadow:var(--lg-vibrancy)}
+[data-glass="nav"],[data-glass="float"]{transition:color 500ms var(--ease-fluid),background-color 500ms var(--ease-fluid)}
+body[data-lg-under="cream"] [data-glass="nav"],body[data-lg-under="gold"] [data-glass="nav"],
+body[data-lg-float="cream"] [data-glass="float"],body[data-lg-float="gold"] [data-glass="float"]{--glass-ink:var(--black);--glass-ink-soft:color-mix(in srgb,var(--black) 66%,transparent);--glass-on-ink:var(--cream);--glass-fill:color-mix(in srgb,var(--cream) 10%,transparent);--glass-edge:color-mix(in srgb,var(--black) 16%,transparent);--lg-vibrancy:none}
+body[data-lg-under="media"] [data-glass="nav"],body[data-lg-float="media"] [data-glass="float"]{--glass-fill:color-mix(in srgb,var(--black) 18%,transparent)}
+/* Menu sheet: thick material, tone follows the page beneath it */
+[data-glass="sheet"]{--glass-fill-strong:color-mix(in srgb,var(--black) 46%,transparent);--glass-ink:var(--cream);--glass-ink-soft:color-mix(in srgb,var(--cream) 74%,transparent);--glass-on-ink:var(--black);--glass-edge:color-mix(in srgb,var(--cream) 34%,transparent)}
+body[data-lg-under="gold"] [data-glass="sheet"],body[data-lg-under="cream"] [data-glass="sheet"]{--glass-fill-strong:color-mix(in srgb,var(--cream) 58%,transparent);--glass-ink:var(--black);--glass-ink-soft:color-mix(in srgb,var(--black) 66%,transparent);--glass-on-ink:var(--cream);--glass-edge:color-mix(in srgb,var(--black) 14%,transparent);--lg-vibrancy:none}
+[data-glass="sheet"]{--lg-blur:var(--lg-blur-thick);--glass-edge:transparent}
+
+@keyframes lg-materialize{
+  0%{backdrop-filter:blur(0) saturate(100%);-webkit-backdrop-filter:blur(0) saturate(100%);background-color:transparent;transform:scale(.97) translate3d(0,-10px,0);opacity:0}
+  35%{opacity:1}
+  100%{transform:none;opacity:1}
+}
+@keyframes lg-dematerialize{
+  0%{transform:none;opacity:1}
+  100%{backdrop-filter:blur(0) saturate(100%);-webkit-backdrop-filter:blur(0) saturate(100%);background-color:transparent;transform:scale(.97) translate3d(0,-10px,0);opacity:0}
+}
+[data-glass="sheet"][data-closing="true"] *{animation:none!important;transition:opacity 500ms var(--ease-fluid)!important;opacity:0!important}
+@keyframes lg-rise{from{transform:translate3d(0,22px,0);opacity:0;filter:blur(6px)}to{transform:none;opacity:1;filter:blur(0)}}
+@keyframes lg-archive{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){[style*="lg-archive"]{animation:none!important}}
+@keyframes lg-page{from{opacity:0;transform:translate3d(0,32px,0);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
+body[data-lg-motion="1"] [data-reveal]{opacity:0;transform:translate3d(0,30px,0);transition:opacity 1000ms var(--ease-fluid),transform 1000ms var(--ease-fluid)}
+body[data-lg-motion="1"] [data-reveal][data-in="1"]{opacity:1;transform:none}
+
+/* ── Painted controls: the ground's ink as the surface, the ground colour as text ── */
+[data-glass="btn"]{background-color:var(--on-ground)!important;background-image:none!important;color:var(--ground)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;text-shadow:none!important;transition:transform var(--dur-2) var(--ease-fluid),filter var(--dur-2) var(--ease-fluid)!important}
+[data-glass="btn"]:hover{transform:translate3d(0,-2px,0)!important;filter:none!important}
+[data-glass="btn"]:active{transform:none!important;filter:brightness(.92)!important}
+[data-glass="field"]{background-color:var(--on-ground)!important;background-image:none!important;color:var(--ground)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;text-shadow:none!important;transition:box-shadow var(--dur-2) var(--ease-fluid)!important}
+[data-glass="field"]:focus{box-shadow:0 0 0 2px var(--ground),0 0 0 4px var(--on-ground)!important}
+[data-glass="field"]::placeholder{color:color-mix(in srgb,var(--ground) 62%,transparent)}
+[data-glass="field"] option{color:var(--black);background:var(--cream)}
+[data-glass="field"] + svg{fill:var(--ground)!important}
+[data-glass="chip"],[data-glass="switch"]{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background-image:none!important;box-shadow:inset 0 0 0 1.5px var(--on-ground)!important;text-shadow:none!important;--glass-fill:transparent;--glass-ink:var(--on-ground)}
+[data-glass="chip"][aria-pressed="true"]{background-color:var(--on-ground)!important;color:var(--ground)!important}
+[data-glass="switch"] span{background:var(--on-ground);box-shadow:none!important}
+[data-glass="switch"][aria-checked="true"]{background-color:var(--on-ground)!important}
+[data-glass="switch"][aria-checked="true"] span{background:var(--ground)!important}
+
+/* ── Project grid: cream tiles, project-colour type; one tile at a time lights up in reading order ── */
+[data-card]{--card-bg:var(--cream);--card-ink:var(--project-ink);--card-line:color-mix(in srgb,var(--black) 14%,transparent)}
+[data-card][data-inverted="1"]{--card-bg:var(--project);--card-ink:var(--project-on,var(--black));--card-line:color-mix(in srgb,var(--black) 22%,transparent)}
+[data-card]:hover span[aria-hidden]{transform:translate3d(4px,4px,0)}
+[data-project="nichols"],[data-project="bared"],[data-project="bf-property"],[data-project="volvo"],[data-project="rail"],[data-project="chancechat"]{--project-on:var(--cream)}
+.ground-dark:not(.ground-project) [data-project]{--project-ink:oklch(from var(--project) clamp(.74,l,.95) c h)}
+
+/* ── Case-study pages sit on the project colour ── */
+.ground-project[data-project="bf-property"]{--ground:var(--project-bf-property);--on-ground:var(--cream)}
+.ground-project[data-project="pronto"]{--ground:var(--project-pronto);--on-ground:var(--black)}
+.ground-project[data-project="m4"]{--ground:var(--project-m4);--on-ground:var(--black)}
+.ground-project[data-project="nichols"]{--ground:var(--project-nichols);--on-ground:var(--cream)}
+.ground-project[data-project="bared"]{--ground:var(--project-bared);--on-ground:var(--cream)}
+.ground-project[data-project="aubrica"]{--ground:var(--project-aubrica);--on-ground:var(--black)}
+[data-project="aubrica"]{--project:var(--project-aubrica)}
+.ground-project[data-project="gurner"]{--ground:var(--project-gurner);--on-ground:var(--black)}
+[data-project="gurner"]{--project:var(--project-gurner)}
+.ground-project[data-project="volvo"]{--ground:var(--project-volvo);--on-ground:var(--cream)}
+[data-project="volvo"]{--project:var(--project-volvo)}
+.ground-project[data-project="akaroa"]{--ground:var(--project-akaroa);--on-ground:var(--black)}
+[data-project="akaroa"]{--project:var(--project-akaroa)}
+.ground-project[data-project="shop"]{--ground:var(--project-shop);--on-ground:var(--black)}
+.ground-project[data-project="ovsbm"]{--ground:var(--project-ovsbm);--on-ground:var(--black)}
+.ground-project[data-project="spacelens"]{--ground:var(--project-spacelens);--on-ground:var(--black)}
+[data-project="spacelens"]{--project:var(--project-spacelens)}
+.ground-project[data-project="rail"]{--ground:var(--project-rail);--on-ground:var(--cream)}
+[data-project="rail"]{--project:var(--project-rail)}
+.ground-project[data-project="chancechat"]{--ground:var(--project-chancechat);--on-ground:var(--cream)}
+[data-project="chancechat"]{--project:var(--project-chancechat)}
+/* Colour rule (12 Nov 2026): only client projects and Oscar Shand / OVSBM work from before 2025 have their own colour.
+   Everything else, including Ideas from 2025 on and every article, uses the house palette: gold, black, cream. */
+.ground-project[data-project="house"]{--ground:var(--gold);--on-ground:var(--black)}
+[data-project="house"]{--project:var(--gold);--project-ink:var(--black);--project-on:var(--black)}
+.ground-project[data-project="shoecare"]{--ground:var(--project-shoecare);--on-ground:var(--cream)}
+[data-project="shoecare"]{--project:var(--project-shoecare);--project-on:var(--cream)}
+.ground-project[data-project],.ground-project [data-project]{--project:var(--on-ground);--project-ink:var(--on-ground);--project-on-ink:var(--ground)}
+.ground-project[data-project]{background:var(--ground);color:var(--on-ground)}
+.ground-project .ground-dark,.ground-project .ground-dark [data-project]{--project-ink:var(--cream);--project:var(--cream);--project-on-ink:var(--black)}
+
+/* ── Accessibility ── */
+@media (prefers-reduced-transparency:reduce){
+  :root,body[data-lg-under] [data-glass="nav"],body[data-lg-float] [data-glass="float"]{--glass-fill:color-mix(in srgb,var(--black) 82%,transparent);--glass-fill-strong:color-mix(in srgb,var(--black) 94%,transparent);--lg-material:blur(30px) saturate(120%);--glass-ink:var(--cream)}
+  [data-glass]{--lg-blur:blur(30px) saturate(120%)}
+}
+@media (prefers-contrast:more){
+  :root,body[data-lg-under] [data-glass="nav"],body[data-lg-float] [data-glass="float"]{--glass-fill:var(--black);--glass-fill-strong:var(--black);--glass-edge:var(--cream);--glass-sheen:none;--lg-sheen:none;--lg-blur-thick:none;--lg-rim:inset 0 0 0 2px var(--cream);--glass-ink:var(--cream);--lg-vibrancy:none}
+  [data-glass]{--lg-blur:none}
+}
+@media (prefers-reduced-motion:reduce){
+  [data-glass],[data-reveal],[data-card]{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;filter:none!important}
+}
+
+/* Even line breaks: no single-word last lines in headings or body copy */
+h1,h2,h3,h4{text-wrap:balance}
+p,li,dd{text-wrap:pretty}

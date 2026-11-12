@@ -1,0 +1,87 @@
+/* Colour. Three values, four legal pairings, one swap point.
+
+   Gold belongs to Oscar Shand. Black and cream never change. A project's
+   colour is an accent: type and pills on black or cream, never a ground.
+
+   Gold only ever meets black or cream. The legal ink/ground pairings are:
+     cream on black · black on gold · black on cream · gold on black
+   Gold may set type, but only on black (8.0:1). Cream never sits on gold,
+   gold never sits on cream, and a project colour never touches gold —
+   it appears only as type or a pill fill on a black or cream surface. */
+:root{
+  /* ── the three fixed values ─────────────────────────────────── */
+  --gold:#C7A365;   /* Oscar Shand. Ground for black type; type on black only. */
+  --black:#141416;  /* the only dark. Type on gold and cream, ground for cream and gold type. */
+  --cream:#F1EDE4;  /* type on black, and the quiet ground. */
+
+  /* ── the three legal pairings, named ────────────────────────── */
+  --surface-brand:var(--gold);--on-brand:var(--black);   /* 8.0:1  */
+  --surface-dark:var(--black);--on-dark:var(--cream);     /* 16.1:1 */
+  --surface-light:var(--cream);--on-light:var(--black);   /* 16.1:1 */
+  --on-dark-accent:var(--gold);                           /* 8.0:1 — gold type, black ground only */
+
+  /* ── the swap point ─────────────────────────────────────────────
+     --ground is gold by default because the default context is Oscar
+     Shand. A project page or a dark band overrides --ground and
+     --on-ground together; nothing else in the system needs to know. */
+  --ground:var(--gold);
+  --on-ground:var(--black);
+
+  /* hairlines, scrims and secondary ink are DERIVED from the current ground —
+     see the derived block below. A custom property substitutes its var()s on
+     the element that declares it, so anything referencing --ground or
+     --on-ground has to be re-declared in every ground scope or it freezes at
+     the root's gold values and inherits that way into black and cream bands. */
+  --scrim:color-mix(in srgb,var(--black) 62%,transparent);
+
+  /* ── project colours ────────────────────────────────────────────
+     Bright, like the old glow grid: OKLCH L .74–.88, chroma pushed as far
+     as sRGB allows. Used as type on black (all clear 6:1+) and as pill
+     fills with black text on black or cream. Never a ground, never on gold.
+     On cream, type uses --project-ink, the same hue cut to L .46 (base.css). */
+  --project-pronto:oklch(.76 .17 52);        /* tangerine   */
+  --project-bared:oklch(.78 .15 5);          /* hot pink    */
+  --project-m4:oklch(.80 .12 232);           /* sky blue    */
+  --project-nichols:oklch(.82 .19 142);      /* lime green  */
+  --project-bf-property:oklch(.74 .15 275);  /* lavender    */
+  --project-ovsbm:oklch(.74 .19 28);         /* coral red   */
+  --project-shop:oklch(.88 .18 96);          /* lemon       */
+
+  /* ── gold's own states ──────────────────────────────────────────
+     Hover and press deepen the ground rather than tinting the ink. */
+  --gold-deep:#B18E52;
+  --gold-deeper:#9C7B43;
+}
+
+/* ── derived ──────────────────────────────────────────────────────
+   Everything that reads --ground or --on-ground must be re-declared in each
+   ground scope. Declaring these only in :root freezes them to gold and the
+   frozen value inherits into every band, which is how secondary ink ends up
+   at 1.14:1 on black. Add any new ground scope to this selector list.
+   data-project is NOT a ground scope: it only sets --project (base.css). */
+:root,.ground-gold,.ground-cream,.ground-dark{
+  /* secondary copy: the ink pulled toward its own ground, never a grey.
+     Holds 5.0:1 on gold, 7.6:1 on cream, 9.6:1 on black. */
+  --on-ground-soft:color-mix(in srgb,var(--on-ground) 76%,var(--ground));
+  --on-ground-faint:color-mix(in srgb,var(--on-ground) 52%,var(--ground)); /* structure only, never type */
+
+  --hairline:color-mix(in srgb,var(--on-ground) 16%,transparent);
+  --hairline-strong:color-mix(in srgb,var(--on-ground) 30%,transparent);
+  /* --rule is solid ink, not an alpha hairline. The layout's structural
+     divisions are drawn in it: a brutalist grid shows its own construction,
+     so a section rule is a real line rather than a suggestion of one.
+     --hairline stays for minor divisions inside a block. */
+  --rule:var(--on-ground);
+
+  --ground-hover:color-mix(in srgb,var(--ground) 88%,var(--black));
+  --ground-press:color-mix(in srgb,var(--ground) 79%,var(--black));
+
+  /* semantic text roles */
+  --text-primary:var(--on-ground);
+  --text-secondary:var(--on-ground-soft);
+  --text-muted:var(--on-ground-faint);
+  --text-inverse:var(--cream);
+
+  --surface-page:var(--ground);
+  --surface-card:var(--ground);
+}

@@ -1,0 +1,89 @@
+{
+  "number": "0.18",
+  "title": "3D from drawings and photos",
+  "slug": "3d-from-drawings",
+  "date": "2026-10",
+  "end": "",
+  "client": false,
+  "colour": "house",
+  "pinned": 0,
+  "large": false,
+  "published": true,
+  "service": "3D Modelling",
+  "outcome": "Three places and things rebuilt in 3D from paper plans and photos",
+  "summary": "Interactive 3D models built in three.js: a Sydney terrace renovation, a hillside house in Akaroa and my own car. Each one turns paperwork that is hard to read into something you can turn around and compare.",
+  "image": "assets/gurner-st-3d.webp",
+  "thumb": "assets/gurner-st-3d.webp",
+  "meta": [
+    {
+      "label": "Client",
+      "value": "Personal"
+    },
+    {
+      "label": "Built with",
+      "value": "three.js"
+    },
+    {
+      "label": "Service",
+      "value": "3D Modelling"
+    }
+  ],
+  "stats": [
+    {
+      "value": "3",
+      "unit": "",
+      "label": "Models: a terrace, a house and a car"
+    },
+    {
+      "value": "7",
+      "unit": "",
+      "label": "Layouts compared in the terrace model"
+    },
+    {
+      "value": "2",
+      "unit": "",
+      "label": "Export formats, OBJ and GLB"
+    }
+  ],
+  "sections": [
+    {
+      "kind": "Paddington Terrace",
+      "head": "Seven layouts in one house",
+      "body": "A terrace renovation in Paddington, Sydney. I rebuilt the architect's drawings (existing, demolition, proposed, an ensuite option and three schematic options) as one model, true to the levels in the drawings, with the street, the lane and the neighbours for context. Each layout switches in place, floor by floor, with demolition marked in red."
+    },
+    {
+      "kind": "Akaroa House",
+      "head": "A 2008 house, checked against its title",
+      "body": "A hillside house in Akaroa that only existed as 1:100 drawings from 2008, some photographed rather than scanned. The model is scaled from them and cross-checked against the record of title: a 633 m² site, 555 m² once the right of way is taken out, and 137 m² of floor area, in five layers from site to roof."
+    },
+    {
+      "kind": "Volvo V40",
+      "head": "A car with its history attached",
+      "body": "My 2017 Volvo V40 T5 Cross Country, modelled from photos, at the centre of a dashboard that pulls the service invoices, status report and manual into one place: what's due, what's overdue and what's been done, with a printable service history and specification sheet."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/gurner-st-3d.webp",
+      "alt": "The Paddington terrace model from above, with neighbouring houses, floor tabs and layout switcher",
+      "span": 12
+    },
+    {
+      "src": "assets/akaroa-house-3d.webp",
+      "alt": "The Akaroa house model on its sloping site, with trees, driveway and the boundary marked in red",
+      "span": 6
+    },
+    {
+      "src": "assets/volvo-v40-3d.webp",
+      "alt": "3D model of a black Volvo V40 Cross Country on a cream ground",
+      "span": 6
+    }
+  ],
+  "points": [
+    "Built in three.js from architectural drawings and photos",
+    "Layouts and floors that switch in place",
+    "Areas checked against the record of title",
+    "Vehicle dashboard with service status and history",
+    "OBJ and GLB export for architects and other tools"
+  ]
+}

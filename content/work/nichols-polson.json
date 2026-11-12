@@ -1,0 +1,101 @@
+{
+  "number": "0.12",
+  "title": "Nichols | Polson & Co",
+  "slug": "nichols-polson",
+  "date": "2025-03",
+  "end": "2026-07",
+  "client": true,
+  "colour": "nichols",
+  "pinned": 0,
+  "large": false,
+  "published": true,
+  "service": "Social Media & Marketing Design",
+  "outcome": "A brand refresh and a content pipeline run end to end",
+  "summary": "A brand refresh and a marketing contract, from March 2025 to July 2026, built around a leadership transition: helping Zani Polson step out from the wider Holmwood structure and build something that's properly hers. I ran the team's social media and marketing end to end: listing data in, published post out.",
+  "image": "assets/lite/nichols-social-tiles.webp",
+  "thumb": "assets/thumbs/nichols.webp",
+  "meta": [
+    {
+      "label": "Client",
+      "value": "Nichols | Polson & Co"
+    },
+    {
+      "label": "Website",
+      "value": "harcourts.net"
+    },
+    {
+      "label": "Service",
+      "value": "Social Media & Marketing Design"
+    }
+  ],
+  "stats": [
+    {
+      "value": "172",
+      "unit": "%",
+      "label": "Increase in views, 18-week report"
+    },
+    {
+      "value": "343",
+      "unit": "%",
+      "label": "Increase in interactions"
+    },
+    {
+      "value": "64",
+      "unit": "%",
+      "label": "Increase in reach"
+    }
+  ],
+  "sections": [
+    {
+      "kind": "Challenge",
+      "head": "Re-establishing an identity through transition",
+      "body": "When Paul and Deb Nichols stepped back and Zani Polson took the reins, the brand needed to reflect new leadership while keeping decades of credibility. The existing approach was tied to the Harcourts Holmwood internal structure, which no longer suited how Zani wanted to operate. On top of that, every listing produces a run of posts: just listed, auction or deadline sale, now priced, open homes and sold, plus award announcements. Each needs accurate sale details and has to go out on Instagram and Facebook, from Zani's account and reshared to Paul and Deb's, in a voice that is straightforward and grateful rather than self-promotional."
+    },
+    {
+      "kind": "Goal",
+      "head": "An independent, cohesive presence",
+      "body": "Establish the team as a self-sufficient brand that could stand confidently outside the Holmwood umbrella while remaining part of the network, with redesigned collateral and a consistent Instagram presence. Then own the whole content process, pulling the listing data, writing the caption and publishing the post, so the agents only have to approve. Keep every caption factually correct, catch anything missing or legally sensitive before it reaches Zani, and give the wider team a shared system for the work around the listings."
+    },
+    {
+      "kind": "Result",
+      "head": "A brand that stands on its own",
+      "body": "The refreshed brand runs across all marketing collateral, and weekly social management, property video and photo editing built a consistent Instagram presence. Captions are drafted from Harcourts listing data to a fixed structure, circulated for approval over WhatsApp and scheduled through Metricool and Meta Business Suite, with tagging, collaborations and story shares handled across both platforms. Each post is written separately for Instagram and Facebook, and delivered to Zani with copy buttons, character counts and previews. A Notion operating system for the five agents and a listings pipeline that pulls Harcourts data sit behind it, and open-home story templates in Canva are updated every week. A custom internal database lets the team track listings independently of the Harcourts system. An 18-week before-and-after report showed views up 172%, interactions up 343%, reach up 64% and follows up 37%."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/lite/nichols-phones-posts.webp",
+      "alt": "Instagram posts and a story for Nichols | Polson & Co: Sold at auction, Just listed and Open homes",
+      "span": 12
+    },
+    {
+      "src": "assets/nichols-sold.webp",
+      "alt": "Now sold tile for 2 Old Mill Lane, Waitikiri",
+      "span": 6
+    },
+    {
+      "src": "assets/nichols-auction.webp",
+      "alt": "Reminder for auction tile for 2 Old Mill Lane, Waitikiri",
+      "span": 6
+    },
+    {
+      "src": "assets/nichols-feed-phones.webp",
+      "alt": "Sold, auction and listed posts across a row of phones",
+      "span": 12
+    }
+  ],
+  "points": [
+    "Brand refresh across all marketing collateral",
+    "Weekly Instagram management and content planning",
+    "Property video filming and listing photo editing",
+    "Custom internal listings database",
+    "Content templates for ongoing consistency",
+    "Captions for just listed, auction, deadline, now priced, sold and award posts",
+    "Separate Instagram and Facebook versions, with platform-specific length and hashtags",
+    "Fact checks on sale methods, prices, bedroom counts and open-home dates before approval",
+    "Scheduling through Metricool and Meta Business Suite",
+    "Notion operating system for the five-agent team",
+    "Notion listings pipeline pulling Harcourts data",
+    "Weekly open-home story templates and graphics in Canva"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "HERO": {
+    "lead": "Oscar Shand",
+    "location": "Christchurch, New Zealand",
+    "statement": "Design and systems for small businesses: the brand, the website and the tools that run behind them.",
+    "availability": "Open to new projects and roles, in New Zealand and Australia",
+    "video": "assets/home-hero.mp4"
+  },
+  "HOME": {
+    "intro": "A design studio in Christchurch. Research, development and design for small businesses, plus my own maps, tools and writing.",
+    "archiveNote": "Everything here was made during my Level 5 Diploma in Graphic & Web Design at Yoobee, 2021 to 2022."
+  },
+  "ABOUT": {
+    "lead": "I'm Oscar, a designer in Christchurch. I research, design and build: the brand, the website and the tools that keep a small business running.",
+    "paragraphs": [
+      "My studio started in 2023 as OVSBM Design. Since then I've worked with a property developer, a real estate team, a coffee business, a photography studio and an online store, taking each from the first question to something they use every day.",
+      "I start with research: who uses this, what gets in their way and what already works. Then I design, build and test until it holds up in real use. Alongside client work I develop my own tools and maps, like the South Island Atlas, and write about design, technology and the assumptions behind them.",
+      "Earlier roles at Ashurst and the New Zealand Film Commission taught me to work carefully, keep people in the loop and design for whoever uses the system next. If you have something in mind, I'd like to hear about it."
+    ],
+    "references": [
+      "Aubrica",
+      "Bared Footwear",
+      "Harcourts Holmwood",
+      "Ashurst",
+      "New Zealand Film Commission",
+      "Pronto Coffee",
+      "BF Property",
+      "M4 Photography",
+      "Nichols | Polson & Co"
+    ]
+  },
+  "DISCIPLINES": [
+    {
+      "title": "Research & Strategy",
+      "body": "Understanding how something works today before changing it: the people who use it, the data behind it and what already works. The South Island Atlas began as research into transport plans, council data and the region's rail history."
+    },
+    {
+      "title": "Brand & Visual Identity",
+      "body": "Logo, type and colour, carried through to the email signatures, templates, signage and social a business uses every day. BF Property, formerly buildFIRST, became one master brand across 10 services."
+    },
+    {
+      "title": "Web & Product Development",
+      "body": "Webflow and hand-coded sites with a CMS the client can update themselves, and the analytics, pixels and CRM connections behind them."
+    },
+    {
+      "title": "Systems, Automation & AI",
+      "body": "Notion operating systems, CRM pipelines, support processes and the small web apps that hold them together. In Aubrica's Order Tracker, AI drafted the routine replies and a person read every one before it went."
+    }
+  ],
+  "CONTACT": {
+    "email": "oscar.shand@gmail.com",
+    "phone": "",
+    "location": "Christchurch, New Zealand",
+    "linkedin": "linkedin.com/in/oscarshand",
+    "linkedinUrl": "https://www.linkedin.com/in/oscarshand/"
+  }
+}

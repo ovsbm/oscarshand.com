@@ -1,0 +1,94 @@
+{
+  "number": "0.11",
+  "title": "Shoe care packaging study",
+  "slug": "shoe-care-study",
+  "date": "2023",
+  "end": "",
+  "client": false,
+  "colour": "shoecare",
+  "pinned": 0,
+  "large": false,
+  "published": true,
+  "service": "Packaging Design",
+  "outcome": "A shoe care range, relabelled as a personal study",
+  "summary": "A personal redesign of the Bared Footwear shoe care range, done while I worked in their Melbourne store. Four products, one label system, in the brand's black and kraft. Not commissioned, and not on shelves.",
+  "image": "assets/shoe-care-hero.webp",
+  "thumb": "assets/shoe-care-bottles.webp",
+  "meta": [
+    {
+      "label": "Client",
+      "value": "Personal"
+    },
+    {
+      "label": "Brand",
+      "value": "Bared Footwear"
+    },
+    {
+      "label": "Service",
+      "value": "Packaging Design"
+    }
+  ],
+  "stats": [
+    {
+      "value": "4",
+      "unit": "",
+      "label": "Products in the range"
+    },
+    {
+      "value": "2",
+      "unit": "",
+      "label": "Panels per label: kraft and black"
+    },
+    {
+      "value": "1",
+      "unit": "",
+      "label": "Layout across jar, bottle and spray"
+    }
+  ],
+  "sections": [
+    {
+      "kind": "Challenge",
+      "head": "A range I sold every day",
+      "body": "Working on the Bared shop floor meant explaining the shoe care range several times a day: which product suits leather, which suits suede, how to use each one. The packaging didn't do that work on its own, and the four products didn't read as a set on the shelf."
+    },
+    {
+      "kind": "Goal",
+      "head": "A label that does the explaining",
+      "body": "Design one label system for all four products that gives the name and purpose at a glance, puts the directions where a customer looks for them, and sits comfortably next to the shoes in a Bared store."
+    },
+    {
+      "kind": "Result",
+      "head": "Four products, one system",
+      "body": "Each label splits into a kraft panel carrying the Bared mark, the product name and what it does, and a black panel with directions, cautions and barcode. The same layout scales across the conditioner jar, the shampoo bottle and the spray. It was a study, not a job, and it stayed one."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/shoe-care-bottles.webp",
+      "alt": "Three bottles with the redesigned labels: Leather Conditioner, Shoe Shampoo and Suede & Nubuck Cleanser",
+      "span": 12
+    },
+    {
+      "src": "assets/shoe-care-label-conditioner.webp",
+      "alt": "Leather Conditioner label flat: name and purpose on kraft, directions and barcode on black",
+      "span": 12
+    },
+    {
+      "src": "assets/shoe-care-label-shampoo.webp",
+      "alt": "Shoe Shampoo label flat",
+      "span": 6
+    },
+    {
+      "src": "assets/shoe-care-label-stretch.webp",
+      "alt": "Stretch Spray label flat",
+      "span": 6
+    }
+  ],
+  "points": [
+    "Label system for four products",
+    "Kraft and black panels in the Bared palette",
+    "Directions and cautions set for each product",
+    "Jar, bottle and spray mockups",
+    "Personal study, not commissioned"
+  ]
+}

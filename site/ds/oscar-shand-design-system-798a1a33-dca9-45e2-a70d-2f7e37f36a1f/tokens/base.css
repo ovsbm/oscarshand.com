@@ -1,0 +1,80 @@
+/* Reset, brand defaults, the ground classes, the 12-column grid,
+   and the one frost utility. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--ground);color:var(--on-ground);font:var(--type-body);letter-spacing:var(--ls-body);text-wrap:pretty}
+h1,h2,h3,h4,h5,h6,p,figure,blockquote{margin:0}
+img,svg,video{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--on-ground);text-decoration:none;transition:opacity var(--dur-2) var(--ease-out)}
+a:hover{color:var(--on-ground);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
+::selection{background:var(--on-ground);color:var(--ground)}
+:focus-visible{outline:2px solid var(--on-ground);outline-offset:3px;border-radius:var(--r-sm)}
+.tabular,[data-num]{font-variant-numeric:tabular-nums lining-nums;font-family:var(--font-body)}
+
+/* ── grounds ──────────────────────────────────────────────────────
+   Set one of these on any element to re-theme its whole subtree. Each
+   carries its own legal ink, so nothing inside needs to be told. */
+.ground-gold{--ground:var(--gold);--on-ground:var(--black)}
+.ground-cream{--ground:var(--cream);--on-ground:var(--black)}
+.ground-dark{--ground:var(--black);--on-ground:var(--cream);--on-ground-accent:var(--gold)}
+/* gold type is legal on black only. .ink-gold on any other ground falls back to the ground's ink. */
+.ink-gold{color:var(--on-ground-accent,var(--on-ground))}
+.ground-gold,.ground-cream,.ground-dark,[data-project]{background:var(--ground);color:var(--on-ground)}
+/* project colour is an ACCENT, never a ground. data-project sets --project;
+   the ground beneath stays black or cream. --project-ink is the colour as
+   type: the bright value on black, a deepened cut of the same hue on cream
+   so it still clears 4.5:1. Pills may fill with the bright value on either. */
+[data-project]{--project:var(--gold)}
+[data-project="pronto"]{--project:var(--project-pronto)}
+[data-project="bared"]{--project:var(--project-bared)}
+[data-project="m4"]{--project:var(--project-m4)}
+[data-project="nichols"]{--project:var(--project-nichols)}
+[data-project="bf-property"]{--project:var(--project-bf-property)}
+[data-project="ovsbm"]{--project:var(--project-ovsbm)}
+[data-project="shop"]{--project:var(--project-shop)}
+.ground-dark{--project-ink:var(--project);--project-on-ink:var(--black)}
+.ground-cream,.ground-gold{--project-ink:oklch(from var(--project) .46 c h);--project-on-ink:var(--black)}
+.ink-project{color:var(--project-ink)}
+
+/* ── layout ───────────────────────────────────────────────────────
+   .shell contains and gutters; .grid is the 12-column master. */
+.shell{width:100%;max-width:var(--page-max);margin-inline:auto;padding-inline:var(--page-gutter)}
+.bleed{width:100%;margin-inline:0;padding-inline:0}
+.grid{display:grid;grid-template-columns:repeat(var(--grid-cols),minmax(0,1fr));gap:var(--grid-gap)}
+/* Spans are declared with the grid-column-END longhand, never the
+   grid-column shorthand. The shorthand writes grid-column-start too, so a
+   .start-* rule and a .span-* rule would fight over the same property and one
+   would wipe the other. As longhands they are orthogonal and compose at every
+   breakpoint. */
+.span-1{grid-column-end:span 1}.span-2{grid-column-end:span 2}.span-3{grid-column-end:span 3}
+.span-4{grid-column-end:span 4}.span-5{grid-column-end:span 5}.span-6{grid-column-end:span 6}
+.span-7{grid-column-end:span 7}.span-8{grid-column-end:span 8}.span-9{grid-column-end:span 9}
+.span-10{grid-column-end:span 10}.span-11{grid-column-end:span 11}.span-12{grid-column-end:span 12}
+.start-5{grid-column-start:5}.start-6{grid-column-start:6}.start-7{grid-column-start:7}
+.start-8{grid-column-start:8}.start-9{grid-column-start:9}.start-10{grid-column-start:10}
+@media (max-width:1024px){
+  .grid{--grid-cols:6; /* @kind other */}
+  /* Offsets are dropped below the full grid; spans narrow. Because both are
+     longhands now, neither rule can destroy the other. */
+  [class*="start-"]{grid-column-start:auto}
+  .span-4,.span-5,.span-6,.span-7,.span-8{grid-column-end:span 3}
+  .span-9,.span-10,.span-11,.span-12{grid-column-end:span 6}
+}
+@media (max-width:680px){
+  .grid{--grid-cols:1; /* @kind other */}
+  [class*="span-"]{grid-column-end:span 1}
+}
+
+/* ── frost ────────────────────────────────────────────────────────
+   Legacy frost, kept for older consumers; new work uses .glass. */
+/* glass utilities — nav, menu / overlay, form fields, floating CTA. Nothing else. */
+.glass{background-color:var(--glass-fill);background-image:var(--glass-sheen);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);color:var(--glass-ink);box-shadow:inset 0 0 0 1px var(--glass-edge),var(--glass-cast)}
+.glass-strong{background-color:var(--glass-fill-strong);background-image:var(--glass-sheen);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);color:var(--glass-ink);box-shadow:inset 0 0 0 1px var(--glass-edge),var(--glass-cast)}
+.glass a,.glass-strong a{color:var(--glass-ink)}
+.glass-field::placeholder{color:var(--glass-ink-soft)}
+.glass-field option{color:var(--black);background:var(--cream)}
+/* legacy frost utilities */
+.frost{background:var(--frost-tint);backdrop-filter:var(--frost-blur);-webkit-backdrop-filter:var(--frost-blur);box-shadow:var(--frost-hairline),var(--frost-cast)}
+.frost-strong{background:var(--frost-tint-strong);backdrop-filter:var(--frost-blur);-webkit-backdrop-filter:var(--frost-blur);box-shadow:var(--frost-hairline),var(--frost-cast)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

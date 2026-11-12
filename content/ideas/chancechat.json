@@ -1,0 +1,86 @@
+{
+  "number": "0.19",
+  "title": "ChanceChat",
+  "slug": "chancechat",
+  "date": "2026-10",
+  "end": "",
+  "client": false,
+  "colour": "house",
+  "pinned": 6,
+  "large": false,
+  "published": true,
+  "service": "Product Design & Safety",
+  "outcome": "Random video chat where video only starts if both people say yes",
+  "summary": "A prototype for one-to-one random video chat, designed around consent and safety. You start with text, and the server won't pass any video signal until both people have accepted. It is a working prototype, not a public service.",
+  "image": "assets/chancechat-hero.webp",
+  "thumb": "assets/chancechat-thumb.webp",
+  "meta": [
+    {
+      "label": "Client",
+      "value": "Personal"
+    },
+    {
+      "label": "Status",
+      "value": "Prototype"
+    },
+    {
+      "label": "Service",
+      "value": "Product Design & Safety"
+    }
+  ],
+  "stats": [
+    {
+      "value": "2",
+      "unit": "",
+      "label": "People must agree before any camera turns on"
+    },
+    {
+      "value": "21",
+      "unit": "",
+      "label": "Automated tests, plus a two-browser video test"
+    },
+    {
+      "value": "18+",
+      "unit": "",
+      "label": "Age-gated, with reporting and bans built in"
+    }
+  ],
+  "sections": [
+    {
+      "kind": "Challenge",
+      "head": "The usual design puts the camera first",
+      "body": "Random video chat apps usually switch the camera on the moment two strangers are matched, and moderation catches up afterwards. That is the part that goes wrong, and it is a product decision, not an accident."
+    },
+    {
+      "kind": "Goal",
+      "head": "Consent before video, enforced by the server",
+      "body": "Build the safety into the protocol rather than the interface: an age check before matching, text first, video only when both people accept, and reporting, blocking and bans that work without a moderator watching every call."
+    },
+    {
+      "kind": "Result",
+      "head": "A prototype that refuses to cut corners",
+      "body": "People are matched one to one and chat in text. Either can ask for video; the camera is only requested once both have accepted, and the server drops every video signal until then, so a modified app can't skip the step. While video is on, each browser sends a still frame to a moderation hook every five seconds, and a flag ends the call. Reports keep the last 30 lines of chat, and three reports from different devices within a day trigger a 24-hour ban. The server refuses to start in production until a real age check and a real moderator are connected."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/chancechat-consent.webp",
+      "alt": "A ChanceChat conversation: the other person has asked to switch to video, with Accept and Decline, and Next, Block and Report below",
+      "span": 12
+    },
+    {
+      "src": "assets/chancechat-gate.webp",
+      "alt": "The ChanceChat entry screen: the house rules and an age check before anyone is matched",
+      "span": 12
+    }
+  ],
+  "points": [
+    "Text first, video only after both people accept",
+    "Consent enforced on the server, not just in the interface",
+    "Age gate before matching",
+    "Report, block and automatic bans",
+    "Moderation hook for live video",
+    "Production guard: won't run publicly with placeholder safety",
+    "21 automated tests and a two-browser video test"
+  ]
+}

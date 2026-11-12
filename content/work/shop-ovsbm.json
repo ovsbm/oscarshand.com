@@ -1,0 +1,109 @@
+{
+  "number": "0.10",
+  "title": "shop.ovsbm",
+  "slug": "shop-ovsbm",
+  "date": "2023-06",
+  "end": "",
+  "client": false,
+  "colour": "shop",
+  "pinned": 0,
+  "large": false,
+  "published": true,
+  "service": "UX & UI Design",
+  "outcome": "Sold out in three months",
+  "summary": "An experimental online store for my A/W 2023 collection of AI-designed clothing and prints. I designed it, launched it and sold out in three months.",
+  "image": "assets/lite/shop-gallery-prints.webp",
+  "thumb": "assets/thumbs/shop.webp",
+  "meta": [
+    {
+      "label": "Client",
+      "value": "OVSBM Design"
+    },
+    {
+      "label": "Website",
+      "value": "shop.ovsbm.design"
+    },
+    {
+      "label": "Service",
+      "value": "UX & UI Design"
+    }
+  ],
+  "stats": [
+    {
+      "value": "3",
+      "unit": "mo",
+      "label": "Concept to sold out"
+    },
+    {
+      "value": "3",
+      "unit": "",
+      "label": "Design series"
+    },
+    {
+      "value": "100",
+      "unit": "%",
+      "label": "Of stock sold"
+    }
+  ],
+  "sections": [
+    {
+      "kind": "Challenge",
+      "head": "Turning art into a product",
+      "body": "The AI-generated work had been building for a while: surrealist architecture, editorial fashion and metallic figure studies, all sitting in folders. I wanted to know if anyone would buy it, and how to get it to market without a production team or a warehouse."
+    },
+    {
+      "kind": "Goal",
+      "head": "Test the concept, move the stock",
+      "body": "Run a lean, self-contained launch: design the collection, build the store, run the campaigns, and see if it sold."
+    },
+    {
+      "kind": "Result",
+      "head": "Sold out in three months",
+      "body": "The A/W 2023 collection launched through a Shopify store with a campaign site matching the aesthetic of the work. All stock sold within three months."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/lite/render-tartan-portrait.webp",
+      "alt": "Tartan portrait from the A/W 2023 collection",
+      "span": 12
+    },
+    {
+      "src": "assets/lite/shop-poster-no1.webp",
+      "alt": "Print #1 from the A/W 2023 collection: a collage of AI-designed fashion imagery on a black base",
+      "span": 6
+    },
+    {
+      "src": "assets/shop-hoodies.webp",
+      "alt": "Black and white hoodies with the architecture print",
+      "span": 6
+    },
+    {
+      "src": "assets/shop-render-face-house.webp",
+      "alt": "Surrealist architecture from the collection: a house with a face",
+      "span": 6
+    },
+    {
+      "src": "assets/shop-render-dune-house.webp",
+      "alt": "Surrealist architecture from the collection: a house on dunes",
+      "span": 6
+    },
+    {
+      "src": "assets/shop-tee-worn-1.webp",
+      "alt": "The Print #1 tee, worn",
+      "span": 6
+    },
+    {
+      "src": "assets/shop-thank-you.webp",
+      "alt": "The With Love, ovsbm design card packed with every order",
+      "span": 6
+    }
+  ],
+  "points": [
+    "AI artwork direction across three series",
+    "Custom clothing and print design",
+    "Shopify store setup, product management and fulfilment",
+    "Campaign site design and build",
+    "Social campaign management and content"
+  ]
+}
