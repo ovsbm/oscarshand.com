@@ -22,3 +22,11 @@ The studio site of Oscar Shand. Content is edited in the CMS at **oscarshand.com
 node tools/build.mjs
 cd site && python3 -m http.server 8000
 ```
+
+## Social assets
+
+`node tools/build-social.mjs 0.20` makes the Instagram and LinkedIn set for one catalogue item (by number or id); with no argument it makes every published item. Output goes to `social/<number>-<id>/` as HTML, and as PNG when Playwright is installed (`npm i -D playwright && npx playwright install chromium`). The `social/` folder is not committed or published. Templates live in `tools/social-templates.mjs` and are documented in the design system under Social.
+
+## Design language
+
+`site/master.css` loads last and holds the v4 rules: square content, sentence-case labels, Medium display weight, flat fields, glass only on the nav, menu sheet and floating action. The home gallery is the only index; `/work/`, `/ideas/` and `/articles/` are the same gallery, filtered.
