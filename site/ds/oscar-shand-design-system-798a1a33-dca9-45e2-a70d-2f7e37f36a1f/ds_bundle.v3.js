@@ -4739,7 +4739,7 @@ __ds_ns.StatBlock = __ds_scope.StatBlock;
   var LIQUID_KEYS = ["as", "variant", "shape", "radius", "refraction", "chroma", "blur", "media", "interactive", "glyph", "tone", "children", "style", "className", "glassRef"];
   function LiquidGlass(p) {
     var variant = p.variant || "regular", shape = p.shape || "rounded";
-    var radius = p.radius != null ? p.radius : shape === "capsule" ? "var(--r-pill)" : shape === "circle" ? "50%" : shape === "bar" ? 0 : "var(--r-lg)";
+    var radius = p.radius != null ? p.radius : shape === "capsule" ? "var(--r-pill)" : shape === "circle" ? "50%" : shape === "bar" ? 0 : "var(--r-glass)";
     var ref = useRef(null);
     useEffect(function () {
       var el = ref.current; if (p.glassRef) p.glassRef.current = el;
