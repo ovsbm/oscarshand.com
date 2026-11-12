@@ -6,10 +6,10 @@
 <meta charset="utf-8">
 <script>/* Site root: "/" on oscarshand.com, or the folder the site is served from in a preview. Fixed once as an absolute base so assets still resolve after the page address changes. */(function(){var p=location.pathname,m=p.match(/^(.*?\/)(?:(?:work|ideas|articles)\/[^\/]+|work|about|contact|archive)\/?(?:index\.html)?$/);var r=m?m[1]:p.replace(/[^\/]*$/,"");window.__siteRoot=r;var b=document.createElement("base");b.href=location.origin+r;document.head.insertBefore(b,document.head.firstChild);})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Oscar Shand — Design and systems for small businesses. Christchurch, NZ</title>
+<title>Oscar Shand · Design and systems for small businesses. Christchurch, NZ</title>
 <meta name="description" content="Design and systems for small businesses: the brand, the website and the tools that run behind them. Selected client work and side projects, 2023–2026.">
 <meta name="theme-color" content="#C7A365">
-<meta property="og:title" content="Oscar Shand — Design and systems for small businesses. Christchurch, NZ">
+<meta property="og:title" content="Oscar Shand · Design and systems for small businesses. Christchurch, NZ">
 <meta property="og:description" content="Design and systems for small businesses: the brand, the website and the tools that run behind them. Selected client work and side projects, 2023–2026.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://oscarshand.com/">
@@ -700,7 +700,7 @@ class Component extends DCLogic {
   alias = (id) => ({ "canterbury-rail-atlas": "south-island-atlas", "aubrica-app": "aubrica" })[id] || id;
   // Real paths for every page: /work, /about, /contact, /work/<id> for client work, /ideas/<id> for side projects
   pathFor = (name, id) => { const R = window.__siteRoot || "/"; if (name === "home") return R; if (name === "article") return R + "articles/" + id + "/"; if (name !== "project") return R + name + "/"; const D = this.state.D || {}; return R + ((D.PERSONAL || []).some((p) => p.id === id) ? "ideas/" : "work/") + id + "/"; };
-  titleFor = (r) => { const D = this.state.D || {}; const base = "Oscar Shand"; if (!r || r.name === "home") return base + " — Design and systems for small businesses. Christchurch, NZ"; if (r.name === "project") { const p = (D.PROJECTS || []).concat(D.PERSONAL || []).find((x) => x.id === r.id); return (p ? p.title + " — " : "") + base; } if (r.name === "article") { const a = (D.ARTICLES || []).find((x) => x.id === r.id); return (a ? a.title + " — " : "") + base; } return r.name.charAt(0).toUpperCase() + r.name.slice(1) + " — " + base; };
+  titleFor = (r) => { const D = this.state.D || {}; const base = "Oscar Shand"; if (!r || r.name === "home") return base + " · Design and systems for small businesses. Christchurch, NZ"; if (r.name === "project") { const p = (D.PROJECTS || []).concat(D.PERSONAL || []).find((x) => x.id === r.id); return (p ? p.title + " · " : "") + base; } if (r.name === "article") { const a = (D.ARTICLES || []).find((x) => x.id === r.id); return (a ? a.title + " · " : "") + base; } return r.name.charAt(0).toUpperCase() + r.name.slice(1) + " · " + base; };
   go = (name, id) => {
     this.setState({ route: { name, id: id || null }, sent: false }); this._lockY = null; this.closeMenu(); window.scrollTo(0, 0);
     const url = this.pathFor(name, id); if (location.pathname !== url || location.hash) { try { history.pushState(null, "", url); } catch (e) {} }
@@ -924,7 +924,7 @@ class Component extends DCLogic {
   componentDidMount() {
     const hr = this.routeFromHash(); if (hr) this.setState({ route: hr });
     window.addEventListener("hashchange", this.onHash); window.addEventListener("popstate", this.onHash);
-    import("./site-data.js?v=202611120220").then((D) => this.setState({ D }, () => { setTimeout(this.sampleGlass, 60); const r = this.state.route; if (location.hash && r) { try { history.replaceState(null, "", this.pathFor(r.name, r.id)); } catch (e) {} } document.title = this.titleFor(this.state.route); }));
+    import("./site-data.js?v=202611120240").then((D) => this.setState({ D }, () => { setTimeout(this.sampleGlass, 60); const r = this.state.route; if (location.hash && r) { try { history.replaceState(null, "", this.pathFor(r.name, r.id)); } catch (e) {} } document.title = this.titleFor(this.state.route); }));
     this._mq = window.matchMedia("(max-width:760px)"); this._mqf = () => this.setState({ narrow: this._mq.matches }); this._mqf();
     this._mq.addEventListener ? this._mq.addEventListener("change", this._mqf) : this._mq.addListener(this._mqf);
     window.addEventListener("scroll", this.onScroll, { passive: true }); window.addEventListener("resize", this.onScroll); window.addEventListener("keydown", this.onKey);

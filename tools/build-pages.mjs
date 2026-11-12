@@ -26,24 +26,24 @@ const contact = `<p>Email: oscar.shand@gmail.com · <a href="${esc(D.CONTACT.lin
 
 const artList = `<ul>${articles.map((a) => `<li><a href="/articles/${a.id}">${esc(a.number)} ${esc(a.title)}</a>: ${esc(a.dek)} (${esc(a.date)})</li>`).join("")}</ul>`;
 const routes = [];
-routes.push({ p: "/", title: "Oscar Shand — Design and systems for small businesses. Christchurch, NZ",
+routes.push({ p: "/", title: "Oscar Shand · Design and systems for small businesses. Christchurch, NZ",
   desc: clip(D.HERO.statement + " Selected client work and side projects, 2023–2026."),
   body: `<h1>Oscar Shand</h1><p>${esc(D.HERO.statement)}</p><p>${esc(D.HERO.location)}. ${esc(D.HERO.availability)}.</p><h2>Work</h2>${list(projects)}<h2>Ideas and side projects</h2>${list(ideas)}<h2>Articles</h2>${artList}${contact}` });
-routes.push({ p: "/work", title: "Work — Oscar Shand", desc: "Client and studio projects from the last three years: brand, web, content and the systems behind them.",
+routes.push({ p: "/work", title: "Work · Oscar Shand", desc: "Client and studio projects from the last three years: brand, web, content and the systems behind them.",
   body: `<h1>Selected work</h1>${list(projects)}<h2>Ideas and side projects</h2>${list(ideas)}` });
-routes.push({ p: "/about", title: "About — Oscar Shand", desc: clip(D.ABOUT.lead),
+routes.push({ p: "/about", title: "About · Oscar Shand", desc: clip(D.ABOUT.lead),
   body: `<h1>About</h1><p>${esc(D.ABOUT.lead)}</p>${D.ABOUT.paragraphs.map((x) => `<p>${esc(x)}</p>`).join("")}<h2>What I do</h2>${(D.DISCIPLINES || []).map((d) => `<h3>${esc(d.title)}</h3><p>${esc(d.body)}</p>`).join("")}<h2>Worked with</h2><p>${esc((D.ABOUT.references || []).join(", "))}</p>` });
-routes.push({ p: "/contact", title: "Contact — Oscar Shand", desc: "Get in touch about a project or a role. Based in Christchurch, working across New Zealand and Australia.",
+routes.push({ p: "/contact", title: "Contact · Oscar Shand", desc: "Get in touch about a project or a role. Based in Christchurch, working across New Zealand and Australia.",
   body: `<h1>Contact</h1>${contact}` });
-routes.push({ p: "/archive", title: "Archive — Oscar Shand", desc: clip(D.HOME.archiveNote || "Earlier work."),
+routes.push({ p: "/archive", title: "Archive · Oscar Shand", desc: clip(D.HOME.archiveNote || "Earlier work."),
   body: `<h1>Archive</h1><p>${esc(D.HOME.archiveNote || "")}</p>` + archive.map((a) => `<figure><img src="/${esc(a.src)}" alt="${esc(a.alt)}" loading="lazy" width="600"><figcaption>${esc(a.number)} · ${esc(a.date)} · <strong>${esc(a.title)}</strong>. ${esc(a.caption)}</figcaption></figure>`).join("") });
 for (const a of articles) {
-  routes.push({ p: `/articles/${a.id}`, title: `${a.title} — Oscar Shand`, desc: clip(a.dek || (a.body.find((b) => b.p) || {}).p), image: a.image || undefined,
+  routes.push({ p: `/articles/${a.id}`, title: `${a.title} · Oscar Shand`, desc: clip(a.dek || (a.body.find((b) => b.p) || {}).p), image: a.image || undefined,
     body: `<article><h1>${esc(a.title)}</h1><p>${esc(a.dek)}</p><p>${esc(a.number)} · Oscar Shand · ${esc(a.date)} · ${esc(a.read)}</p>`
       + a.body.map((b) => b.h ? `<h2>${esc(b.h)}</h2>` : b.q ? `<blockquote>${esc(b.q)}</blockquote>` : `<p>${esc(b.p)}</p>`).join("") + `</article>` });
 }
 for (const p of [...projects, ...ideas]) {
-  routes.push({ p: urlFor(p), title: `${p.title} — Oscar Shand`, desc: clip(p.summary), image: p.image,
+  routes.push({ p: urlFor(p), title: `${p.title} · Oscar Shand`, desc: clip(p.summary), image: p.image,
     body: `<h1>${esc(p.title)}</h1><p><strong>${esc(p.outcome)}</strong></p><p>${esc(p.summary)}</p>`
       + `<ul>${(p.meta || []).map((m) => `<li>${esc(m.label)}: ${esc(m.value)}</li>`).join("")}</ul>`
       + `<ul>${(p.stats || []).map((s) => `<li>${esc(s.value)}${esc(s.unit || "")} ${esc(s.label)}</li>`).join("")}</ul>`
