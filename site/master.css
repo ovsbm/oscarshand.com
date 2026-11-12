@@ -1,0 +1,53 @@
+/* Oscar Shand · master design language (v4, 12 Nov 2026). Load last: this file is the single
+   source for the rules below, and wins over the older token and glass files.
+
+   Two layers.
+   1. Content is flat, square and typographic (after Polestar): no radius, no shadow, sentence case.
+   2. Controls that float above content are Liquid Glass capsules (after Apple): the nav island,
+      the menu sheet and the floating action. Nothing else is glass.
+   Palette: gold #C7A365, black #141416, cream #F1EDE4. A project colour appears only on client
+   work and studio work from before 2025. */
+
+:root{
+  /* shape: content is square; only controls are capsules; glass sheets keep one soft radius */
+  --r-xs:0px;--r-sm:0px;--r-md:0px;--r-lg:0px;--r-xl:0px;
+  --r-pill:999px;--r-glass:28px;
+  /* type: Medium for names and titles, Bold only for statements; labels in sentence case, no tracking */
+  --ls-label:0em;--ls-caps:0em;
+  --type-section:var(--fw-display-medium) var(--fs-section)/var(--lh-snug) var(--font-display);
+  --type-subhead:var(--fw-display-medium) var(--fs-xl)/var(--lh-heading) var(--font-display);
+  --type-statement:var(--fw-display-bold) var(--fs-statement)/var(--lh-snug) var(--font-display);
+  --type-label:var(--fw-medium) var(--fs-xs)/1.3 var(--font-body);
+  /* six roles every page draws from */
+  --role-display:var(--type-hero);
+  --role-title:var(--type-headline);
+  --role-heading:var(--type-subhead);
+  --role-body:var(--type-body);
+  --role-small:var(--type-body-sm);
+  --role-label:var(--type-label);
+}
+
+/* ── labels: sentence case everywhere ── */
+.gallery-kicker,.article-kicker,.archive-meta{text-transform:none!important;letter-spacing:0!important;font-weight:var(--fw-medium)}
+
+/* ── content: flat and square ── */
+img,video,figure,.gallery-tile,.gallery-media,.article-hero,.archive-media{border-radius:0!important}
+.gallery-tile{box-shadow:none!important}
+.gallery-tile:hover{box-shadow:none!important;transform:none}
+.gallery-tile:hover .gallery-title{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
+
+/* ── actions: one solid capsule per view; everything else is a text link ── */
+[data-glass="btn"]{border-radius:var(--r-pill)!important}
+
+/* ── forms: flat fields on a single line (never glass, never a pill) ── */
+[data-glass="field"]{background-color:transparent!important;color:var(--on-ground)!important;border-radius:0!important;border:0!important;border-bottom:1px solid var(--on-ground)!important;padding-left:0!important;box-shadow:none!important}
+textarea[data-glass="field"]{padding-top:12px!important}
+[data-glass="field"]:focus{box-shadow:0 2px 0 0 var(--on-ground)!important}
+[data-glass="field"]::placeholder{color:color-mix(in srgb,var(--on-ground) 58%,transparent)!important}
+[data-glass="field"] + svg{fill:var(--on-ground)!important}
+
+/* ── filter: text tabs with an ink underline, not a segmented pill ── */
+.gallery-filter{box-shadow:none!important;padding:0!important;gap:var(--sp-6)!important;border-radius:0!important}
+.gallery-filter [data-glass="chip"]{height:44px!important;padding:0!important;border-radius:0!important;background:transparent!important;color:var(--on-ground-soft)!important;box-shadow:none!important}
+.gallery-filter [data-glass="chip"]:hover{color:var(--on-ground)!important;background:transparent!important}
+.gallery-filter [data-glass="chip"][aria-pressed="true"]{background:transparent!important;color:var(--on-ground)!important;box-shadow:inset 0 -2px 0 0 var(--on-ground)!important}

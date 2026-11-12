@@ -520,7 +520,7 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
    they detach and the closing bracket strands on its own line. */
 function SectionLabel({
   children,
-  parenthetical = true,
+  parenthetical = false,
   align = "left",
   style,
   ...rest
@@ -531,7 +531,7 @@ function SectionLabel({
       textAlign: align === "right" ? "right" : align === "center" ? "center" : "left",
       font: "var(--type-label)",
       letterSpacing: "var(--ls-label)",
-      textTransform: "uppercase",
+      textTransform: "none",
       color: "var(--on-ground-soft)",
       ...style
     }
@@ -2654,7 +2654,7 @@ function AboutPage({
     style: {
       font: "var(--type-label)",
       letterSpacing: "var(--ls-label)",
-      textTransform: "uppercase",
+      textTransform: "none",
       color: "var(--on-ground-soft)",
       margin: 0
     }

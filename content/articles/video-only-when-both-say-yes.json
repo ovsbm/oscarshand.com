@@ -1,9 +1,9 @@
 {
-  "number": "",
+  "number": "0.24",
   "title": "Video only starts when both people say yes",
   "slug": "video-only-when-both-say-yes",
   "date": "2026-11",
-  "published": false,
+  "published": true,
   "pinned": 0,
   "dek": "Designing a random video chat app around consent, and why the server has to enforce it.",
   "tag": "Product Design & Safety",

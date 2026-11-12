@@ -1,9 +1,9 @@
 {
-  "number": "",
+  "number": "0.25",
   "title": "AI drafts, a person decides",
   "slug": "ai-drafts-a-person-decides",
   "date": "2026-11",
-  "published": false,
+  "published": true,
   "pinned": 0,
   "dek": "What running support for a store shipping to 61 countries taught me about using AI at work.",
   "tag": "Systems, Automation & AI",
