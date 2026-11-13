@@ -30,3 +30,7 @@ cd site && python3 -m http.server 8000
 ## Design language
 
 `site/master.css` is the one token file. It holds every colour, type, spacing and shape value plus the v4 rules (square content, sentence-case labels, Medium display weight, flat fields, glass only on the nav, menu sheet and floating action). Nothing later in the cascade overrides it. The home gallery is the only index; `/work/`, `/ideas/` and `/articles/` are the same gallery, filtered.
+
+## Share images and icons
+
+`node tools/build-og.mjs` makes the link-preview image for every page (1200 x 630, in `site/assets/og/`) from the same templates as the social assets. The site build uses `assets/og/<id>.jpg` when it exists and `assets/og-image.jpg` otherwise, so an item added in the CMS shows the default image until the script is run and the result committed. `site/favicon.png` and `site/apple-touch-icon.png` are the gold square with "OS" in Neue Haas Medium.

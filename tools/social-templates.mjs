@@ -7,6 +7,7 @@ export const FORMATS = {
   slide:    { w: 1080, h: 1350, name: "Instagram carousel", note: "4:5 carousel slides: cover, text slides, closing slide." },
   story:    { w: 1080, h: 1920, name: "Instagram story",    note: "9:16. Keep text inside the middle 1420px." },
   statement:{ w: 1080, h: 1350, name: "Statement post",     note: "4:5, type only. The one place Bold is used." },
+  og:       { w: 1200, h: 630,  name: "Share image",        note: "1.91:1. The link preview for every page of the site." },
   linkedin: { w: 1200, h: 627,  name: "LinkedIn link image", note: "1.91:1 for articles and link posts." },
   banner:   { w: 1584, h: 396,  name: "LinkedIn banner",    note: "4:1 profile banner. Left 400px stays clear for the photo." },
 };
@@ -88,6 +89,16 @@ export const templates = {
       </div>
       ${it.image ? `<div class="img" style="flex:0 0 46%;background-image:url('${base}${esc(it.image)}')"></div>` : ""}
     </div>`, "48px"),
+
+  // Share image for one catalogue item: the link preview in Messages, LinkedIn, Slack and search.
+  og: (it, base = "") => templates.linkedin(it, base).replace("height:627px", "height:630px"),
+
+  // Share image for the home page and the section pages: the name, or the section, on gold.
+  ogSection: (title, line, home = false) => frame("og", GOLD, `
+    <div class="row l" style="font-size:24px"><span>${home ? "oscarshand.com" : "Oscar Shand"}</span><span>${home ? "Christchurch, New Zealand" : "oscarshand.com"}</span></div>
+    <div style="flex:1"></div>
+    <h1 class="d" style="font-size:${home ? 168 : 150}px;white-space:nowrap">${esc(title)}</h1>
+    <p class="l" style="font-size:30px;line-height:1.3;margin-top:22px;max-width:900px">${esc(line)}</p>`, "52px 56px"),
 
   banner: () => frame("banner", GOLD, `
     <div style="flex:1"></div>

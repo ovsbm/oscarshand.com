@@ -1,0 +1,72 @@
+/* Oscar Shand: Liquid Glass v3 for oscarshand.com. Load after liquid-glass-v2.css, with
+   liquid-glass-v3.js. The page's nav island, floating pill and menu sheet style themselves
+   inline with var(--glass-fill), var(--lg-blur) and var(--glass-ink); once the engine has
+   attached (data-lg), those variables come from the v3 material below. Painted controls
+   (data-glass="btn|field|chip|switch") are untouched. */
+
+/* Oscar Shand: Liquid Glass material (v3). Pairs with liquid-glass.js, which builds a lens
+   per element and sets --lg-filter. Without the script, or outside Chromium, the same
+   element is blurred glass (--lg-fallback). Glass belongs to the controls layer only:
+   nav, floating pill, menu sheet, toolbars, tab bars, segmented controls, switches and
+   sliders while touched, sheets and popovers. Never a card, a section or decoration. */
+
+[data-lg]{
+  /* iOS 27 glass look: 0 = ultra clear, 1 = fully tinted. Override per element or on :root. */
+  --lg-tint:var(--lg-look,.35);
+  --lg-fill-base:6%;
+  --lg-tone:var(--black);
+  --lg-ink:var(--cream);
+  --lg-ink-soft:color-mix(in srgb,var(--cream) 76%,transparent);
+  --lg-fallback:blur(18px) saturate(170%);
+  position:relative;isolation:isolate;
+  color:var(--lg-ink);
+  background-color:color-mix(in srgb,var(--lg-tone) max(calc(var(--lg-fill-base) + var(--lg-tint) * 46%),calc(var(--lg-need,0) * 100%)),transparent);
+  background-image:var(--lg-sheen);
+  -webkit-backdrop-filter:var(--lg-fallback);
+  backdrop-filter:var(--lg-filter,var(--lg-fallback));
+  box-shadow:var(--lg-rim),var(--lg-cast);
+  text-shadow:var(--lg-vibrancy);
+  transition:background-color 500ms var(--ease-fluid),color 500ms var(--ease-fluid),box-shadow 500ms var(--ease-fluid),transform 420ms var(--ease-spring);
+}
+/* Clear: highly translucent, for controls over photos and video. The script sets --lg-need,
+   the dimming that keeps cream ink at 4.5:1 over what it measured beneath (50% when it
+   can't measure: a cross-origin image or a CSS background image). Regular: blurred and luminosity-adjusted, for glass that carries text. */
+[data-lg][data-lg-variant="clear"]{--lg-fill-base:2%;--lg-tint:calc(var(--lg-look,.35) * .5);--lg-fallback:blur(8px) saturate(160%) brightness(.94)}
+[data-lg][data-lg-variant="regular"]{--lg-fill-base:18%}
+/* Both follow what is beneath: light glass with black ink over flat light content
+   (gold, cream, a pale photo), dark glass with cream ink over everything else. */
+[data-lg][data-lg-tone="light"]{--lg-tone:var(--cream);--lg-ink:var(--black);--lg-ink-soft:color-mix(in srgb,var(--black) 70%,transparent);--lg-vibrancy:none}
+[data-lg][data-lg-tone="light"][data-lg-variant="clear"]{--lg-fill-base:10%}
+[data-lg] a{color:inherit}
+
+/* the specular rim: a light-catching edge from the top-left, fading round the shape */
+[data-lg]::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;padding:1px;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--cream) 80%,transparent) 0%,color-mix(in srgb,var(--cream) 26%,transparent) 26%,color-mix(in srgb,var(--cream) 6%,transparent) 52%,color-mix(in srgb,var(--cream) 22%,transparent) 80%,color-mix(in srgb,var(--black) 16%,transparent) 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+[data-lg] > *{position:relative;z-index:1}
+
+/* Interactive glass gels under the finger: a small swell and a light bloom, settling on a spring.
+   This is the one place in the system something scales on press. */
+[data-lg][data-lg-press]{cursor:pointer;-webkit-tap-highlight-color:transparent}
+[data-lg][data-lg-press]:hover{--lg-tint:calc(var(--lg-look,.35) + .08)}
+[data-lg][data-lg-press]:active{transform:scale(1.04);box-shadow:var(--lg-rim),var(--lg-cast-lift),inset 0 0 24px -6px color-mix(in srgb,var(--cream) 40%,transparent)}
+[data-lg]:focus-visible{outline:2px solid var(--lg-ink);outline-offset:3px}
+
+/* Accessibility: Reduce Transparency and Increase Contrast turn glass into a solid surface. */
+[data-lg][data-lg-mode="solid"]{background-color:color-mix(in srgb,var(--lg-tone) 94%,transparent);-webkit-backdrop-filter:none;backdrop-filter:none;text-shadow:none}
+@media (prefers-reduced-transparency:reduce){[data-lg]{background-color:color-mix(in srgb,var(--lg-tone) 94%,transparent)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;text-shadow:none}}
+@media (prefers-contrast:more){[data-lg]{background-color:var(--lg-tone)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:inset 0 0 0 2px var(--lg-ink)!important;text-shadow:none}[data-lg]::after{display:none}}
+@media (prefers-reduced-motion:reduce){[data-lg]{transition:none}[data-lg][data-lg-press]:active{transform:none}}
+
+html body [data-glass][data-lg]{
+  --glass-fill:color-mix(in srgb,var(--lg-tone) max(calc(var(--lg-fill-base) + var(--lg-tint) * 46%),calc(var(--lg-need,0) * 100%)),transparent);
+  --glass-fill-strong:var(--glass-fill);
+  --lg-blur:var(--lg-filter,var(--lg-fallback));
+  --lg-blur-thick:var(--lg-filter,blur(40px) saturate(170%));
+  --glass-ink:var(--lg-ink);
+  --glass-ink-soft:var(--lg-ink-soft);
+}
+/* the old edge-masked lens steps aside: the engine's lens is built to each element */
+html body [data-glass][data-lg]::before{display:none}
+/* the full-screen menu sheet is thick: more blur, more fill */
+html body [data-glass="sheet"][data-lg]{--lg-regular-blur:18;--lg-fill-base:30%}

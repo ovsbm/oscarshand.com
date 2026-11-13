@@ -26,7 +26,7 @@ const contact = `<p>Email: oscar.shand@gmail.com · <a href="${esc(D.CONTACT.lin
 
 const artList = `<ul>${articles.map((a) => `<li><a href="/articles/${a.id}">${esc(a.number)} ${esc(a.title)}</a>: ${esc(a.dek)} (${esc(a.date)})</li>`).join("")}</ul>`;
 const routes = [];
-routes.push({ p: "/", title: "Oscar Shand · Design and systems for small businesses. Christchurch, NZ",
+routes.push({ p: "/", title: "Oscar Shand · Research, development and design. Christchurch, NZ",
   desc: clip(D.HERO.statement + " Selected client work and side projects, 2023–2026."),
   body: `<h1>Oscar Shand</h1><p>${esc(D.HERO.statement)}</p><p>${esc(D.HERO.location)}. ${esc(D.HERO.availability)}.</p><h2>Work</h2>${list(projects)}<h2>Ideas and side projects</h2>${list(ideas)}<h2>Articles</h2>${artList}${contact}` });
 routes.push({ p: "/work", title: "Work · Oscar Shand", desc: "Client and studio projects: brand, web, content and the systems behind them.",
@@ -58,7 +58,7 @@ for (const p of [...projects, ...ideas]) {
 }
 
 const setMeta = (html, r) => {
-  const url = SITE + (r.p === "/" ? "/" : r.p + "/"), img = SITE + "/" + (r.image || "assets/og-image.jpg");
+  const url = SITE + (r.p === "/" ? "/" : r.p + "/"), slug = r.p === "/" ? "" : r.p.split("/").filter(Boolean).pop(), og = slug && fs.existsSync(path.join(root, "assets/og", slug + ".jpg")) ? "assets/og/" + slug + ".jpg" : "assets/og-image.jpg", img = SITE + "/" + og;
   const swaps = [
     [/<title>[\s\S]*?<\/title>/, `<title>${esc(r.title)}</title>`],
     [/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(r.desc)}">`],
@@ -66,10 +66,11 @@ const setMeta = (html, r) => {
     [/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${esc(r.desc)}">`],
     [/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${url}">`],
     [/<meta property="og:image" content="[^"]*">/, `<meta property="og:image" content="${img}">`],
+    [/<meta property="og:image:alt" content="[^"]*">/, `<meta property="og:image:alt" content="${esc(r.title)}">`],
+    [/<meta name="twitter:image" content="[^"]*">/, `<meta name="twitter:image" content="${img}">`],
     [/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${url}">`],
   ];
   for (const [re, v] of swaps) { if (!re.test(html)) throw new Error("missing tag " + re); html = html.replace(re, v); }
-  if (r.image) html = html.replace(/<meta property="og:image:width" content="[^"]*">\n?<meta property="og:image:height" content="[^"]*">\n?/, "");
   return html;
 };
 
