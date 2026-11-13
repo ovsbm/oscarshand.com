@@ -809,7 +809,7 @@ class Component extends DCLogic {
   componentDidMount() {
     const hr = this.routeFromHash(); if (hr) this.setState({ route: hr });
     window.addEventListener("hashchange", this.onHash); window.addEventListener("popstate", this.onHash);
-    import("./site-data.js?v=202611130828").then((D) => this.setState({ D }, () => { setTimeout(this.sampleGlass, 60); const r = this.state.route; if (location.hash && r) { try { history.replaceState(null, "", this.pathFor(r.name, r.id)); } catch (e) {} } document.title = this.titleFor(this.state.route); }));
+    import("./site-data.js?v=202611130830").then((D) => this.setState({ D }, () => { setTimeout(this.sampleGlass, 60); const r = this.state.route; if (location.hash && r) { try { history.replaceState(null, "", this.pathFor(r.name, r.id)); } catch (e) {} } document.title = this.titleFor(this.state.route); }));
     this._mq = window.matchMedia("(max-width:760px)"); this._mqf = () => this.setState({ narrow: this._mq.matches }); this._mqf();
     this._mq.addEventListener ? this._mq.addEventListener("change", this._mqf) : this._mq.addListener(this._mqf);
     window.addEventListener("scroll", this.onScroll, { passive: true }); window.addEventListener("resize", this.onScroll); window.addEventListener("keydown", this.onKey);

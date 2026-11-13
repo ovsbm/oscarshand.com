@@ -5054,7 +5054,7 @@ __ds_ns.StatBlock = __ds_scope.StatBlock;
   /* ── v3 replacements: GlassPanel and FloatingCTA now run on the engine, same props ── */
   function GlassPanel(p) {
     var variant = p.strength === "thin" ? "clear" : "regular";
-    return h(LiquidGlass, assign(omit(p, ["strength", "padding", "cast", "radius"]), { variant: variant, radius: p.radius || "var(--r-md)", style: assign({ padding: p.padding || "var(--sp-6)" }, p.strength === "heavy" ? { "--lg-look": 0.85 } : null, p.cast === false ? { boxShadow: "var(--lg-rim)" } : null, p.style) }), p.children);
+    return h(LiquidGlass, assign(omit(p, ["strength", "padding", "cast", "radius"]), { variant: variant, radius: p.radius || "var(--r-glass)", style: assign({ padding: p.padding || "var(--sp-6)" }, p.strength === "heavy" ? { "--lg-look": 0.85 } : null, p.cast === false ? { boxShadow: "var(--lg-rim)" } : null, p.style) }), p.children);
   }
   function FloatingCTA(p) {
     var st = useState(false), scrolled = st[0], setScrolled = st[1];
